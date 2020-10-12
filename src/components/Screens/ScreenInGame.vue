@@ -42,6 +42,7 @@
                 overflow: hidden;
                 background: url('../../assets/img/NoInput.jpg');
                 background-size: cover;
+                background: limegreen;
                 height: 0;
                 padding-top: 56.25%;
 

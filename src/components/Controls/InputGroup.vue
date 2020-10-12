@@ -44,7 +44,7 @@
                 border: 0px;
                 outline: 0px;
                 font-size: 14px;
-                padding: 5px 15px;
+                padding: 8px 15px;
                 border-radius: 4px;
                 color: #fff;
             }

@@ -76,6 +76,9 @@
                     case "ControlCountdown":
                         return "Countdown";
                         break;
+                    case "ControlBrackets":
+                        return "Brackets";
+                        break;
                     case "ControlInGame":
                         return "InGame";
                         break;

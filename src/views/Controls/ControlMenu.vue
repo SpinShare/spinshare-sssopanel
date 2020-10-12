@@ -8,6 +8,10 @@
             <div class="icon"><span class="mdi mdi-clock-fast"></span></div>
             <div class="text">Countdown</div>
         </router-link>
+        <router-link :to="{ name: 'ControlBrackets'}" class="menuItem">
+            <div class="icon"><span class="mdi mdi-tournament"></span></div>
+            <div class="text">Brackets</div>
+        </router-link>
         <router-link :to="{ name: 'ControlInGame'}" class="menuItem">
             <div class="icon"><span class="mdi mdi-google-controller"></span></div>
             <div class="text">InGame</div>

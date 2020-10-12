@@ -17,7 +17,8 @@ function createWindow () {
         backgroundColor: '#121212',
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webviewTag: true
         }
     });
 
@@ -29,7 +30,8 @@ function createWindow () {
         backgroundColor: '#121212',
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            webviewTag: true
         }
     });
 
@@ -112,6 +114,12 @@ ipcMain.on("change-state", (event, ipcData) => {
 ipcMain.on("update-countdownData", (event, ipcData) => {
     winScreen.webContents.send("update-countdownData", ipcData);
     winControls.webContents.send("update-countdownData", ipcData);
+});
+
+// Brackets
+ipcMain.on("update-bracketsData", (event, ipcData) => {
+    winScreen.webContents.send("update-bracketsData", ipcData);
+    winControls.webContents.send("update-bracketsData", ipcData);
 });
 
 ipcMain.on("change-song", (event, ipcData) => {

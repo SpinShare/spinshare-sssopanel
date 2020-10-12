@@ -56,7 +56,7 @@
         background: #fff;
     }
     a {  text-decoration: none; }
-    #app:focus {
+    *:focus {
         outline: none;
     }
     .button, button {
