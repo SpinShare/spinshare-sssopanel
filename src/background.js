@@ -14,6 +14,8 @@ function createWindow () {
         width: 1286,
         height: 749,
         resizable: false,
+        backgroundColor: '#121212',
+        show: false,
         webPreferences: {
             nodeIntegration: true
         }
@@ -24,6 +26,8 @@ function createWindow () {
         width: 456,
         height: 749,
         resizable: false,
+        backgroundColor: '#121212',
+        show: false,
         webPreferences: {
             nodeIntegration: true
         }
@@ -52,6 +56,15 @@ function createWindow () {
     });
     winControls.on('closed', () => {
         winControls = null;
+    });
+
+    winScreen.on('ready-to-show', () => {
+        winScreen.show();
+        winScreen.focus();
+    });
+    winControls.on('ready-to-show', () => {
+        winControls.show();
+        winControls.focus();
     });
 }
 
@@ -89,9 +102,16 @@ if (isDevelopment) {
     }
 }
 
+// Events
 ipcMain.on("change-state", (event, ipcData) => {
     winScreen.webContents.send("change-state", ipcData);
     winControls.webContents.send("change-state", ipcData);
+});
+
+// Countdown
+ipcMain.on("update-countdownData", (event, ipcData) => {
+    winScreen.webContents.send("update-countdownData", ipcData);
+    winControls.webContents.send("update-countdownData", ipcData);
 });
 
 ipcMain.on("change-song", (event, ipcData) => {

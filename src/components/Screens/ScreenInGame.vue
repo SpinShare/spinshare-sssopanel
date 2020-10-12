@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        name: 'ScreenCurrentlyPlaying'
+        name: 'ScreenInGame'
     }
 </script>
 
@@ -22,9 +22,16 @@
         right: 0px;
         top: 0px;
         bottom: 0px;
+        z-index: 10;
         background: #222222;
         display: grid;
         grid-template-rows: 1fr auto 1fr;
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         
         & .screens {
             display: grid;
@@ -33,7 +40,7 @@
             & .screen {
                 position: relative;
                 overflow: hidden;
-                background: url('../assets/img/NoInput.jpg');
+                background: url('../../assets/img/NoInput.jpg');
                 background-size: cover;
                 height: 0;
                 padding-top: 56.25%;
@@ -52,6 +59,12 @@
                     text-shadow: 0px 2px 16px rgba(0,0,0,0.4);
                 }
             }
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 </style>

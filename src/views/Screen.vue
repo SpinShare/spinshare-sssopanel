@@ -12,10 +12,14 @@
 
         <div class="lowerBanner"></div>
 
-        <ScreenCurrentlyPlaying v-if="currentState == 'CurrentlyPlaying'" />
-        <ScreenBetweenSongs v-if="currentState == 'BetweenSongs'" />
-        <ScreenBetweenRounds v-if="currentState == 'BetweenRounds'" />
         <ScreenTransition />
+        <ScreenTesting v-show="currentState == 'Testing'" />
+        <ScreenBackgroundVideo v-show="currentState != 'InGame'" />
+        <ScreenCountdown v-show="currentState == 'Countdown'" />
+        <ScreenBeforeSong v-show="currentState == 'BeforeSong'" />
+        <ScreenBeforeMatch v-show="currentState == 'BeforeMatch'" />
+        <ScreenInGame v-show="currentState == 'InGame'" />
+        <ScreenCommentators v-show="currentState == 'Commentators'" />
     </section>
 </template>
 
@@ -23,24 +27,42 @@
     import { remote, ipcRenderer } from 'electron';
     import SSAPI from '../modules/module.api.js';
 
-    import ScreenTransition from '@/components/ScreenTransition.vue';
-    import ScreenCurrentlyPlaying from '@/components/ScreenCurrentlyPlaying.vue';
-    import ScreenBetweenSongs from '@/components/ScreenBetweenSongs.vue';
-    import ScreenBetweenRounds from '@/components/ScreenBetweenRounds.vue';
+    import ScreenTransition from '@/components/Screens/ScreenTransition.vue';
+    import ScreenBackgroundVideo from '@/components/Screens/ScreenBackgroundVideo.vue';
+    import ScreenTesting from '@/components/Screens/ScreenTesting.vue';
+    import ScreenCountdown from '@/components/Screens/ScreenCountdown.vue';
+    import ScreenBeforeSong from '@/components/Screens/ScreenBeforeSong.vue';
+    import ScreenBeforeMatch from '@/components/Screens/ScreenBeforeMatch.vue';
+    import ScreenInGame from '@/components/Screens/ScreenInGame.vue';
+    import ScreenCommentators from '@/components/Screens/ScreenCommentators.vue';
 
-    const ScreenState = Object.freeze({ CurrentlyPlaying: "CurrentlyPlaying", BetweenSongs: "BetweenSongs", BetweenRounds: "BetweenRounds"});
+    const ScreenState = Object.freeze({
+        Testing: "Testing",
+        Countdown: "Countdown",
+        Brackets: "Brackets",
+        BeforeMatch: "BeforeMatch",
+        BeforeSong: "BeforeSong",
+        InGame: "InGame",
+        Commentators: "Commentators",
+        StreamEnd: "StreamEnd",
+        TournamentEnd: "TournamentEnd"
+    });
 
     export default {
         name: 'Screen',
         components: {
             ScreenTransition,
-            ScreenCurrentlyPlaying,
-            ScreenBetweenSongs,
-            ScreenBetweenRounds
+            ScreenBackgroundVideo,
+            ScreenTesting,
+            ScreenCountdown,
+            ScreenBeforeSong,
+            ScreenBeforeMatch,
+            ScreenInGame,
+            ScreenCommentators,
         },
         data: function() {
             return {
-                currentState: ScreenState.CurrentlyPlaying,
+                currentState: ScreenState.Testing,
                 songData: {},
                 player1Data: {},
                 player2Data: {},
@@ -49,6 +71,8 @@
             }
         },
         mounted: function() {
+            console.log("[Screen] Ready.");
+
             ipcRenderer.on('change-state', (event, newState) => {
                 console.log("[Screen] ChangeState -> " + newState);
 
@@ -57,6 +81,7 @@
                     this.$data.currentState = ScreenState[newState];
                 }, 1000);
             });
+
             ipcRenderer.on('change-song', (event, songID) => {
                 console.log("[Screen] ChangeSong -> " + songID);
 
@@ -66,6 +91,10 @@
                     console.log(data.data);
                 });
             });
+        },
+        beforeDestroy: function() {
+            ipcRenderer.removeListener('change-state');
+            ipcRenderer.removeListener('change-song');
         },
     }
 </script>
@@ -79,6 +108,7 @@
         bottom: 0px;
     }
     .debug {
+        //display: none;
         position: absolute;
         top: 25px;
         right: 25px;
@@ -87,7 +117,7 @@
         border-radius: 10px;
         background: rgba(0,0,0,0.6);
         transition: 0.5s ease all;
-        z-index: 100;
+        z-index: 999;
 
         &:hover {
             opacity: 0.15;

@@ -1,40 +1,44 @@
 <template>
     <section class="section-controls">
-        <!-- State -->
-        <select v-model="currentState">
-            <option value="CurrentlyPlaying">CurrentlyPlaying</option>
-            <option value="BetweenSongs">BetweenSongs</option>
-            <option value="BetweenRounds">BetweenRounds</option>
-        </select>
-        <button v-on:click="changeState()">ChangeState</button>
+        <Appbar :title="getTitle($route.name)">
+            <router-link :to="{ name: 'ControlSettings'}" v-if="$route.name == 'ControlMenu'" v-tooltip.left="'Settings'"><span class="mdi mdi-cog"></span></router-link>
+            <router-link :to="{ name: 'ControlMenu'}" v-if="$route.name != 'ControlMenu'" v-tooltip.left="'Menu'"><span class="mdi mdi-view-carousel"></span></router-link>
+        </Appbar>
 
-        <hr/>
+        <router-view />
 
-        <!-- Song -->
-        SongID: <input v-model="songId" />
-        <button v-on:click="changeSong()">ChangeSong</button>
-
-        <hr/>
-
-        <!-- Players -->
-        Player1ID: <input v-model="player1ID" /><br />
-        Player2ID: <input v-model="player2ID" /><br />
-        <button v-on:click="changePlayers()">ChangePlayers</button>
-
-        <!-- Score -->
+        <Livebar :state="screenState" />
     </section>
 </template>
 
 <script>
     import { remote, ipcRenderer } from 'electron';
 
-    const ScreenState = Object.freeze({ CurrentlyPlaying: "CurrentlyPlaying", BetweenSongs: "BetweenSongs", BetweenRounds: "BetweenRounds"});
+    import Appbar from '@/components/Controls/Appbar.vue';
+    import Livebar from '@/components/Controls/Livebar.vue';
+
+    const ScreenState = Object.freeze({
+        Testing: "Testing",
+        Countdown: "Countdown",
+        Brackets: "Brackets",
+        BeforeMatch: "BeforeMatch",
+        BeforeSong: "BeforeSong",
+        InGame: "InGame",
+        Commentators: "Commentators",
+        StreamEnd: "StreamEnd",
+        TournamentEnd: "TournamentEnd"
+    });
 
     export default {
         name: 'Controls',
+        components: {
+            Appbar,
+            Livebar,
+        },
         data: function() {
             return {
-                currentState: ScreenState.CurrentlyPlaying,
+                currentRoute: this.$route.params.id,
+                screenState: ScreenState.Testing,
                 player1ID: 0,
                 player2ID: 0,
                 player1Score: 0,
@@ -43,20 +47,53 @@
             }
         },
         mounted: function() {
-            /* ipcRenderer.on('clear-video', () => {
-                this.$data.youtubeID = null;
-            }); */
+            console.log("[Controls] Ready.");
+            
+            ipcRenderer.on('change-state', (event, newState) => {
+                console.log("[Controls] ChangeState -> " + newState);
+                this.$data.screenState = ScreenState[newState];
+            });
         },
         methods: {
-            changeState: function() {
-                console.log("[Controls] ChangeState -> " + this.$data.currentState);
-                ipcRenderer.send('change-state', this.$data.currentState);
+            changeState: function(newState) {
+                ipcRenderer.send('change-state', newState);
             },
             changeSong: function() {
                 console.log("[Controls] ChangeSong -> " + this.$data.songId);
                 ipcRenderer.send('change-song', this.$data.songId);
+            },
+            getTitle: function(routeName) {
+                switch(routeName) {
+                    case "ControlMenu":
+                        return "Menu";
+                        break;
+                    case "ControlSettings":
+                        return "Settings";
+                        break;
+                    case "ControlTesting":
+                        return "Testing";
+                        break;
+                    case "ControlCountdown":
+                        return "Countdown";
+                        break;
+                    case "ControlInGame":
+                        return "InGame";
+                        break;
+                    case "ControlCommentators":
+                        return "Commentators";
+                        break;
+                    case "ControlStreamEnd":
+                        return "End of Stream";
+                        break;
+                    default:
+                        return routeName;
+                        break;
+                }
             }
-        }
+        },
+        beforeDestroy: function() {
+            ipcRenderer.removeListener('change-state');
+        },
     }
 </script>
 
@@ -67,7 +104,8 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-        background: grey;
-        padding: 50px;
+        background: #121212;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
     }
 </style>

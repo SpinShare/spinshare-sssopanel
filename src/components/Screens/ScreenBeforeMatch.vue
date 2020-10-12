@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'ScreenBetweenRounds'
+        name: 'ScreenBeforeMatch'
     }
 </script>
 
@@ -17,6 +17,7 @@
         right: 0px;
         top: 0px;
         bottom: 0px;
+        z-index: 10;
         background: purple;
         display: grid;
     }

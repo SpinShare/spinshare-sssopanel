@@ -19,13 +19,17 @@
                 this.startTransition();
             });
         },
+        beforeDestroy: function() {
+            ipcRenderer.removeListener('change-state');
+        },
         methods: {
             startTransition: function() {
                 this.$data.transitionActive = true;
 
                 setTimeout(() => {
                     this.$data.transitionActive = false;
-                }, 2500);
+                    console.log("[Transition] Ready again.");
+                }, 2000);
             }
         }
     }
@@ -38,7 +42,7 @@
         right: 0vw;
         top: 0px;
         bottom: 0px;
-        z-index: 50;
+        z-index: 100;
         background: #0F1213;
         transform: translateX(-110vw) skewX(5deg);
         display:flex;

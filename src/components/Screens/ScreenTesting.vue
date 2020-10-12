@@ -1,23 +1,23 @@
 <template>
-    <div class="screenBetweenSongs">
-        BetweenSongs
-    </div>
+    <div class="screenTesting"></div>
 </template>
 
 <script>
     export default {
-        name: 'ScreenBetweenSongs'
+        name: 'ScreenTesting'
     }
 </script>
 
 <style scoped lang="less">
-    .screenBetweenSongs {
+    .screenTesting {
         position: absolute;
         left: 0px;
         right: 0px;
         top: 0px;
         bottom: 0px;
-        background: darkblue;
+        z-index: 10;
+        background: url('../../assets/img/Wallpaper.png');
+        background-size: cover;
         display: grid;
     }
 </style>
