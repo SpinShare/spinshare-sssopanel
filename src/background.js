@@ -122,7 +122,21 @@ ipcMain.on("update-bracketsData", (event, ipcData) => {
     winControls.webContents.send("update-bracketsData", ipcData);
 });
 
-ipcMain.on("change-song", (event, ipcData) => {
-    winScreen.webContents.send("change-song", ipcData);
-    winControls.webContents.send("change-song", ipcData);
+// PlayerData
+let playerData = {};
+ipcMain.on("update-playerData", (event, ipcData) => {
+    playerData = ipcData;
+
+    winScreen.webContents.send("update-playerData", ipcData);
+    winControls.webContents.send("update-playerData", ipcData);
+});
+ipcMain.on("get-playerData", (event, ipcData) => {
+    winScreen.webContents.send("update-playerData", playerData);
+    winControls.webContents.send("update-playerData", playerData);
+});
+
+// OBS Remote
+ipcMain.on("connect-obsremote", (event, ipcData) => {
+    winScreen.webContents.send("connect-obsremote", ipcData);
+    winControls.webContents.send("connect-obsremote", ipcData);
 });

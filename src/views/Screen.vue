@@ -6,17 +6,19 @@
         <ScreenTesting v-if="currentState == 'Testing'" />
         <ScreenBackgroundVideo v-if="currentState != 'InGame'" />
         <ScreenCountdown v-show="currentState == 'Countdown'" />
-        <ScreenBrackets v-if="currentState == 'Brackets'" />
-        <ScreenBeforeSong v-if="currentState == 'BeforeSong'" />
-        <ScreenBeforeMatch v-if="currentState == 'BeforeMatch'" />
-        <ScreenInGame v-if="currentState == 'InGame'" />
-        <ScreenCommentators v-if="currentState == 'Commentators'" />
+        <ScreenBrackets v-show="currentState == 'Brackets'" />
+        <ScreenBeforeSong v-show="currentState == 'BeforeSong'" />
+        <ScreenBeforeMatch v-show="currentState == 'BeforeMatch'" />
+        <ScreenInGame v-show="currentState == 'InGame'" />
+        <ScreenCommentators v-show="currentState == 'Commentators'" />
     </section>
 </template>
 
 <script>
     import { remote, ipcRenderer } from 'electron';
     import OBSWebSocket from 'obs-websocket-js';
+
+    import UserSettings from "../modules/module.usersettings.js";
 
     import ScreenTransition from '@/components/Screens/ScreenTransition.vue';
     import ScreenBackgroundVideo from '@/components/Screens/ScreenBackgroundVideo.vue';
@@ -57,13 +59,19 @@
             return {
                 currentState: ScreenState.Testing,
                 obsWebsocket: null,
+                userSettings: null
             }
         },
         mounted: function() {
             console.log("[Screen] Ready.");
 
-            this.obsWebsocket = new OBSWebSocket();
-            this.obsWebsocket.connect({ adress: 'localhost:4444', password: 'testtest' });
+            this.$data.userSettings = new UserSettings();
+
+            this.$data.obsWebsocket = new OBSWebSocket();
+            this.$data.obsWebsocket.connect({
+                address: 'localhost:' + this.$data.userSettings.get('obsRemotePort'),
+                password: this.$data.userSettings.get('obsRemotePassword')
+            });
 
             ipcRenderer.on('change-state', (event, newState) => {
                 console.log("[Screen] ChangeState -> " + newState);
@@ -73,19 +81,34 @@
                     this.$data.currentState = ScreenState[newState];
 
                     if(newState == 'InGame') {
-                        this.obsWebsocket.send('SetCurrentScene', {
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Game'
                         });
                     } else if(newState == 'Brackets') {
-                        this.obsWebsocket.send('SetCurrentScene', {
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Brackets'
                         });
                     } else {
-                        this.obsWebsocket.send('SetCurrentScene', {
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Panel'
                         });
                     }
                 }, 1000);
+            });
+
+            ipcRenderer.on('connect-obsremote', (event, newState) => {
+                console.log("[Screen] Reconnecting Remote");
+
+                if(this.$data.obsWebsocket != null) {
+                    this.$data.obsWebsocket.disconnect();
+                }
+
+                console.log(newState);
+
+                this.$data.obsWebsocket.connect({
+                    address: 'localhost:' + newState.obsRemotePort,
+                    password: newState.obsRemotePassword
+                });
             });
         },
         beforeDestroy: function() {
@@ -110,6 +133,6 @@
         bottom: 0px;
         background: url('../assets/img/LowerBanner.png');
         background-size: cover;
-        z-index: 10;
+        z-index: 20;
     }
 </style>

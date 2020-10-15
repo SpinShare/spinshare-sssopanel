@@ -12,6 +12,10 @@
             <div class="icon"><span class="mdi mdi-tournament"></span></div>
             <div class="text">Brackets</div>
         </router-link>
+        <router-link :to="{ name: 'ControlBeforeMatch'}" class="menuItem">
+            <div class="icon"><span class="mdi mdi-google-controller"></span></div>
+            <div class="text">BeforeMatch</div>
+        </router-link>
         <router-link :to="{ name: 'ControlInGame'}" class="menuItem">
             <div class="icon"><span class="mdi mdi-google-controller"></span></div>
             <div class="text">InGame</div>

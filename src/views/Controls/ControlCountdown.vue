@@ -10,6 +10,8 @@
             <button :disabled="!countdownIsSoon" v-on:click="changeCountdownMode(false)">Set to Countdown</button>
             <button :disabled="countdownIsSoon" v-on:click="changeCountdownMode(true)">Set to Soon</button>
         </InputGroup>
+
+        <button v-on:click="updateData()">Update</button>
     </div>
 </template>
 
@@ -38,7 +40,6 @@
         },
         methods: {
             transition: function() {
-                this.updateData();
                 ipcRenderer.send('change-state', "Countdown");
             },
             changeCountdownMode: function(newMode) {

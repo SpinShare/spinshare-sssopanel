@@ -18,7 +18,6 @@
     import { remote, ipcRenderer } from 'electron';
 
     import Fab from '@/components/Controls/Fab.vue';
-    
     import InputGroup from '@/components/Controls/InputGroup.vue';
     
     export default {
@@ -37,7 +36,6 @@
         },
         methods: {
             transition: function() {
-                this.updateData();
                 ipcRenderer.send('change-state', "Brackets");
             },
             updateData: function() {

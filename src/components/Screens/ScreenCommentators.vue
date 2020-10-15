@@ -62,6 +62,7 @@
             }
             & webview {
                 margin-top: 2vh;
+                height: 50vh;
 
                 &.isFullscreen {
                     transform-origin: top left;

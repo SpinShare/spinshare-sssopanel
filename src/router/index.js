@@ -9,6 +9,7 @@ import ViewControlSettings from '../views/Controls/ControlSettings.vue';
 import ViewControlTesting from '../views/Controls/ControlTesting.vue';
 import ViewControlCountdown from '../views/Controls/ControlCountdown.vue';
 import ViewControlBrackets from '../views/Controls/ControlBrackets.vue';
+import ViewControlBeforeMatch from '../views/Controls/ControlBeforeMatch.vue';
 import ViewControlInGame from '../views/Controls/ControlInGame.vue';
 import ViewControlCommentators from '../views/Controls/ControlCommentators.vue';
 import ViewControlStreamEnd from '../views/Controls/ControlStreamEnd.vue';
@@ -48,6 +49,11 @@ const routes = [{
             path: '/brackets',
             name: 'ControlBrackets',
             component: ViewControlBrackets
+        },
+        {
+            path: '/beforematch',
+            name: 'ControlBeforeMatch',
+            component: ViewControlBeforeMatch
         },
         {
             path: '/ingame',
