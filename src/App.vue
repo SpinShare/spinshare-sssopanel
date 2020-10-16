@@ -41,7 +41,6 @@
         width: 100%;
         height: 100%;
         margin: 0;
-        background: #212629;
         color: #fff;
         overflow: hidden;
         font-family: 'Product Sans', sans-serif;

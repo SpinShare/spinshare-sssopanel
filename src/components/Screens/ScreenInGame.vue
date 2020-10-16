@@ -1,7 +1,7 @@
 <template>
     <div class="screenCurrentlyPlaying">
         <header>
-            <div class="user-data">
+            <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
                 <div class="username">{{ player1Data.username }}</div>
             </div>
@@ -9,7 +9,7 @@
                 <div class="score">{{ player1Score }} &dash; {{ player2Score }}</div>
                 <div class="mode">Set {{ currentSet }}/{{ fullSet }}</div>
             </div>
-            <div class="user-data">
+            <div class="user-data" v-if="player2Data">
                 <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
                 <div class="username">{{ player2Data.username }}</div>
             </div>
@@ -20,7 +20,7 @@
         </div>
         <footer>
             <div class="song-data" v-if="songData">
-                <div class="song-cover" :style="'background-image: url(' + songData.paths.cover + ');'"></div>
+                <div class="song-cover" v-if="songData.paths" :style="'background-image: url(' + songData.paths.cover + ');'"></div>
                 <div class="song-metadata">
                     <div class="song-title">{{ songData.title }}</div>
                     <div class="song-subtitle">{{ songData.subtitle }}</div>

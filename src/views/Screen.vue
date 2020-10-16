@@ -4,7 +4,6 @@
 
         <ScreenTransition />
         <ScreenTesting v-if="currentState == 'Testing'" />
-        <ScreenBackgroundVideo v-if="currentState != 'InGame'" />
         <ScreenCountdown v-show="currentState == 'Countdown'" />
         <ScreenBrackets v-show="currentState == 'Brackets'" />
         <ScreenBeforeSong v-show="currentState == 'BeforeSong'" />
@@ -21,11 +20,9 @@
     import UserSettings from "../modules/module.usersettings.js";
 
     import ScreenTransition from '@/components/Screens/ScreenTransition.vue';
-    import ScreenBackgroundVideo from '@/components/Screens/ScreenBackgroundVideo.vue';
     import ScreenTesting from '@/components/Screens/ScreenTesting.vue';
     import ScreenCountdown from '@/components/Screens/ScreenCountdown.vue';
     import ScreenBrackets from '@/components/Screens/ScreenBrackets.vue';
-    import ScreenBeforeSong from '@/components/Screens/ScreenBeforeSong.vue';
     import ScreenBeforeMatch from '@/components/Screens/ScreenBeforeMatch.vue';
     import ScreenInGame from '@/components/Screens/ScreenInGame.vue';
     import ScreenCommentators from '@/components/Screens/ScreenCommentators.vue';
@@ -35,7 +32,6 @@
         Countdown: "Countdown",
         Brackets: "Brackets",
         BeforeMatch: "BeforeMatch",
-        BeforeSong: "BeforeSong",
         InGame: "InGame",
         Commentators: "Commentators",
         StreamEnd: "StreamEnd",
@@ -46,11 +42,9 @@
         name: 'Screen',
         components: {
             ScreenTransition,
-            ScreenBackgroundVideo,
             ScreenTesting,
             ScreenCountdown,
             ScreenBrackets,
-            ScreenBeforeSong,
             ScreenBeforeMatch,
             ScreenInGame,
             ScreenCommentators,
