@@ -1,15 +1,16 @@
 <template>
     <section class="section-screen">
-        <div class="lowerBanner"></div>
+        <div class="lowerBanner" v-if="currentState != 'BeforeMatch'"></div>
 
         <ScreenTransition />
         <ScreenTesting v-if="currentState == 'Testing'" />
         <ScreenCountdown v-show="currentState == 'Countdown'" />
         <ScreenBrackets v-show="currentState == 'Brackets'" />
-        <ScreenBeforeSong v-show="currentState == 'BeforeSong'" />
         <ScreenBeforeMatch v-show="currentState == 'BeforeMatch'" />
         <ScreenInGame v-show="currentState == 'InGame'" />
         <ScreenCommentators v-show="currentState == 'Commentators'" />
+        <ScreenStreamEnd v-show="currentState == 'StreamEnd'" />
+        <ScreenTournamentEnd v-show="currentState == 'TournamentEnd'" />
     </section>
 </template>
 
@@ -26,6 +27,8 @@
     import ScreenBeforeMatch from '@/components/Screens/ScreenBeforeMatch.vue';
     import ScreenInGame from '@/components/Screens/ScreenInGame.vue';
     import ScreenCommentators from '@/components/Screens/ScreenCommentators.vue';
+    import ScreenStreamEnd from '@/components/Screens/ScreenStreamEnd.vue';
+    import ScreenTournamentEnd from '@/components/Screens/ScreenTournamentEnd.vue';
 
     const ScreenState = Object.freeze({
         Testing: "Testing",
@@ -48,6 +51,8 @@
             ScreenBeforeMatch,
             ScreenInGame,
             ScreenCommentators,
+            ScreenStreamEnd,
+            ScreenTournamentEnd
         },
         data: function() {
             return {
@@ -65,6 +70,19 @@
             this.$data.obsWebsocket.connect({
                 address: 'localhost:' + this.$data.userSettings.get('obsRemotePort'),
                 password: this.$data.userSettings.get('obsRemotePassword')
+            });
+            this.$data.obsWebsocket.on('AuthenticationSuccess', (event, data) => {
+                this.$data.obsWebsocket.send('SetCurrentScene', {
+                    'scene-name': 'Panel'
+                });
+                this.$data.obsWebsocket.send('SetMute', {
+                    'source': 'Medienquelle',
+                    'mute': false
+                });
+                this.$data.obsWebsocket.send('SetMute', {
+                    'source': 'Medienquelle 2',
+                    'mute': true
+                });
             });
 
             ipcRenderer.on('change-state', (event, newState) => {
@@ -104,9 +122,25 @@
                     password: newState.obsRemotePassword
                 });
             });
+
+            ipcRenderer.on('change-playerAudio', (event, newState) => {
+                console.log(newState);
+                if(this.$data.obsWebsocket != null) {
+                    this.$data.obsWebsocket.send('SetMute', {
+                        'source': 'Medienquelle',
+                        'mute': newState.useFirstPlayerAudio
+                    });
+                    this.$data.obsWebsocket.send('SetMute', {
+                        'source': 'Medienquelle 2',
+                        'mute': !newState.useFirstPlayerAudio
+                    });
+                }
+            });
         },
         beforeDestroy: function() {
             ipcRenderer.removeListener('change-state');
+            ipcRenderer.removeListener('connect-obsremote');
+            ipcRenderer.removeListener('change-playerAudio');
         },
     }
 </script>
@@ -118,6 +152,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
+        cursor: none;
     }
     .lowerBanner {
         position: absolute;

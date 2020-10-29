@@ -1,5 +1,4 @@
-const { electron, remote } = require('electron');
-const app = remote.app;
+const { app, electron, remote } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -8,7 +7,13 @@ class UserSettings {
     let defaults = {
     };
 
-    const userDataPath = app.getPath('userData');
+    let userDataPath = "";
+    if(remote == undefined) {
+      userDataPath = app.getPath('userData');
+    } else {
+      userDataPath = remote.app.getPath('userData');
+    }
+
     this.path = path.join(userDataPath, 'UserSettings.json');
     this.data = parseDataFile(this.path, defaults);
   }

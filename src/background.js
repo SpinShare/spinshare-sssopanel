@@ -4,6 +4,8 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 const path = require('path');
+const UserSettings = require("@/modules/module.usersettings.js");
+let userSettings = new UserSettings();
 
 let winScreen;
 let winControls;
@@ -88,6 +90,8 @@ app.on('ready', async () => {
     globalShortcut.register('Alt+Enter', () => {
         winScreen.setFullScreen(!winScreen.isFullScreen());
     });
+
+    startFilewatcher(userSettings.get('snipJsonLocation'));
 });
 
 if (isDevelopment) {
@@ -139,4 +143,59 @@ ipcMain.on("get-playerData", (event, ipcData) => {
 ipcMain.on("connect-obsremote", (event, ipcData) => {
     winScreen.webContents.send("connect-obsremote", ipcData);
     winControls.webContents.send("connect-obsremote", ipcData);
+});
+ipcMain.on("change-playerAudio", (event, ipcData) => {
+    winScreen.webContents.send("change-playerAudio", ipcData);
+    winControls.webContents.send("change-playerAudio", ipcData);
+});
+
+// End of Tournament
+ipcMain.on("update-endoftournamentdata", (event, ipcData) => {
+    winScreen.webContents.send("update-endoftournamentdata", ipcData);
+    winControls.webContents.send("update-endoftournamentdata", ipcData);
+});
+
+// Snip Filewatcher
+let snipFilewatcher = null;
+let snipTitle = "";
+let snipAuthor = "";
+function startFilewatcher(snipFile) {
+    if(snipFile != "" || snipFile != undefined) {
+        loadSnipFile(snipFile);
+        snipFilewatcher = fs.watchFile(snipFile, (curr, prev) => {
+            loadSnipFile(snipFile);
+        });
+    }
+}
+function loadSnipFile(fileLocation) {
+    if(fileLocation != "" || fileLocation != undefined) {
+        console.log(fileLocation);
+        let rawData = fs.readFileSync(fileLocation);
+        let snipData = JSON.parse(rawData);
+
+        snipTitle = snipData.name;
+        snipAuthor = snipData.artists[0].name;
+
+        winScreen.webContents.send("update-snipData", {
+            title: snipTitle,
+            author: snipAuthor
+        });
+        winControls.webContents.send("update-snipData", {
+            title: snipTitle,
+            author: snipAuthor
+        });
+    }
+}
+ipcMain.on('get-snipData', (event, data) => {
+    winScreen.webContents.send("update-snipData", {
+        title: snipTitle,
+        author: snipAuthor
+    });
+    winControls.webContents.send("update-snipData", {
+        title: snipTitle,
+        author: snipAuthor
+    });
+});
+ipcMain.on('reload-filewatcher', (event, data) => {
+    startFilewatcher(data.path);
 });

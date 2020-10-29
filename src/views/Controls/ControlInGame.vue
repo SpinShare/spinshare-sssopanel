@@ -21,6 +21,11 @@
         </InputGroup>
 
         <button v-on:click="updateData()">Update</button>
+
+        <InputGroup title="Music Output" twoInputs="true">
+            <button :disabled="useFirstPlayerAudio" v-on:click="changePlayerAudio(true)">Set to Player 1</button>
+            <button :disabled="!useFirstPlayerAudio" v-on:click="changePlayerAudio(false)">Set to Player 2</button>
+        </InputGroup>
     </div>
 </template>
 
@@ -45,6 +50,7 @@
                 player1Score: 0,
                 player2Score: 0,
                 songId: 0,
+                useFirstPlayerAudio: true
             }
         },
         mounted: function() {
@@ -75,6 +81,15 @@
                     songId: this.$data.songId,
                 });
             },
+            changePlayerAudio: function(newState) {
+                console.log("[Controls] ChangePlayerAudio");
+
+                this.$data.useFirstPlayerAudio = newState;
+
+                ipcRenderer.send('change-playerAudio', {
+                    useFirstPlayerAudio: this.$data.useFirstPlayerAudio,
+                });
+            }
         }
     }
 </script>

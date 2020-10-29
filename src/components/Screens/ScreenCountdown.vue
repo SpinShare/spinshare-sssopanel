@@ -45,6 +45,11 @@
             <div v-if="!isSoon">{{ remainingMinutes.padStart(2, '0') }}:{{ remainingSeconds.padStart(2, '0') }}</div>
             <div v-if="isSoon">Soon</div>
         </div>
+
+        <div class="music">
+            <span class="mdi mdi-music"></span>
+            <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
+        </div>
     </div>
 </template>
 
@@ -59,7 +64,9 @@
                 isSoon: true,
                 remainingMinutes: "00",
                 remainingSeconds: "00",
-                timerTickTimeout: null
+                timerTickTimeout: null,
+                snipTitle: "",
+                snipAuthor: ""
             }
         },
         mounted: function() {
@@ -76,6 +83,11 @@
                 if(!this.$data.isSoon) {
                     this.timerTick();
                 }
+            });
+            ipcRenderer.send('get-snipData');
+            ipcRenderer.on('update-snipData', (event, snipData) => {
+                this.$data.snipTitle = snipData.title;
+                this.$data.snipAuthor = snipData.author;
             });
         },
         methods: {
@@ -196,6 +208,31 @@
             & div {
                 transform: translate(0px, -6.5vh);
                 font-size: 6.5vw;
+            }
+        }
+
+        & .music {
+            z-index: 25;
+            position: absolute;
+            top: 4vh;
+            left: 4vw;
+            width: 92vw;
+            font-size: 1.5vw;
+            color: #fff;
+            padding: 0.5vh 0vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & .mdi {
+                font-size: 2vw;
+                margin-right: 0.75vw;
+            }
+            & span:not(.mdi) {
+                transform: translate(0, -0.25vh);
+            }
+            & strong {
+                margin-right: 1vw;
             }
         }
     }

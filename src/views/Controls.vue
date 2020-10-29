@@ -88,6 +88,9 @@
                     case "ControlStreamEnd":
                         return "End of Stream";
                         break;
+                    case "ControlTournamentEnd":
+                        return "End of Tournament";
+                        break;
                     default:
                         return routeName;
                         break;

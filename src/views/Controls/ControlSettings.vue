@@ -10,7 +10,12 @@
 
         <InputGroup title="OBS Remote Actions" two-inputs="true">
             <button v-on:click="reconnectRemote()">Save & Reconnect</button>
-            <button v-on:click="updateData()">Save</button>
+            <button v-on:click="updateData()">Just Save</button>
+        </InputGroup>
+
+        <InputGroup title="Snip JSON Location">
+            <input type="file" @change="changeSnip" />
+            <span>{{ snipJsonLocation ? snipJsonLocation : 'Not Set' }}</span>
         </InputGroup>
     </div>
 </template>
@@ -30,6 +35,7 @@
             return {
                 obsRemotePort: "",
                 obsRemotePassword: "",
+                snipJsonLocation: "",
                 userSettings: null
             }
         },
@@ -37,6 +43,7 @@
             this.$data.userSettings = new UserSettings();
             this.$data.obsRemotePort = this.$data.userSettings.get('obsRemotePort');
             this.$data.obsRemotePassword = this.$data.userSettings.get('obsRemotePassword');
+            this.$data.snipJsonLocation = this.$data.userSettings.get('snipJsonLocation');
         },
         methods: {
             updateData: function() {
@@ -52,6 +59,15 @@
                     obsRemotePort: this.$data.obsRemotePort,
                     obsRemotePassword: this.$data.obsRemotePassword
                 });
+            },
+            changeSnip: function(event) {
+                this.$data.snipJsonLocation = event.target.files[0].path;
+                this.$data.userSettings.set('snipJsonLocation', this.$data.snipJsonLocation);
+                this.$data.userSettings.write();
+
+                ipcRenderer.send('reload-filewatcher', {
+                    path: this.$data.snipJsonLocation
+                });
             }
         }
     }
@@ -60,5 +76,9 @@
 <style scoped lang="less">
     .controlSettings {
         padding: 5px 20px;
+
+        span {
+            color: #fff;
+        }
     }
 </style>
