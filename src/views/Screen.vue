@@ -75,26 +75,36 @@
                 this.$data.obsWebsocket.send('SetCurrentScene', {
                     'scene-name': 'Panel'
                 });
-                this.$data.obsWebsocket.send('SetMute', {
-                    'source': 'Medienquelle',
-                    'mute': false
-                });
-                this.$data.obsWebsocket.send('SetMute', {
-                    'source': 'Medienquelle 2',
-                    'mute': true
-                });
             });
 
             ipcRenderer.on('change-state', (event, newState) => {
                 console.log("[Screen] ChangeState -> " + newState);
 
-                // waiting for transition
+                let transitionTime = 1000;
+                if(this.$data.currentState == "Brackets") {
+                    transitionTime = 0;
+                }
+                if(ScreenState[newState] == "Brackets") {
+                    transitionTime = 1600;
+                }
+
                 setTimeout(() => {
                     this.$data.currentState = ScreenState[newState];
+                }, 1000);
 
+                // waiting for transition
+                setTimeout(() => {
                     if(newState == 'InGame') {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Game'
+                        });
+                        this.$data.obsWebsocket.send('SetMute', {
+                            'source': 'Medienquelle',
+                            'mute': false
+                        });
+                        this.$data.obsWebsocket.send('SetMute', {
+                            'source': 'Medienquelle 2',
+                            'mute': true
                         });
                     } else if(newState == 'Brackets') {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
@@ -105,7 +115,7 @@
                             'scene-name': 'Panel'
                         });
                     }
-                }, 1000);
+                }, transitionTime);
             });
 
             ipcRenderer.on('connect-obsremote', (event, newState) => {
