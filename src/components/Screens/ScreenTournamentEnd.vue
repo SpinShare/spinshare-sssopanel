@@ -196,6 +196,7 @@ export default {
                 height: 12vw;
                 border-radius: 100%;
                 background-size: cover;
+                background-position: center;
             }
             & .username {
                 margin-top: 3vh;

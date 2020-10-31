@@ -218,6 +218,7 @@
                     height: 10vw;
                     border-radius: 100%;
                     background-size: cover;
+                    background-position: center;
                 }
                 & .username {
                     font-size: 2.5vw;
