@@ -10,7 +10,7 @@
             <input type="number" v-model="player2Id" />
         </InputGroup>
 
-        <InputGroup title="Set Length (3 or 5)">
+        <InputGroup title="Set Length (3 or 5 or 7 or 9 or whatever)">
             <input type="number" v-model="fullSet" />
         </InputGroup>
 
