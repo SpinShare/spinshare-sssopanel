@@ -79,6 +79,12 @@
         }
     }
 
+    .blobs {
+        & svg {
+            fill: #11A2C9;
+        }
+    }
+
     .tooltip {
         background: #000;
         font-size: 10px;
