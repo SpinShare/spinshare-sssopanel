@@ -2,7 +2,7 @@ module.exports = {
     pluginOptions: {
         electronBuilder: {
             builderOptions: {
-                productName: "GamingWeirdos",
+                productName: "SSSO Panel",
                 appId: "re.spinsha.client",
                 win: {    
                     icon: "build/icons_AppIcon.ico"
