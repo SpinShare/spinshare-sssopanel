@@ -138,11 +138,11 @@
                 if(this.$data.obsWebsocket != null) {
                     this.$data.obsWebsocket.send('SetMute', {
                         'source': 'Medienquelle',
-                        'mute': newState.useFirstPlayerAudio
+                        'mute': !newState.useFirstPlayerAudio
                     });
                     this.$data.obsWebsocket.send('SetMute', {
                         'source': 'Medienquelle 2',
-                        'mute': !newState.useFirstPlayerAudio
+                        'mute': newState.useFirstPlayerAudio
                     });
                 }
             });
