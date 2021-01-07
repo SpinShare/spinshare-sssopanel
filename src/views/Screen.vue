@@ -116,11 +116,11 @@
                         });
                     } else if(newState == 'Commentators2') {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
-                            'scene-name': 'commentators2'
+                            'scene-name': 'Commentators 2'
                         });
                     } else if(newState == 'Commentators4') {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
-                            'scene-name': 'Commentators4'
+                            'scene-name': 'Commentators 4'
                         });
                     } else {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
