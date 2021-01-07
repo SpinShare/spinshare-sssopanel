@@ -8,7 +8,8 @@
         <ScreenBrackets v-show="currentState == 'Brackets'" />
         <ScreenBeforeMatch v-show="currentState == 'BeforeMatch'" />
         <ScreenInGame v-show="currentState == 'InGame'" />
-        <ScreenCommentators v-show="currentState == 'Commentators'" />
+        <ScreenCommentators2 v-show="currentState == 'Commentators2'" />
+        <ScreenCommentators4 v-show="currentState == 'Commentators4'" />
         <ScreenStreamEnd v-show="currentState == 'StreamEnd'" />
         <ScreenTournamentEnd v-show="currentState == 'TournamentEnd'" />
     </section>
@@ -26,7 +27,8 @@
     import ScreenBrackets from '@/components/Screens/ScreenBrackets.vue';
     import ScreenBeforeMatch from '@/components/Screens/ScreenBeforeMatch.vue';
     import ScreenInGame from '@/components/Screens/ScreenInGame.vue';
-    import ScreenCommentators from '@/components/Screens/ScreenCommentators.vue';
+    import ScreenCommentators2 from '@/components/Screens/ScreenCommentators2.vue';
+    import ScreenCommentators4 from '@/components/Screens/ScreenCommentators4.vue';
     import ScreenStreamEnd from '@/components/Screens/ScreenStreamEnd.vue';
     import ScreenTournamentEnd from '@/components/Screens/ScreenTournamentEnd.vue';
 
@@ -36,7 +38,8 @@
         Brackets: "Brackets",
         BeforeMatch: "BeforeMatch",
         InGame: "InGame",
-        Commentators: "Commentators",
+        Commentators2: "Commentators2",
+        Commentators4: "Commentators4",
         StreamEnd: "StreamEnd",
         TournamentEnd: "TournamentEnd"
     });
@@ -50,7 +53,8 @@
             ScreenBrackets,
             ScreenBeforeMatch,
             ScreenInGame,
-            ScreenCommentators,
+            ScreenCommentators2,
+            ScreenCommentators4,
             ScreenStreamEnd,
             ScreenTournamentEnd
         },
@@ -109,6 +113,14 @@
                     } else if(newState == 'Brackets') {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Brackets'
+                        });
+                    } else if(newState == 'Commentators2') {
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
+                            'scene-name': 'commentators2'
+                        });
+                    } else if(newState == 'Commentators4') {
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
+                            'scene-name': 'Commentators4'
                         });
                     } else {
                         this.$data.obsWebsocket.send('SetCurrentScene', {

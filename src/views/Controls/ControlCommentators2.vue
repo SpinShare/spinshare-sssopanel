@@ -1,5 +1,5 @@
 <template>
-    <div class="controlCommentators">
+    <div class="controlCommentators2">
         <Fab v-on:click.native="transition()" title="Transition" />
         
         <span class="mdi mdi-microphone"></span>
@@ -12,20 +12,20 @@
     import Fab from '@/components/Controls/Fab.vue';
     
     export default {
-        name: 'ControlCommentators',
+        name: 'ControlCommentators2',
         components: {
             Fab,
         },
         methods: {
             transition: () => {
-                ipcRenderer.send('change-state', "Commentators");
+                ipcRenderer.send('change-state', "Commentators2");
             }
         }
     }
 </script>
 
 <style scoped lang="less">
-    .controlCommentators {
+    .controlCommentators2 {
         padding: 20px;
         display: grid;
         justify-content: center;

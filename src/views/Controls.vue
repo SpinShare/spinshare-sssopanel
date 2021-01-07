@@ -24,7 +24,8 @@
         BeforeMatch: "BeforeMatch",
         BeforeSong: "BeforeSong",
         InGame: "InGame",
-        Commentators: "Commentators",
+        Commentators2: "Commentators2",
+        Commentators4: "Commentators4",
         StreamEnd: "StreamEnd",
         TournamentEnd: "TournamentEnd"
     });
@@ -82,8 +83,11 @@
                     case "ControlInGame":
                         return "InGame";
                         break;
-                    case "ControlCommentators":
-                        return "Commentators";
+                    case "ControlCommentators2":
+                        return "Commentators (2 People)";
+                        break;
+                    case "ControlCommentators4":
+                        return "Commentators (4 People)";
                         break;
                     case "ControlStreamEnd":
                         return "End of Stream";

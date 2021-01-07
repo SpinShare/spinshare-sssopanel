@@ -37,13 +37,13 @@
             <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
                 <div class="username">{{ player1Data.username }}</div>
-                <div class="pronouns" v-if="player1Data.pronouns != ''">{{ player1Data.pronouns }}</div>
+                <div class="pronouns" v-if="player1Data.pronouns != null">{{ player1Data.pronouns }}</div>
             </div>
             <div class="versus">VS.</div>
             <div class="user-data" v-if="player2Data">
                 <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
                 <div class="username">{{ player2Data.username }}</div>
-                <div class="pronouns" v-if="player1Data.pronouns != ''">{{ player2Data.pronouns }}</div>
+                <div class="pronouns" v-if="player2Data.pronouns != null">{{ player2Data.pronouns }}</div>
             </div>
         </div>
 

@@ -20,9 +20,13 @@
             <div class="icon"><span class="mdi mdi-google-controller"></span></div>
             <div class="text">InGame</div>
         </router-link>
-        <router-link :to="{ name: 'ControlCommentators'}" class="menuItem">
+        <router-link :to="{ name: 'ControlCommentators2'}" class="menuItem">
             <div class="icon"><span class="mdi mdi-microphone"></span></div>
-            <div class="text">Commentators</div>
+            <div class="text">Commentators (2 People)</div>
+        </router-link>
+        <router-link :to="{ name: 'ControlCommentators4'}" class="menuItem">
+            <div class="icon"><span class="mdi mdi-microphone"></span></div>
+            <div class="text">Commentators (4 People)</div>
         </router-link>
         <router-link :to="{ name: 'ControlStreamEnd'}" class="menuItem">
             <div class="icon"><span class="mdi mdi-video-off"></span></div>

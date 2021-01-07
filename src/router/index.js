@@ -11,7 +11,8 @@ import ViewControlCountdown from '../views/Controls/ControlCountdown.vue';
 import ViewControlBrackets from '../views/Controls/ControlBrackets.vue';
 import ViewControlBeforeMatch from '../views/Controls/ControlBeforeMatch.vue';
 import ViewControlInGame from '../views/Controls/ControlInGame.vue';
-import ViewControlCommentators from '../views/Controls/ControlCommentators.vue';
+import ViewControlCommentators2 from '../views/Controls/ControlCommentators2.vue';
+import ViewControlCommentators4 from '../views/Controls/ControlCommentators4.vue';
 import ViewControlStreamEnd from '../views/Controls/ControlStreamEnd.vue';
 import ViewControlTournamentEnd from '../views/Controls/ControlTournamentEnd.vue';
 
@@ -70,10 +71,16 @@ const routes = [{
             component: ViewControlInGame
         },
         {
-            path: '/commentators',
-            name: 'ControlCommentators',
+            path: '/commentators2',
+            name: 'ControlCommentators2',
             meta: { title: "SpinShare LivePanel Controls" },
-            component: ViewControlCommentators
+            component: ViewControlCommentators2
+        },
+        {
+            path: '/commentators4',
+            name: 'ControlCommentators4',
+            meta: { title: "SpinShare LivePanel Controls" },
+            component: ViewControlCommentators4
         },
         {
             path: '/streamend',
