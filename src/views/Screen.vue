@@ -88,7 +88,19 @@
                 if(this.$data.currentState == "Brackets") {
                     transitionTime = 0;
                 }
+                if(this.$data.currentState == "Commentators2") {
+                    transitionTime = 0;
+                }
+                if(this.$data.currentState == "Commentators4") {
+                    transitionTime = 0;
+                }
                 if(ScreenState[newState] == "Brackets") {
+                    transitionTime = 1600;
+                }
+                if(ScreenState[newState] == "Commentators2") {
+                    transitionTime = 1600;
+                }
+                if(ScreenState[newState] == "Commentators4") {
                     transitionTime = 1600;
                 }
 

@@ -1,7 +1,8 @@
 <template>
     <div class="screenCommentators4">
-        <div class="commentators-box">
-            <webview :class="isFullscreen ? 'isFullscreen' : ''" src="https://streamkit.discord.com/overlay/voice/747574206904008844/747601413172887552?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%231e2124&bg_opacity=0.95&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=true&small_avatars=true&hide_names=false&fade_chat=0"></webview>
+        <div class="chat-box">
+            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
         </div>
 
         <div class="users">
@@ -85,6 +86,7 @@
         z-index: 10;
         display: grid;
 
+/*
         & .commentators-box {
             position: absolute;
             top: 8vw;
@@ -118,6 +120,30 @@
                 &.isFullscreen {
                     transform-origin: top left;
                     transform: scale(1.15);
+                }
+            }
+        } */
+
+        & .chat-box {
+            background: #000;
+            border-top-left-radius: 1vw;
+            border-top-right-radius: 1vw;
+            z-index: 30;
+            position: absolute;
+            top: 8vw;
+            right: 5vw;
+            border: 0px;
+            width: 35vw;
+            height: 35vh;
+            overflow: hidden;
+
+            & webview {
+                transform-origin: top left;
+                transform: scale(1.1);
+                height: 100%;
+
+                &.isFullscreen {
+                    transform: scale(1.4);
                 }
             }
         }

@@ -1,7 +1,8 @@
 <template>
     <div class="screenCommentators2">
-        <div class="commentators-box">
-            <webview :class="isFullscreen ? 'isFullscreen' : ''" src="https://streamkit.discord.com/overlay/voice/747574206904008844/747601413172887552?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%231e2124&bg_opacity=0.95&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=true&small_avatars=true&hide_names=false&fade_chat=0"></webview>
+        <div class="chat-box">
+            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
         </div>
 
         <div class="users">
@@ -85,39 +86,26 @@
         z-index: 10;
         display: grid;
 
-        & .commentators-box {
+        & .chat-box {
+            background: #000;
+            border-top-left-radius: 1vw;
+            border-top-right-radius: 1vw;
+            z-index: 30;
             position: absolute;
             bottom: 8vw;
             left: 10vw;
             border: 0px;
-            width: 28vw;
-            height: 35vh;
-            padding: 1vw;
-            background: rgba(255,255,255,0.2);
-            border-radius: 1vw;
+            width: 32vw;
+            height: 30vh;
+            overflow: hidden;
 
-            &:before {
-                content: "COMMENTATORS";
-                display: block;
-                position: absolute;
-                background: #fff;
-                color: #000;
-                font-size: 1.25vw;
-                padding: 1vh 3vw;
-                border-radius: 100vw;
-                font-weight: bold;
-                left: 5.75vw;
-                top: -2.5vh;
-            }
             & webview {
-                margin-top: 2vh;
-                height: 50vh;
                 transform-origin: top left;
-                transform: scale(0.75);
+                transform: scale(1.1);
+                height: 100%;
 
                 &.isFullscreen {
-                    transform-origin: top left;
-                    transform: scale(1.15);
+                    transform: scale(1.4);
                 }
             }
         }
@@ -130,7 +118,7 @@
             width: 50vw;
             margin: 0 auto;
             padding-top: 2vh;
-            height: 35vh;
+            height: 30vh;
             position: absolute;
             bottom: 8vw;
             right: 10vw;
