@@ -186,6 +186,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
+        background: linear-gradient(to left top, #22142e, #4d3163);
         cursor: none;
     }
     .lowerBanner {
