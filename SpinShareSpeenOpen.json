@@ -1,6 +1,6 @@
 {
-    "current_program_scene": "Commentators 4",
-    "current_scene": "Commentators 4",
+    "current_program_scene": "Panel",
+    "current_scene": "Panel",
     "current_transition": "Fade",
     "groups": [
         {
@@ -224,20 +224,26 @@
         },
         "scripts-tool": []
     },
-    "name": "SpinShareSpeenOpen",
+    "name": "SpinShareSpeenOpen_(1)",
     "preview_locked": false,
     "quick_transitions": [],
     "saved_projectors": [
         {
             "alwaysOnTopOverridden": false,
-            "geometry": "AdnQywADAAAAAAgdAAAC7wAACf8AAAQZAAAIHgAAAwsAAAn+AAAEGAAAAAAAAAAACgAAAAgeAAADCwAACf4AAAQY",
+            "geometry": "AdnQywADAAD///r5///7xf///nv///3b///7Af//++T///5z///90wAAAAIAAAAACgD///sB///75P///nP///3T",
             "monitor": -1,
             "name": "Medienquelle",
             "type": 0
         },
         {
             "alwaysOnTopOverridden": false,
-            "geometry": "AdnQywADAAAAAAY9AAAC7wAACB4AAAQZAAAGPgAAAwsAAAgdAAAEGAAAAAAAAAAACgAAAAY+AAADCwAACB0AAAQY",
+            "geometry": "AdnQywADAAD///iHAAAAAP////gAAAQw///4gAAAAAD/////AAAENwAAAAEABAAAB4D///iAAAAAAP////8AAAQ3",
+            "monitor": 1,
+            "type": 3
+        },
+        {
+            "alwaysOnTopOverridden": false,
+            "geometry": "AdnQywADAAD///r5///90v///nv////o///7Af///fH///5z////4AAAAAIAAAAACgD///sB///98f///nP////g",
             "monitor": -1,
             "name": "Medienquelle 2",
             "type": 0
@@ -262,9 +268,79 @@
         },
         {
             "name": "Commentators 4"
+        },
+        {
+            "name": "Scene 2"
         }
     ],
     "sources": [
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "filters": [
+                {
+                    "balance": 0.5,
+                    "deinterlace_field_order": 0,
+                    "deinterlace_mode": 0,
+                    "enabled": true,
+                    "flags": 0,
+                    "hotkeys": {},
+                    "id": "compressor_filter",
+                    "mixers": 255,
+                    "monitoring_type": 0,
+                    "muted": false,
+                    "name": "Compressor",
+                    "prev_ver": 436273152,
+                    "private_settings": {},
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "settings": {
+                        "attack_time": 1,
+                        "output_gain": 2.7999999999999998,
+                        "ratio": 3.0,
+                        "release_time": 1000,
+                        "threshold": -20.0
+                    },
+                    "sync": 0,
+                    "versioned_id": "compressor_filter",
+                    "volume": 1.0
+                }
+            ],
+            "flags": 0,
+            "hotkeys": {
+                "MediaSource.Pause": [],
+                "MediaSource.Play": [],
+                "MediaSource.Restart": [],
+                "MediaSource.Stop": [],
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "ffmpeg_source",
+            "mixers": 255,
+            "monitoring_type": 2,
+            "muted": false,
+            "name": "Media Source 2",
+            "prev_ver": 436273152,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "close_when_inactive": true,
+                "hw_decode": true,
+                "local_file": "C:/Users/thomt/Downloads/ThankYou2020secondEDIT.mp4"
+            },
+            "sync": 0,
+            "versioned_id": "ffmpeg_source",
+            "volume": 1.0
+        },
         {
             "balance": 0.5,
             "deinterlace_field_order": 0,
@@ -316,7 +392,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "db": 5.0
+                        "db": 5
                     },
                     "sync": 0,
                     "versioned_id": "gain_filter",
@@ -341,7 +417,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "threshold": -10.0
+                        "threshold": -10
                     },
                     "sync": 0,
                     "versioned_id": "limiter_filter",
@@ -366,8 +442,8 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "close_threshold": -50.0,
-                        "open_threshold": -45.0
+                        "close_threshold": -50,
+                        "open_threshold": -45
                     },
                     "sync": 0,
                     "versioned_id": "noise_gate_filter",
@@ -404,31 +480,6 @@
             "sync": 0,
             "versioned_id": "browser_source",
             "volume": 0.7582937479019165
-        },
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "image_source",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "commentatorimage",
-            "prev_ver": 436273152,
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "file": "C:/Users/thomt/Documents/GITHUB/spinshare-sssopanel/imagesOBS/commentators.png"
-            },
-            "sync": 0,
-            "versioned_id": "image_source",
-            "volume": 1.0
         },
         {
             "balance": 0.5,
@@ -481,7 +532,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "db": 5.0
+                        "db": 5
                     },
                     "sync": 0,
                     "versioned_id": "gain_filter",
@@ -506,7 +557,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "threshold": -10.0
+                        "threshold": -10
                     },
                     "sync": 0,
                     "versioned_id": "limiter_filter",
@@ -531,8 +582,8 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "close_threshold": -50.0,
-                        "open_threshold": -45.0
+                        "close_threshold": -50,
+                        "open_threshold": -45
                     },
                     "sync": 0,
                     "versioned_id": "noise_gate_filter",
@@ -558,8 +609,8 @@
                     "push-to-talk-delay": 0,
                     "settings": {
                         "attack_time": 1,
-                        "ratio": 3.0,
-                        "threshold": -20.0
+                        "ratio": 3,
+                        "threshold": -20
                     },
                     "sync": 0,
                     "versioned_id": "compressor_filter",
@@ -683,10 +734,10 @@
                         "visible": true
                     },
                     {
-                        "align": 5,
+                        "align": 4,
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "bounds_align": 0,
                         "bounds_type": 0,
@@ -699,14 +750,14 @@
                         "locked": false,
                         "name": "TwoCom",
                         "pos": {
-                            "x": 242.0,
-                            "y": 103.0
+                            "x": 960.0,
+                            "y": 99.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
                         "scale": {
-                            "x": 0.79424780607223511,
-                            "y": 0.79371315240859985
+                            "x": 0.96294248104095459,
+                            "y": 0.96267187595367432
                         },
                         "scale_filter": "disable",
                         "visible": true
@@ -745,7 +796,7 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 25,
+                "id_counter": 34,
                 "items": [
                     {
                         "align": 5,
@@ -819,17 +870,17 @@
                         "crop_top": 0,
                         "group_item_backup": false,
                         "id": 9,
-                        "locked": true,
+                        "locked": false,
                         "name": "Scene",
                         "pos": {
-                            "x": 622.0,
-                            "y": 487.0
+                            "x": 580.0,
+                            "y": 484.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
                         "scale": {
-                            "x": 1.0355902910232544,
-                            "y": 1.0358796119689941
+                            "x": 1.0060763359069824,
+                            "y": 1.0057870149612427
                         },
                         "scale_filter": "disable",
                         "visible": true
@@ -1208,7 +1259,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "contrast": -2.0
+                        "contrast": -2
                     },
                     "sync": 0,
                     "versioned_id": "color_filter",
@@ -1313,10 +1364,10 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "contrast": 0.0,
+                        "contrast": 0,
                         "gamma": 0.91000000000000003,
-                        "hue_shift": 180.0,
-                        "saturation": 0.0
+                        "hue_shift": 180,
+                        "saturation": 0
                     },
                     "sync": 0,
                     "versioned_id": "color_filter",
@@ -1520,7 +1571,7 @@
             },
             "id": "wasapi_output_capture",
             "mixers": 255,
-            "monitoring_type": 2,
+            "monitoring_type": 0,
             "muted": false,
             "name": "Music",
             "prev_ver": 436273152,
@@ -1534,7 +1585,7 @@
             },
             "sync": 0,
             "versioned_id": "wasapi_output_capture",
-            "volume": 0.038820501416921616
+            "volume": 0.023096630349755287
         },
         {
             "balance": 0.5,
@@ -1587,10 +1638,10 @@
                     "push-to-talk-delay": 0,
                     "settings": {
                         "attack_time": 1,
-                        "output_gain": 10.0,
-                        "ratio": 14.0,
+                        "output_gain": 10,
+                        "ratio": 14,
                         "release_time": 553,
-                        "threshold": -35.0
+                        "threshold": -35
                     },
                     "sync": 0,
                     "versioned_id": "compressor_filter",
@@ -1615,7 +1666,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "threshold": -20.0
+                        "threshold": -20
                     },
                     "sync": 0,
                     "versioned_id": "limiter_filter",
@@ -1683,7 +1734,7 @@
                 "libobs.unmute": []
             },
             "id": "vlc_source",
-            "mixers": 255,
+            "mixers": 0,
             "monitoring_type": 2,
             "muted": false,
             "name": "Medienquelle",
@@ -1706,7 +1757,7 @@
             },
             "sync": 0,
             "versioned_id": "vlc_source",
-            "volume": 0.50075078010559082
+            "volume": 0.36191627383232117
         },
         {
             "balance": 0.5,
@@ -1784,10 +1835,10 @@
                     "push-to-talk-delay": 0,
                     "settings": {
                         "attack_time": 1,
-                        "output_gain": 10.0,
-                        "ratio": 14.0,
+                        "output_gain": 10,
+                        "ratio": 14,
                         "release_time": 553,
-                        "threshold": -35.0
+                        "threshold": -35
                     },
                     "sync": 0,
                     "versioned_id": "compressor_filter",
@@ -1812,7 +1863,7 @@
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "threshold": -20.0
+                        "threshold": -20
                     },
                     "sync": 0,
                     "versioned_id": "limiter_filter",
@@ -1857,7 +1908,7 @@
                 "libobs.unmute": []
             },
             "id": "vlc_source",
-            "mixers": 255,
+            "mixers": 0,
             "monitoring_type": 2,
             "muted": true,
             "name": "Medienquelle 2",
@@ -1874,13 +1925,13 @@
                     {
                         "hidden": false,
                         "selected": true,
-                        "value": "rtmp://spinrtmp.tk/live/bdg9r3"
+                        "value": "rtmp://spinrtmp.tk/live/m92bnv"
                     }
                 ]
             },
             "sync": 0,
             "versioned_id": "vlc_source",
-            "volume": 0.50362598896026611
+            "volume": 0.36191627383232117
         },
         {
             "balance": 0.5,
@@ -2110,13 +2161,13 @@
                 "libobs.hide_scene_item.Group 2": [],
                 "libobs.hide_scene_item.Medienquelle": [],
                 "libobs.hide_scene_item.Medienquelle 2": [],
-                "libobs.hide_scene_item.Score Medienquelle": [],
+                "libobs.hide_scene_item.Score Medienquelle ": [],
                 "libobs.hide_scene_item.Score Medienquelle 2": [],
                 "libobs.show_scene_item.Group": [],
                 "libobs.show_scene_item.Group 2": [],
                 "libobs.show_scene_item.Medienquelle": [],
                 "libobs.show_scene_item.Medienquelle 2": [],
-                "libobs.show_scene_item.Score Medienquelle": [],
+                "libobs.show_scene_item.Score Medienquelle ": [],
                 "libobs.show_scene_item.Score Medienquelle 2": []
             },
             "id": "scene",
@@ -2132,7 +2183,7 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 30,
+                "id_counter": 31,
                 "items": [
                     {
                         "align": 5,
@@ -2184,7 +2235,7 @@
                             "y": -961.0
                         },
                         "private_settings": {
-                            "collapsed": false
+                            "collapsed": true
                         },
                         "rot": 0.0,
                         "scale": {
@@ -2207,9 +2258,9 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "group_item_backup": false,
-                        "id": 7,
+                        "id": 6,
                         "locked": false,
-                        "name": "Medienquelle",
+                        "name": "Medienquelle 2",
                         "pos": {
                             "x": 1920.0,
                             "y": 540.0
@@ -2239,9 +2290,9 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "group_item_backup": false,
-                        "id": 6,
+                        "id": 7,
                         "locked": false,
-                        "name": "Medienquelle 2",
+                        "name": "Medienquelle",
                         "pos": {
                             "x": 0.0,
                             "y": 540.0
@@ -2272,8 +2323,8 @@
                         "crop_top": 0,
                         "group_item_backup": false,
                         "id": 15,
-                        "locked": true,
-                        "name": "Score Medienquelle",
+                        "locked": false,
+                        "name": "Score Medienquelle 2",
                         "pos": {
                             "x": 970.0,
                             "y": 195.0
@@ -2301,8 +2352,8 @@
                         "crop_top": 0,
                         "group_item_backup": false,
                         "id": 14,
-                        "locked": true,
-                        "name": "Score Medienquelle 2",
+                        "locked": false,
+                        "name": "Score Medienquelle ",
                         "pos": {
                             "x": 950.0,
                             "y": 195.0
@@ -2593,7 +2644,7 @@
                         "Filter.SDFEffects.Shadow.Outer.Offset.X": -5.7300000000000004,
                         "Filter.SDFEffects.Shadow.Outer.Offset.Y": -6.6100000000000003,
                         "Filter.SDFEffects.Shadow.Outer.Range.Maximum": 8.0700000000000003,
-                        "Filter.SDFEffects.Shadow.Outer.Range.Minimum": -16.0,
+                        "Filter.SDFEffects.Shadow.Outer.Range.Minimum": -16,
                         "Version": 34359738368
                     },
                     "sync": 0,
@@ -2862,7 +2913,7 @@
             "mixers": 255,
             "monitoring_type": 0,
             "muted": false,
-            "name": "Score Medienquelle 2",
+            "name": "Score Medienquelle ",
             "prev_ver": 436273152,
             "private_settings": {},
             "push-to-mute": false,
@@ -2871,11 +2922,11 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "fps": 8,
-                "fps_custom": true,
+                "fps_custom": false,
                 "height": 2000,
                 "restart_when_active": true,
                 "shutdown": true,
-                "url": "http://questboard.xyz/SpinShare/api/players/singleformatright.php/Xmloke",
+                "url": "http://questboard.xyz/SpinShare/api/players/singleformatright.php/g82d9m",
                 "width": 2000
             },
             "sync": 0,
@@ -2913,7 +2964,7 @@
                         "Filter.SDFEffects.Shadow.Outer.Offset.X": -5.7300000000000004,
                         "Filter.SDFEffects.Shadow.Outer.Offset.Y": -6.6100000000000003,
                         "Filter.SDFEffects.Shadow.Outer.Range.Maximum": 8.0700000000000003,
-                        "Filter.SDFEffects.Shadow.Outer.Range.Minimum": -16.0,
+                        "Filter.SDFEffects.Shadow.Outer.Range.Minimum": -16,
                         "Version": 34359738368
                     },
                     "sync": 0,
@@ -3182,7 +3233,7 @@
             "mixers": 255,
             "monitoring_type": 0,
             "muted": false,
-            "name": "Score Medienquelle",
+            "name": "Score Medienquelle 2",
             "prev_ver": 436273152,
             "private_settings": {},
             "push-to-mute": false,
@@ -3191,11 +3242,11 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "fps": 8,
-                "fps_custom": true,
+                "fps_custom": false,
                 "height": 2000,
                 "restart_when_active": true,
                 "shutdown": true,
-                "url": "http://questboard.xyz/SpinShare/api/players/singleformatleft.php/UyTEjg",
+                "url": "http://questboard.xyz/SpinShare/api/players/singleformatleft.php/m92bnv",
                 "width": 2000
             },
             "sync": 0,
@@ -3254,11 +3305,34 @@
                     "push-to-talk-delay": 0,
                     "settings": {
                         "attack_time": 1,
-                        "ratio": 3.0,
-                        "threshold": -20.0
+                        "ratio": 3,
+                        "threshold": -20
                     },
                     "sync": 0,
                     "versioned_id": "compressor_filter",
+                    "volume": 1.0
+                },
+                {
+                    "balance": 0.5,
+                    "deinterlace_field_order": 0,
+                    "deinterlace_mode": 0,
+                    "enabled": false,
+                    "flags": 0,
+                    "hotkeys": {},
+                    "id": "noise_suppress_filter",
+                    "mixers": 255,
+                    "monitoring_type": 0,
+                    "muted": false,
+                    "name": "Noise Suppression",
+                    "prev_ver": 436273152,
+                    "private_settings": {},
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "settings": {},
+                    "sync": 0,
+                    "versioned_id": "noise_suppress_filter_v2",
                     "volume": 1.0
                 }
             ],
@@ -3291,7 +3365,68 @@
             },
             "sync": 0,
             "versioned_id": "browser_source",
-            "volume": 0.75727885961532593
+            "volume": 0.73443526029586792
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.hide_scene_item.Media Source 2": [],
+                "libobs.show_scene_item.Media Source 2": []
+            },
+            "id": "scene",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Scene 2",
+            "prev_ver": 436273152,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "custom_size": false,
+                "id_counter": 2,
+                "items": [
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 2,
+                        "locked": false,
+                        "name": "Media Source 2",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    }
+                ]
+            },
+            "sync": 0,
+            "versioned_id": "scene",
+            "volume": 1.0
         }
     ],
     "transition_duration": 300,
@@ -3303,6 +3438,11 @@
                 "path": "C:/Users/iklik/Creative Cloud Files/weirdoHQ/GamingWeirdos/Streams/10 Free Stinger Transitions/Stinger Transitions/Bubbly Reveal/MOV/Bubbly Reveal  (Blue).mov",
                 "transition_point": 600
             }
+        },
+        {
+            "id": "motion-transition",
+            "name": "Motion",
+            "settings": {}
         }
     ]
 }
