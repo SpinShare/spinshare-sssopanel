@@ -84,10 +84,10 @@
                         return "InGame";
                         break;
                     case "ControlCommentators2":
-                        return "Commentators (2 People)";
+                        return "Commentators (Logo)";
                         break;
                     case "ControlCommentators4":
-                        return "Commentators (4 People)";
+                        return "Commentators (Discord)";
                         break;
                     case "ControlStreamEnd":
                         return "End of Stream";
