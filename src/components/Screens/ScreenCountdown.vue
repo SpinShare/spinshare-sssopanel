@@ -339,6 +339,7 @@
         0% {
             height: 100vh;
             transform: rotate(90deg);
+            animation-timing-function: linear;
         }
         50% {
             height: 90vh;
