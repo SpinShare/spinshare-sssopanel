@@ -314,8 +314,18 @@
         0% {
             height: 110vh;
             transform: rotate(-90deg);
+            animation-timing-function: linear;
         }
         50% {
+            height: 90vh;
+            transform: rotate(0deg);
+        }
+        52% {
+            height: 90vh;
+            transform: rotate(0deg);
+            transform: translateX(-50px);
+        }
+        55% {
             height: 90vh;
             transform: rotate(0deg);
         }
@@ -331,6 +341,15 @@
             transform: rotate(90deg);
         }
         50% {
+            height: 90vh;
+            transform: rotate(0deg);
+        }
+        52% {
+            height: 90vh;
+            transform: rotate(0deg);
+            transform: translateX(50px);
+        }
+        55% {
             height: 90vh;
             transform: rotate(0deg);
         }
