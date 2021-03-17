@@ -1,6 +1,6 @@
 <template>
     <div class="controlInGame">
-        <Fab v-on:click.native="transition()" title="Transition" />
+        <Fab v-on:click.native="transition(), changePlayerAudio(true)" title="Transition" />
 
         <div class="score-split">
             <InputGroup title="Player 1 Score">
