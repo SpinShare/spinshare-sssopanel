@@ -133,7 +133,7 @@
                 left: 48vw;
                 z-index: 2;
                 opacity: 0.3;
-                animation: satAnim 15s infinite linear;
+                animation: satAnim 15s infinite ease-in-out;
 
                 & img {
                     height: 9vw;
@@ -147,7 +147,7 @@
                 left: 48vw;
                 z-index: 2;
                 opacity: 0.6;
-                animation: satAnim2 15s infinite linear;
+                animation: satAnim2 15s infinite ease-in-out;
 
                 & img {
                     height: 9vw;
@@ -248,22 +248,43 @@
         0% {
             height: 110vh;
             transform: rotate(-90deg);
+            animation-timing-function: linear;
         }
         50% {
             height: 90vh;
             transform: rotate(0deg);
         }
+        52% {
+            height: 90vh;
+            transform: rotate(0deg);
+            transform: translateX(-50px);
+        }
+        55% {
+            height: 90vh;
+            transform: rotate(0deg);
+        }
         100% {
-            height: 95vh;
+            height: 100vh;
             transform: rotate(90deg);
         }
     }
+	
 	@keyframes satAnim2 {
         0% {
-            height: 95vh;
+            height: 100vh;
             transform: rotate(90deg);
+            animation-timing-function: linear;
         }
         50% {
+            height: 90vh;
+            transform: rotate(0deg);
+        }
+        52% {
+            height: 90vh;
+            transform: rotate(0deg);
+            transform: translateX(50px);
+        }
+        55% {
             height: 90vh;
             transform: rotate(0deg);
         }
