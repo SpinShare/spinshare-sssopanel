@@ -1,5 +1,11 @@
 <template>
   <div class="screenCurrentlyPlaying">
+    <video
+        height="600"
+        id="video"
+        controls=""
+        src="blob:https://hls-js-dev.netlify.app/3c1ef0d1-b4e9-4b65-81f3-04a7b8d9a380"
+      ></video>
     <div class="blobs">
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -134,6 +140,31 @@ import SSAPI from "../../modules/module.api.js";
 
 import Hls from "hls.js";
 
+if (Hls.isSupported()) {
+  var video = document.getElementById("video");
+  var hls = new Hls({
+    debug: true,
+  });
+  hls.loadSource("https://rtmp.ellite.dev/hls/test.m3u8");
+  hls.attachMedia(video);
+  hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+    video.muted = true;
+    video.play();
+  });
+};
+if (Hls.isSupported()) {
+  var video2 = document.getElementById("video2");
+  var hls = new Hls({
+    debug: true,
+  });
+  hls.loadSource("https://rtmp.ellite.dev/hls/test.m3u8");
+  hls.attachMedia(video2);
+  hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+    video2.muted = true;
+    video2.play();
+  });
+};
+
 export default {
   name: "ScreenInGame",
   data: function () {
@@ -151,14 +182,10 @@ export default {
       useFirstPlayerAudio: true,
     };
   },
-  
+
   mounted: function () {
     let ssapi = new SSAPI();
     let hls = new Hls();
-    let stream = "http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8";
-    let video = this.$refs["video"];
-    hls.loadSource(stream);
-    hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED, function () {
       video.play();
     });
