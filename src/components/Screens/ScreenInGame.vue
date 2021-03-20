@@ -268,7 +268,7 @@ export default {
     }
     & .score-data {
       text-align: center;
-
+      
       & .circles {
         font-size: 2vw;
         font-weight: bold;
