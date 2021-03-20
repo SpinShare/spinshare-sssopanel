@@ -73,6 +73,7 @@
       <div class="score-data">
         <div class="score">{{ player1Score }} &dash; {{ player2Score }}</div>
         <div class="mode">Set {{ currentSet }}/{{ fullSet }}</div>
+        <div class="circles">{{ player1Circles }} / {{ player2Circles }}</div>
       </div>
       <div class="user-data" v-if="player2Data">
         <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
@@ -140,6 +141,8 @@ export default {
       fullSet: 3,
       player1Score: 0,
       player2Score: 0,
+      player1Circles: 0,
+      player2Circles: 0,
       songId: 0,
       player1Data: {},
       player2Data: {},
@@ -179,6 +182,8 @@ export default {
       this.$data.fullSet = newData.fullSet;
       this.$data.player1Score = newData.player1Score;
       this.$data.player2Score = newData.player2Score;
+      this.$data.player1Circles = newData.player1Circles;
+      this.$data.player2Circles = newData.player2Circles;
       this.$data.songId = newData.songId;
     });
     
@@ -293,7 +298,11 @@ export default {
     }
     & .score-data {
       text-align: center;
-
+      
+      & .circles {
+        font-size: 2vw;
+        font-weight: bold;
+      }
       & .score {
         font-size: 3vw;
         font-weight: bold;
