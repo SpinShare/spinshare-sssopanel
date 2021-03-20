@@ -64,6 +64,8 @@ export default {
       fullSet: 3,
       player1Score: 0,
       player2Score: 0,
+      player1Circles: 0,
+      player2Circles: 0,
       songId: 0,
       useFirstPlayerAudio: 0,
     };
@@ -78,6 +80,8 @@ export default {
       this.$data.fullSet = newData.fullSet;
       this.$data.player1Score = newData.player1Score;
       this.$data.player2Score = newData.player2Score;
+      this.$data.player1Circles = newData.player1Circles;
+      this.$data.player2Circles = newData.player2Circles;
       this.$data.songId = newData.songId;
     });
     ipcRenderer.send("get-playerData", {});
@@ -97,6 +101,17 @@ export default {
         fullSet: this.$data.fullSet,
         player1Score: this.$data.player1Score,
         player2Score: this.$data.player2Score,
+        player1Circles:
+          "○".repeat(
+            (parseInt(this.$data.fullSet) + parseInt(1)) / parseInt(2) -
+              parseInt(this.$data.player1Score)
+          ) + "●".repeat(this.$data.player1Score),
+        player2Circles:
+          "●".repeat(this.$data.player2Score) +
+          "○".repeat(
+            (parseInt(this.$data.fullSet) + parseInt(1)) / parseInt(2) -
+              parseInt(this.$data.player2Score)
+          ),
         songId: this.$data.songId,
       });
     },
