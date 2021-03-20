@@ -361,7 +361,7 @@
                 // Top Center
                 &:nth-child(4) { top: 3vh; left: 37vw; animation-delay: -4s; }
                 &:nth-child(5) { top: 14vh; left: 32vw; animation-delay: -5s; }
-                &:nth-child(6) { top: -13vh; left: 54vw; animation-delay: -6s; }
+                &:nth-child(6) { top: -5vh; left: 57vw; animation-delay: -6s; }
                 // Top Left
                 &:nth-child(7) { top: 4vh; left: 3vw; animation-delay: -7s; }
                 &:nth-child(8) { top: 13vh; left: 6vw; animation-delay: -8s; }
