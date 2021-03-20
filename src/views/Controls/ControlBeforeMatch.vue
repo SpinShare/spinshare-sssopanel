@@ -2,12 +2,14 @@
     <div class="controlBeforeMatch">
         <Fab v-on:click.native="transition()" title="Transition" />
 
-        <InputGroup title="Player 1 ID">
-            <input type="number" v-model="player1Id" />
+        <InputGroup title="Player 1" twoInputs="true">
+            <input type="number" v-model="player1Id" placeholder="SpinShare ID" />
+            <input type="text" v-model="player1Key" placeholder="Streaming Key" />
         </InputGroup>
 
-        <InputGroup title="Player 2 ID">
-            <input type="number" v-model="player2Id" />
+        <InputGroup title="Player 2" twoInputs="true">
+            <input type="number" v-model="player2Id" placeholder="SpinShare ID" />
+            <input type="text" v-model="player2Key" placeholder="Streaming Key" />
         </InputGroup>
 
         <InputGroup title="Set Length (3 or 5 or 7 or 9 or whatever)">
@@ -38,6 +40,8 @@ export default {
             fullSet: 0,
             player1Score: 0,
             player2Score: 0,
+            player1Key: "",
+            player2Key: "",
             songId: 0,
         }
     },
@@ -45,6 +49,8 @@ export default {
         ipcRenderer.on('update-playerData', (event, newData) => {
             this.$data.player1Id = newData.player1Id;
             this.$data.player2Id = newData.player2Id;
+            this.$data.player1Key = newData.player1Key;
+            this.$data.player2Key = newData.player2Key;
             this.$data.currentSet = newData.currentSet;
             this.$data.fullSet = newData.fullSet;
             this.$data.player1Score = 0;
@@ -62,6 +68,8 @@ export default {
             ipcRenderer.send('update-playerData', {
                 player1Id: this.$data.player1Id,
                 player2Id: this.$data.player2Id,
+                player1Key: this.$data.player1Key,
+                player2Key: this.$data.player2Key,
                 currentSet: this.$data.currentSet,
                 fullSet: this.$data.fullSet,
                 player1Score: 0,

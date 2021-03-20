@@ -158,19 +158,20 @@
                 });
             });
 
+            /*
             ipcRenderer.on('change-playerAudio', (event, newState) => {
                 console.log(newState);
                 if(this.$data.obsWebsocket != null) {
                     this.$data.obsWebsocket.send('SetMute', {
                         'source': 'Medienquelle',
-                        'mute': !newState.useFirstPlayerAudio
+                        'mute': (newState.useFirstPlayerAudio == 1)
                     });
                     this.$data.obsWebsocket.send('SetMute', {
                         'source': 'Medienquelle 2',
-                        'mute': newState.useFirstPlayerAudio
+                        'mute': (newState.useFirstPlayerAudio == 2)
                     });
                 }
-            });
+            }); */
         },
         beforeDestroy: function() {
             ipcRenderer.removeListener('change-state');

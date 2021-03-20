@@ -149,6 +149,16 @@ ipcMain.on("change-playerAudio", (event, ipcData) => {
     winControls.webContents.send("change-playerAudio", ipcData);
 });
 
+// Streams
+ipcMain.on("start-streams", (event, ipcData) => {
+    winScreen.webContents.send("start-streams");
+    winControls.webContents.send("start-streams");
+});
+ipcMain.on("stop-streams", (event, ipcData) => {
+    winScreen.webContents.send("stop-streams");
+    winControls.webContents.send("stop-streams");
+});
+
 // End of Tournament
 ipcMain.on("update-endoftournamentdata", (event, ipcData) => {
     winScreen.webContents.send("update-endoftournamentdata", ipcData);

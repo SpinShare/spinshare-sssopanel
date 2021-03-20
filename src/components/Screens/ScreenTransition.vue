@@ -28,7 +28,7 @@
 
                 setTimeout(() => {
                     this.$data.transitionActive = false;
-                    console.log("[Transition] Ready again.");
+                    console.log("[Transition] Transition Done.");
                 }, 2000);
             }
         }
