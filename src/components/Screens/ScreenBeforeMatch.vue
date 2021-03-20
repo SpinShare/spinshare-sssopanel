@@ -70,7 +70,7 @@
             return {
                 player1Id: 0,
                 player2Id: 0,
-                fullSet: 0,
+                fullSet: 3,
                 player1Data: {},
                 player2Data: {},
                 isFullscreen: false,
