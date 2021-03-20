@@ -64,10 +64,7 @@
     </div>
     <header>
       <div class="user-data" v-if="player1Data">
-        <div
-          class="avatar"
-          :style="'background-image: url(' + player1Data.avatar + ');'"
-        ></div>
+        <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
         <div class="username">{{ player1Data.username }}</div>
         <div class="pronouns" v-if="player1Data.pronouns != ''">
           {{ player1Data.pronouns }}
@@ -78,10 +75,7 @@
         <div class="mode">Set {{ currentSet }}/{{ fullSet }}</div>
       </div>
       <div class="user-data" v-if="player2Data">
-        <div
-          class="avatar"
-          :style="'background-image: url(' + player2Data.avatar + ');'"
-        ></div>
+        <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
         <div class="username">{{ player2Data.username }}</div>
         <div class="pronouns" v-if="player2Data.pronouns != ''">
           {{ player2Data.pronouns }}
@@ -90,27 +84,23 @@
     </header>
     <div class="screens">
       <div class="screen">
-        <div
-          :class="useFirstPlayerAudio ? 'audio-output active' : 'audio-output'"
-        >
+        <div :class="useFirstPlayerAudio == 1 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
+
+        <video class="video" ref="videoStream1" src="" />
       </div>
       <div class="screen">
-        <div
-          :class="useFirstPlayerAudio ? 'audio-output' : 'audio-output active'"
-        >
+        <div :class="useFirstPlayerAudio == 2 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
+
+        <video class="video" ref="videoStream2" src="" />
       </div>
     </div>
     <footer>
       <div class="song-data" v-if="songData">
-        <div
-          class="song-cover"
-          v-if="songData.paths"
-          :style="'background-image: url(' + songData.paths.cover + ');'"
-        ></div>
+        <div class="song-cover" v-if="songData.paths" :style="'background-image: url(' + songData.paths.cover + ');'"></div>
         <div class="song-metadata">
           <div class="song-title">{{ songData.title }}</div>
           <div class="song-subtitle">{{ songData.subtitle }}</div>
@@ -132,12 +122,20 @@ import { ipcRenderer } from "electron";
 
 import SSAPI from "../../modules/module.api.js";
 
+import HLS from 'hls.js';
+
 export default {
   name: "ScreenInGame",
   data: function () {
     return {
+      player1Stream: null,
+      player2Stream: null,
+      player1DOM: null,
+      player2DOM: null,
       player1Id: 0,
       player2Id: 0,
+      player1Key: "",
+      player2Key: "",
       currentSet: 0,
       fullSet: 3,
       player1Score: 0,
@@ -146,11 +144,14 @@ export default {
       player1Data: {},
       player2Data: {},
       songData: {},
-      useFirstPlayerAudio: true,
+      useFirstPlayerAudio: 0,
     };
   },
   mounted: function () {
     let ssapi = new SSAPI();
+
+    this.$data.player1DOM = this.$refs.videoStream1;
+    this.$data.player2DOM = this.$refs.videoStream2;
 
     ipcRenderer.on("update-playerData", (event, newData) => {
       if (this.$data.player1Id != newData.player1Id) {
@@ -172,16 +173,76 @@ export default {
 
       this.$data.player1Id = newData.player1Id;
       this.$data.player2Id = newData.player2Id;
+      this.$data.player1Key = newData.player1Key;
+      this.$data.player2Key = newData.player2Key;
       this.$data.currentSet = newData.currentSet;
       this.$data.fullSet = newData.fullSet;
       this.$data.player1Score = newData.player1Score;
       this.$data.player2Score = newData.player2Score;
       this.$data.songId = newData.songId;
     });
+    
+    ipcRenderer.on("start-streams", () => {
+      console.log("[Screen] StartStreams");
+
+      // Load stream1
+      let stream1 = "https://rtmp.ellite.dev/hls/test.m3u8";
+      // let stream1 = "ACTUAL STREAM URL" + this.$data.player1Key;
+      if(this.$data.player1Stream != null) {
+        this.$data.player1Stream = null;
+        this.$data.player1DOM.pause();
+      }
+      this.$data.player1Stream = new HLS();
+      this.$data.player1Stream.loadSource(stream1);
+      this.$data.player1Stream.attachMedia(this.$data.player1DOM);
+      this.$data.player1Stream.on(HLS.Events.MANIFEST_PARSED, () => {
+        this.$data.player1DOM.play();
+      });
+      
+      // Load stream2
+      let stream2 = "http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8";
+      // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
+      if(this.$data.player2Stream != null) {
+        this.$data.player2Stream = null;
+        this.$data.player2DOM.pause();
+      }
+      this.$data.player2Stream = new HLS();
+      this.$data.player2Stream.loadSource(stream2);
+      this.$data.player2Stream.attachMedia(this.$data.player2DOM);
+      this.$data.player2Stream.on(HLS.Events.MANIFEST_PARSED, () => {
+        this.$data.player2DOM.play();
+      });
+ 
+      this.$data.player1DOM.volume = 0;
+      this.$data.player2DOM.volume = 0;
+    });
+
+    ipcRenderer.on("stop-streams", () => {
+      console.log("[Screen] StopStreams");
+      this.$data.player1DOM.pause();
+      this.$data.player2DOM.pause();
+    });
 
     ipcRenderer.on("change-playerAudio", (event, newState) => {
       this.$data.useFirstPlayerAudio = newState.useFirstPlayerAudio;
+
+      if(newState.useFirstPlayerAudio == 0) {
+        this.$data.player1DOM.volume = 0;
+        this.$data.player2DOM.volume = 0;
+      } else if(newState.useFirstPlayerAudio == 1) {
+        this.$data.player1DOM.volume = 0.5;
+        this.$data.player2DOM.volume = 0;
+      } else {
+        this.$data.player1DOM.volume = 0;
+        this.$data.player2DOM.volume = 0.5;
+      }
     });
+  },
+  beforeDestroy: function() {
+      ipcRenderer.removeListener('update-playerData');
+      ipcRenderer.removeListener('start-streams');
+      ipcRenderer.removeListener('stop-streams');
+      ipcRenderer.removeListener('change-playerAudio');
   },
 };
 </script>
@@ -251,7 +312,6 @@ export default {
     & .screen {
       position: relative;
       overflow: hidden;
-      background: limegreen;
       height: 0;
       padding-top: 56.25%;
       transition: 2s ease all;
@@ -270,6 +330,7 @@ export default {
         left: 0vw;
         transform: translateX(-3.75vw);
         transition: 0.4s ease-in-out transform;
+        z-index: 1337;
 
         & span {
           margin-left: 0.25vw;
@@ -289,6 +350,16 @@ export default {
         &.active {
           transform: translateX(0vw);
         }
+      }
+
+      & video {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 100%;
+        height: 100%;
       }
     }
   }
