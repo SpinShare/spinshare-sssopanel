@@ -43,6 +43,7 @@
       <div class="score-data">
         <div class="score">{{ player1Score }} &dash; {{ player2Score }}</div>
         <div class="mode">Set {{ currentSet }}/{{ fullSet }}</div>
+        <div class="circles">{{ player1Circles }} / {{ player2Circles }}</div>
       </div>
       <div class="user-data" v-if="player2Data">
         <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
@@ -272,7 +273,6 @@ export default {
         font-size: 2vw;
         font-weight: bold;
       }
-
       & .score {
         font-size: 3vw;
         font-weight: bold;
