@@ -44,6 +44,8 @@
                 player2ID: 0,
                 player1Score: 0,
                 player2Score: 0,
+                player1Circles: 0,
+                player2Circles: 0,
                 songId: 0,
             }
         },
