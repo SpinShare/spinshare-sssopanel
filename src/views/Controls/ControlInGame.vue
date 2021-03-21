@@ -68,6 +68,8 @@ export default {
       player2Score: 0,
       player1Circles: 0,
       player2Circles: 0,
+      score1: "",
+      score2: "",
       songId: 0,
       useFirstPlayerAudio: 0,
     };
@@ -78,6 +80,8 @@ export default {
       this.$data.player2Id = newData.player2Id;
       this.$data.player1Key = newData.player1Key;
       this.$data.player2Key = newData.player2Key;
+      this.$data.score1 = newData.score1;
+      this.$data.score2 = newData.score2;
       this.$data.currentSet = newData.currentSet;
       this.$data.fullSet = newData.fullSet;
       this.$data.player1Score = newData.player1Score;
@@ -99,6 +103,8 @@ export default {
         player2Id: this.$data.player2Id,
         player1Key: this.$data.player1Key,
         player2Key: this.$data.player2Key,
+        score1: this.$data.score1,
+        score2: this.$data.score2,
         currentSet: this.$data.currentSet,
         fullSet: this.$data.fullSet,
         player1Score: this.$data.player1Score,

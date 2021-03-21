@@ -1,5 +1,7 @@
 <template>
-    <div class="screenTesting"></div>
+    <div class="screenTesting">
+        
+    </div>
 </template>
 
 <script>
@@ -19,5 +21,8 @@
         background: url('../../assets/img/Wallpaper.png');
         background-size: cover;
         display: grid;
+    }
+    iframe {
+        
     }
 </style>
