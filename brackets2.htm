@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Toornament</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<iframe src="" class="iframe1" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+		<iframe src="" class="iframe2" frameborder="0" allowfullscreen="true" scrolling="no"></iframe>
+		
+		<style>
+			html, body {
+				margin: 0px;
+				width: 100%;
+				height: 100%;
+				user-select: none;
+				pointer-events: none;
+			}
+			iframe {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 27%;
+				height: 240%;
+				overflow: hidden;
+				background: transparent;
+			}
+			iframe.active {
+				left: 0px;
+			}
+		</style>
+		
+		<script>
+			let myFrame1 = document.querySelector(".iframe1");
+			let myFrame2 = document.querySelector(".iframe2");
+			
+			function reloadIFrame1() {
+				myFrame1.src = "https://widget.toornament.com/tournaments/4380178619867095040/stages/4380203103633956864/?_locale=en_US";
+				myFrame1.onload = function() {
+					myFrame1.classList.add("active");
+					myFrame2.classList.remove("active");
+				};
+			}
+			function reloadIFrame2() {
+				myFrame2.src = "https://widget.toornament.com/tournaments/4380178619867095040/stages/4380203103633956864/?_locale=en_US";
+				myFrame2.onload = function() {
+					myFrame1.classList.remove("active");
+					myFrame2.classList.add("active");
+				};
+			}
+			
+			reloadIFrame1();
+			setInterval(function () {
+				reloadIFrame1();
+			}, 5000);
+			setTimeout(function() {
+				setInterval(function () {
+					reloadIFrame2();
+				}, 5000);
+			}, 2500);
+		</script>
+	</body>
+</html>
