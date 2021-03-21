@@ -161,7 +161,7 @@ export default {
       console.log("[Screen] StartStreams");
 
       // Load stream1
-      let stream1 = "https://rtmp.ellite.dev/hls/test.m3u8";
+      let stream1 = "https://rtmp.ellite.dev/hls/" + this.$data.player1Key + ".m3u8";
       // let stream1 = "ACTUAL STREAM URL" + this.$data.player1Key;
       if(this.$data.player1Stream != null) {
         this.$data.player1Stream = null;
@@ -175,7 +175,7 @@ export default {
       });
       
       // Load stream2
-      let stream2 = "http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8";
+      let stream2 = "https://rtmp.ellite.dev/hls/" + this.$data.player2Key + ".m3u8";
       // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
       if(this.$data.player2Stream != null) {
         this.$data.player2Stream = null;
