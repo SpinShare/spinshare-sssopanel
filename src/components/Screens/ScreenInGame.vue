@@ -88,14 +88,14 @@
         <div :class="useFirstPlayerAudio == 1 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score1" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        <iframe class="score1" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + this.$data.score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
         <video class="video" ref="videoStream1" src="" />
       </div>
       <div class="screen">
         <div :class="useFirstPlayerAudio == 2 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score2" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        <iframe class="score2" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + this.$data.score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
         <video class="video" ref="videoStream2" src="" />
       </div>
     </div>
