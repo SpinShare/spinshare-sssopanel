@@ -65,7 +65,7 @@
             <span class="mdi mdi-music"></span>
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
-        <div class="title">GROUP STAGE</div>
+        <div class="title">{{ topLeftText }}</div>
 		<div class="comingup">COMING UP</div>
 
     </div>
@@ -87,6 +87,7 @@
                 player2Id: 0,
                 player1Data: {},
                 player2Data: {},
+                topLeftText: "GROUP STAGE",
             }
         },
         mounted: function() {
@@ -118,6 +119,7 @@
                 this.$data.snipAuthor = snipData.author;
             });
             ipcRenderer.on('update-bracketsData', (event, newData) => {
+                this.$data.topLeftText = newData.topLeftText;
                 this.$data.toornamentEventId = newData.toornamentEventId;
                 this.$data.toornamentStageId = newData.toornamentStageId;
             });
