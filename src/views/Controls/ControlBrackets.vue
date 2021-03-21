@@ -10,7 +10,7 @@
       <input type="number" v-model="toornamentStageId" />
     </InputGroup>
     <InputGroup title="Top Left Text">
-      <input type="string" v-model="topLeftText" placeholder="Brackets" />
+      <input type="string" v-model="topLeftText" placeholder="GROUP STAGE" />
     </InputGroup>
 
     <button v-on:click="updateData()">Update</button>
