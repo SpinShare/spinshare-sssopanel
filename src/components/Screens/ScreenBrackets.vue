@@ -87,7 +87,7 @@
                 player2Id: 0,
                 player1Data: {},
                 player2Data: {},
-                topLeftText: "GROUP STAGE",
+                topLeftText: "PLAYOFFS STAGE",
             }
         },
         mounted: function() {
