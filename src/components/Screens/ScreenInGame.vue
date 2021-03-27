@@ -88,14 +88,14 @@
         <div :class="useFirstPlayerAudio == 1 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-
+        <iframe class="score1" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + this.$data.score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
         <video class="video" ref="videoStream1" src="" />
       </div>
       <div class="screen">
         <div :class="useFirstPlayerAudio == 2 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-
+        <iframe class="score2" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + this.$data.score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
         <video class="video" ref="videoStream2" src="" />
       </div>
     </div>
@@ -148,6 +148,8 @@ export default {
       player2Data: {},
       songData: {},
       useFirstPlayerAudio: 0,
+      score1: "",
+      score2: "",
     };
   },
   mounted: function () {
@@ -178,6 +180,8 @@ export default {
       this.$data.player2Id = newData.player2Id;
       this.$data.player1Key = newData.player1Key;
       this.$data.player2Key = newData.player2Key;
+      this.$data.score1 = newData.score1;
+      this.$data.score2 = newData.score2;
       this.$data.currentSet = newData.currentSet;
       this.$data.fullSet = newData.fullSet;
       this.$data.player1Score = newData.player1Score;
@@ -369,6 +373,23 @@ export default {
         right: 0px;
         width: 100%;
         height: 100%;
+      }
+
+      & .score1 {
+        z-index: 1336;
+        position: absolute;
+        top: -66.5%;
+        bottom: 0px;
+        left: 36%;
+        transform: scale(0.26);
+      }
+      & .score2 {
+        z-index: 1336;
+        position: absolute;
+        top: -66.5%;
+        bottom: 0px;
+        left: -36%;
+        transform: scale(0.26);
       }
     }
   }
