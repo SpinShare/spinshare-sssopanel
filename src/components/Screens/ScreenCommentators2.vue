@@ -41,6 +41,7 @@
             <span class="mdi mdi-music"></span>
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
+        <iframe id="cams" class="cams" src="https://obs.ninja/?scene&room=spin2&sl&mono&transparent&style=2&hideheader&cc&transparent" frameborder="0"></iframe>
     </div>
 </template>
 
@@ -270,6 +271,14 @@
             & strong {
                 margin-right: 1vw;
             }
+        }
+        & .cams {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 9vh;
+            width: 95vw;
+            height: 45vh;
+            z-index: 999;
         }
     }
 

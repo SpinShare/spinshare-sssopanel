@@ -52,6 +52,7 @@
             <span class="mdi mdi-music"></span>
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
+        <iframe id="cams" class="cams" src="https://obs.ninja/?scene&room=spin2&sl&mono&style=2&hideheader&cc&transparent&enhance&nv" frameborder="0"></iframe>
     </div>
 </template>
 
