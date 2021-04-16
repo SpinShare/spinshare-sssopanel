@@ -93,18 +93,18 @@
                 position: absolute;
                 width: 5vw;
                 height: 5vw;
-                animation: blobAnimSmall 10s infinite alternate linear;
+                animation: blobAnimSmall 10s infinite alternate ease-in-out;
                 transition: 2s ease all;
 
                 &:nth-child(2n) {
                     width: 10vw;
                     height: 10vw;
-                    animation: blobAnimMedium 15s infinite alternate linear;
+                    animation: blobAnimMedium 15s infinite alternate ease-in-out;
                 }
                 &:nth-child(3n) {
                     width: 20vw;
                     height: 20vw;
-                    animation: blobAnimBig 20s infinite alternate linear;
+                    animation: blobAnimBig 20s infinite alternate ease-in-out;
                 }
 
                 // Bottom Right

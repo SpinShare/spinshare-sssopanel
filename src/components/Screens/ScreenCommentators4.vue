@@ -1,18 +1,18 @@
 <template>
     <div class="screenCommentators4">
         <div class="obs-ninja">
-            <webview :src="'https://obs.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&cleanoutput=true&transparent=true&hideheader=true'" ref="obsNinjaWebview4"></webview>
+            <webview :src="'https://obs.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&cleanoutput=true&transparent=true&hideheader=true&showlabels=skype'" ref="obsNinjaWebview4"></webview>
         </div>
 
         <div class="chat-box">
-            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
-            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
         </div>
 
         <div class="users">
             <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
-                <div class="username">{{ player1Data.username }}</div>
+                <div class="username">{{ player1Data.username }}</div> 
                 <div class="pronouns" v-if="player1Data.pronouns != null">{{ player1Data.pronouns }}</div>
             </div>
             <div class="versus">VS.</div>
@@ -128,29 +128,29 @@
                 position: absolute;
                 width: 2vw;
                 height: 2vw;
-                animation: blobAnimSmall 10s infinite alternate linear;
+                animation: blobAnimSmall 10s infinite alternate ease-in-out;
                 transition: 2s ease all;
 
                 &:nth-child(2n) {
                     width: 4vw;
                     height: 4vw;
-                    animation: blobAnimMedium 15s infinite alternate linear;
+                    animation: blobAnimMedium 15s infinite alternate ease-in-out;
                 }
                 &:nth-child(3n) {
                     width: 6vw;
                     height: 6vw;
-                    animation: blobAnimBig 20s infinite alternate linear;
+                    animation: blobAnimBig 20s infinite alternate ease-in-out;
                 }
 
                 // Top Left
                 &:nth-child(1) { top: 2vh; left: 5vw; animation-delay: -1s; }
 
                 // Bottom left
-                &:nth-child(2) { top: 70vh; left: 2vw; animation-delay: -2s; }
+                &:nth-child(2) { top: 71vh; left: 1vw; animation-delay: -2s; }
                 &:nth-child(3) { top: 70vh; left: 85vw; animation-delay: -3s; }
                 // Bottom Left
-                &:nth-child(4) { top: 75vh; left: 10vw; animation-delay: -4s; }
-                &:nth-child(5) { top: 88vh; left: 4vw; animation-delay: -5s; }
+                &:nth-child(4) { top: 75vh; left: 8vw; animation-delay: -4s; }
+                &:nth-child(5) { top: 87vh; left: 2vw; animation-delay: -5s; }
             }
         }
 
@@ -238,18 +238,18 @@
                 position: absolute;
                 width: 5vw;
                 height: 5vw;
-                animation: blobAnimSmall 10s infinite alternate linear;
+                animation: blobAnimSmall 10s infinite alternate ease-in-out;
                 transition: 2s ease all;
 
                 &:nth-child(2n) {
                     width: 10vw;
                     height: 10vw;
-                    animation: blobAnimMedium 15s infinite alternate linear;
+                    animation: blobAnimMedium 15s infinite alternate ease-in-out;
                 }
                 &:nth-child(3n) {
                     width: 20vw;
                     height: 20vw;
-                    animation: blobAnimBig 20s infinite alternate linear;
+                    animation: blobAnimBig 20s infinite alternate ease-in-out;
                 }
             }
         }
@@ -279,10 +279,10 @@
 
         & .obs-ninja {
             position: absolute;
-            top: 15vh;
-            bottom: 15vh;
-            left: 5vw;
-            right: 45vw;
+            top: 12vh;
+            bottom: 12vh;
+            left: 2.5vw;
+            right: 42.5vw;
 
             & webview {
                 position: absolute;

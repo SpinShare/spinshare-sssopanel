@@ -488,18 +488,18 @@ export default {
       position: absolute;
       width: 3vw;
       height: 3vw;
-      animation: blobAnimSmall 10s infinite alternate linear;
+      animation: blobAnimSmall 10s infinite alternate ease-in-out;
       transition: 2s ease all;
 
       &:nth-child(2n) {
         width: 6vw;
         height: 6vw;
-        animation: blobAnimMedium 15s infinite alternate linear;
+        animation: blobAnimMedium 15s infinite alternate ease-in-out;
       }
       &:nth-child(3n) {
         width: 12vw;
         height: 12vw;
-        animation: blobAnimBig 20s infinite alternate linear;
+        animation: blobAnimBig 20s infinite alternate ease-in-out;
       }
 
       // Bottom Center
