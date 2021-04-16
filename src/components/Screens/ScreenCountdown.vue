@@ -38,7 +38,7 @@
         </div>
 
         <div class="logo">
-            <img src="../../assets/img/Logo_SSSO_Winter2020_OnDark.svg" alt="SSSO Logo" />
+            <img src="../../assets/img/Logo_SSSO_Spring2021_OnDark.svg" alt="SSSO Logo" />
         </div>
 
         <div class="timer">
@@ -198,7 +198,7 @@
         & .timer {
             z-index: 20;
             text-align: center;
-            background: url("../../assets/img/Countdown_Cresent_Winter.svg");
+            background: url("../../assets/img/Countdown_Cresent_Spring.svg");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
