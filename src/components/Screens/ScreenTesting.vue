@@ -1,12 +1,13 @@
 <template>
     <div class="screenTesting">
-        
     </div>
 </template>
 
 <script>
     export default {
-        name: 'ScreenTesting'
+        name: 'ScreenTesting',
+        mounted: function() {
+        }
     }
 </script>
 

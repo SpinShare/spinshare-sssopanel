@@ -60,6 +60,8 @@ export default {
       player2Id: 0,
       player1Key: "",
       player2Key: "",
+      player1Region: "",
+      player2Region: "",
       currentSet: 0,
       fullSet: 3,
       player1Score: 0,
@@ -78,6 +80,8 @@ export default {
       this.$data.player2Id = newData.player2Id;
       this.$data.player1Key = newData.player1Key;
       this.$data.player2Key = newData.player2Key;
+      this.$data.player1Region = newData.player1Region;
+      this.$data.player2Region = newData.player2Region;
       this.$data.score1 = newData.score1;
       this.$data.score2 = newData.score2;
       this.$data.currentSet = newData.currentSet;
@@ -101,6 +105,8 @@ export default {
         player2Id: this.$data.player2Id,
         player1Key: this.$data.player1Key,
         player2Key: this.$data.player2Key,
+        player1Region: this.$data.player1Region,
+        player2Region: this.$data.player2Region,
         score1: this.$data.score1,
         score2: this.$data.score2,
         currentSet: this.$data.currentSet,

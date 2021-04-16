@@ -66,7 +66,7 @@
       <div class="user-data" v-if="player1Data">
         <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
         <div class="username">{{ player1Data.username }}</div>
-        <div class="pronouns" v-if="player1Data.pronouns != ''">
+        <div class="pronouns" v-if="player1Data.pronouns != '' && player1Data.pronouns != null">
           {{ player1Data.pronouns }}
         </div>
       </div>
@@ -78,7 +78,7 @@
       <div class="user-data" v-if="player2Data">
         <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
         <div class="username">{{ player2Data.username }}</div>
-        <div class="pronouns" v-if="player2Data.pronouns != ''">
+        <div class="pronouns" v-if="player2Data.pronouns != '' && player2Data.pronouns != null">
           {{ player2Data.pronouns }}
         </div>
       </div>
@@ -88,15 +88,19 @@
         <div :class="useFirstPlayerAudio == 1 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score1" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + this.$data.score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
-        <video class="video" ref="videoStream1" src="" />
+        <iframe class="score1" v-if="this.$data.score1 != ''" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + this.$data.score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        <div class="video">
+          <div id="player1Screen"></div>
+        </div>
       </div>
       <div class="screen">
         <div :class="useFirstPlayerAudio == 2 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score2" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + this.$data.score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
-        <video class="video" ref="videoStream2" src="" />
+        <iframe class="score2" v-if="this.$data.score2 != ''" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + this.$data.score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        <div class="video">
+          <div id="player2Screen"></div>
+        </div>
       </div>
     </div>
     <footer>
@@ -123,20 +127,18 @@ import { ipcRenderer } from "electron";
 
 import SSAPI from "../../modules/module.api.js";
 
-import HLS from 'hls.js';
-
 export default {
   name: "ScreenInGame",
   data: function () {
     return {
       player1Stream: null,
       player2Stream: null,
-      player1DOM: null,
-      player2DOM: null,
       player1Id: 0,
       player2Id: 0,
       player1Key: "",
       player2Key: "",
+      player1Region: "",
+      player2Region: "",
       currentSet: 0,
       fullSet: 3,
       player1Score: 0,
@@ -154,9 +156,6 @@ export default {
   },
   mounted: function () {
     let ssapi = new SSAPI();
-
-    this.$data.player1DOM = this.$refs.videoStream1;
-    this.$data.player2DOM = this.$refs.videoStream2;
 
     ipcRenderer.on("update-playerData", (event, newData) => {
       if (this.$data.player1Id != newData.player1Id) {
@@ -180,6 +179,8 @@ export default {
       this.$data.player2Id = newData.player2Id;
       this.$data.player1Key = newData.player1Key;
       this.$data.player2Key = newData.player2Key;
+      this.$data.player1Region = newData.player1Region;
+      this.$data.player2Region = newData.player2Region;
       this.$data.score1 = newData.score1;
       this.$data.score2 = newData.score2;
       this.$data.currentSet = newData.currentSet;
@@ -194,60 +195,68 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
 
-      // Load stream1
-      let stream1 = "https://rtmp.ellite.dev/hls/" + this.$data.player1Key + ".m3u8";
-      // let stream1 = "ACTUAL STREAM URL" + this.$data.player1Key;
-      if(this.$data.player1Stream != null) {
-        this.$data.player1Stream = null;
-        this.$data.player1DOM.pause();
-      }
-      this.$data.player1Stream = new HLS();
-      this.$data.player1Stream.loadSource(stream1);
-      this.$data.player1Stream.attachMedia(this.$data.player1DOM);
-      this.$data.player1Stream.on(HLS.Events.MANIFEST_PARSED, () => {
-        this.$data.player1DOM.play();
+      // Load streams
+      let player1Url = "wss://" + this.$data.player1Region + ".srtmp.tk:3334/app/" + this.$data.player1Key;
+      this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
+          autoStart: true,
+          controls: false,
+          showBigPlayButton: false,
+          volume: 0,
+          sources: [
+              {
+                  type: "webrtc",
+                  file: player1Url,
+                  label: "MAIN STREAM",
+              },
+          ]
+      });
+      let player2Url = "wss://" + this.$data.player2Region + ".srtmp.tk:3334/app/" + this.$data.player2Key;
+      this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
+          autoStart: true,
+          controls: false,
+          showBigPlayButton: false,
+          volume: 0,
+          sources: [
+              {
+                  type: "webrtc",
+                  file: player2Url,
+                  label: "MAIN STREAM",
+              },
+          ]
       });
       
       // Load stream2
       let stream2 = "https://rtmp.ellite.dev/hls/" + this.$data.player2Key + ".m3u8";
       // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
-      if(this.$data.player2Stream != null) {
-        this.$data.player2Stream = null;
-        this.$data.player2DOM.pause();
-      }
-      this.$data.player2Stream = new HLS();
-      this.$data.player2Stream.loadSource(stream2);
-      this.$data.player2Stream.attachMedia(this.$data.player2DOM);
-      this.$data.player2Stream.on(HLS.Events.MANIFEST_PARSED, () => {
-        this.$data.player2DOM.play();
-      });
- 
-      this.$data.player1DOM.volume = 0;
-      this.$data.player2DOM.volume = 0;
     });
 
     ipcRenderer.on("stop-streams", () => {
       console.log("[Screen] StopStreams");
-      this.$data.player1DOM.pause();
-      this.$data.player2DOM.pause();
+      // Pause Streams
+      this.$data.player1Stream.remove();
+      this.$data.player2Stream.remove();
     });
 
     ipcRenderer.on("change-playerAudio", (event, newState) => {
       this.$data.useFirstPlayerAudio = newState.useFirstPlayerAudio;
 
       if(newState.useFirstPlayerAudio == 0) {
-        this.$data.player1DOM.volume = 0;
-        this.$data.player2DOM.volume = 0;
+        // Mute Both
+        this.$data.player1Stream.setVolume(0);
+        this.$data.player2Stream.setVolume(0);
       } else if(newState.useFirstPlayerAudio == 1) {
-        this.$data.player1DOM.volume = 0.5;
-        this.$data.player2DOM.volume = 0;
+        // Mute 2
+        this.$data.player1Stream.setVolume(100);
+        this.$data.player2Stream.setVolume(0);
       } else {
-        this.$data.player1DOM.volume = 0;
-        this.$data.player2DOM.volume = 0.5;
+        // Mute 1
+        this.$data.player1Stream.setVolume(0);
+        this.$data.player2Stream.setVolume(100);
       }
     });
   },
   beforeDestroy: function() {
+      ipcRenderer.send("stop-streams");
       ipcRenderer.removeListener('update-playerData');
       ipcRenderer.removeListener('start-streams');
       ipcRenderer.removeListener('stop-streams');
@@ -365,7 +374,7 @@ export default {
         }
       }
 
-      & video {
+      & .video {
         position: absolute;
         top: 0px;
         bottom: 0px;

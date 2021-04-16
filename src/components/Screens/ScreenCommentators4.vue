@@ -1,5 +1,9 @@
 <template>
     <div class="screenCommentators4">
+        <div class="obs-ninja">
+            <webview :src="'https://obs.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&cleanoutput=true&transparent=true&hideheader=true'" ref="obsNinjaWebview4"></webview>
+        </div>
+
         <div class="chat-box">
             <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
             <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/747599065058902078?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
@@ -60,6 +64,8 @@
                 player2Id: 0,
                 player1Data: {},
                 player2Data: {},
+                obsNinjaViewID: "",
+                obsNinjaViewPassword: ""
             }
         },
         mounted: function() {
@@ -85,6 +91,12 @@
             });
             remote.getCurrentWindow().on('leave-full-screen', () => {
                 this.$data.isFullscreen = false;
+            });
+            ipcRenderer.on('update-commentatorsData', (event, newData) => {
+                this.$data.obsNinjaViewID = newData.obsNinjaViewID;
+                this.$data.obsNinjaViewPassword = newData.obsNinjaViewPassword;
+            
+                this.$refs.obsNinjaWebview4.setAudioMuted(true);
             });
             ipcRenderer.send('get-snipData');
             ipcRenderer.on('update-snipData', (event, snipData) => {
@@ -262,6 +274,22 @@
             }
             & strong {
                 margin-right: 1vw;
+            }
+        }
+
+        & .obs-ninja {
+            position: absolute;
+            top: 15vh;
+            bottom: 15vh;
+            left: 5vw;
+            right: 45vw;
+
+            & webview {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
             }
         }
     }

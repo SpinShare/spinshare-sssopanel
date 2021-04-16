@@ -31,6 +31,7 @@ function createWindow () {
         resizable: false,
         backgroundColor: '#121212',
         show: false,
+        webSecurity: false,
         webPreferences: {
             nodeIntegration: true,
             webviewTag: true
@@ -157,6 +158,19 @@ ipcMain.on("start-streams", (event, ipcData) => {
 ipcMain.on("stop-streams", (event, ipcData) => {
     winScreen.webContents.send("stop-streams");
     winControls.webContents.send("stop-streams");
+});
+
+// Commentators
+let commentatorsData = {};
+ipcMain.on("update-commentatorsData", (event, ipcData) => {
+    commentatorsData = ipcData;
+
+    winScreen.webContents.send("update-commentatorsData", ipcData);
+    winControls.webContents.send("update-commentatorsData", ipcData);
+});
+ipcMain.on("get-commentatorsData", (event, ipcData) => {
+    winScreen.webContents.send("update-commentatorsData", ipcData);
+    winControls.webContents.send("update-commentatorsData", ipcData);
 });
 
 // End of Tournament

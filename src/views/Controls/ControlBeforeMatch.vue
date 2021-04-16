@@ -4,14 +4,28 @@
 
         <InputGroup title="Player 1" twoInputs="true">
             <input type="number" v-model="player1Id" placeholder="SpinShare ID" />
-            <input type="text" v-model="player1Key" placeholder="Streaming Key" />
             <input type="text" v-model="score1" placeholder="LiveScore" />
+            <select v-model="player1Region">
+                <option value="oce">OCE</option>
+                <option value="usw">USW</option>
+                <option value="use">USE</option>
+                <option value="eu">EU</option>
+                <option value="cnd">CND</option>
+            </select>
+            <input type="text" v-model="player1Key" placeholder="Streaming Key" />
         </InputGroup>
 
         <InputGroup title="Player 2" twoInputs="true">
             <input type="number" v-model="player2Id" placeholder="SpinShare ID" />
-            <input type="text" v-model="player2Key" placeholder="Streaming Key" />
             <input type="text" v-model="score2" placeholder="LiveScore" />
+            <select v-model="player2Region">
+                <option value="oce">OCE</option>
+                <option value="usw">USW</option>
+                <option value="use">USE</option>
+                <option value="eu">EU</option>
+                <option value="cnd">CND</option>
+            </select>
+            <input type="text" v-model="player2Key" placeholder="Streaming Key" />
         </InputGroup>
 
         <InputGroup title="Set Length (3 or 5 or 7 or 9 or whatever)">
@@ -44,6 +58,8 @@ export default {
             player2Score: 0,
             player1Key: "",
             player2Key: "",
+            player1Region: "",
+            player2Region: "",
             score1:"",
             score2:"",
             songId: 0,
@@ -55,6 +71,8 @@ export default {
             this.$data.player2Id = newData.player2Id;
             this.$data.player1Key = newData.player1Key;
             this.$data.player2Key = newData.player2Key;
+            this.$data.player1Region = newData.player1Region;
+            this.$data.player2Region = newData.player2Region;
             this.$data.score1 = newData.score1;
             this.$data.score2 = newData.score2;
             this.$data.currentSet = newData.currentSet;
@@ -76,6 +94,8 @@ export default {
                 player2Id: this.$data.player2Id,
                 player1Key: this.$data.player1Key,
                 player2Key: this.$data.player2Key,
+                player1Region: this.$data.player1Region,
+                player2Region: this.$data.player2Region,
                 score1: this.$data.score1,
                 score2: this.$data.score2,
                 currentSet: this.$data.currentSet,
@@ -92,5 +112,16 @@ export default {
 <style scoped lang="less">
     .controlBeforeMatch {
         padding: 5px 20px;
+
+        & select {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border: 0;
+            border-radius: 4px;
+
+            & option {
+                color: #000;
+            }
+        }
     }
 </style>
