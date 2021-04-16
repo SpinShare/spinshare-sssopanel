@@ -43,7 +43,7 @@
                 <div class="username">{{ winnerData.username }}</div>
                 <div class="title">
                     SpinShare SpeenOpen<br />
-                    Winter 2020 Winner
+                    Spring 2021 Winner
                 </div>
             </div>
         </div>
