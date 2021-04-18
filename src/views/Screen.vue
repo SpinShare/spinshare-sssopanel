@@ -135,7 +135,9 @@
                             'scene-name': 'Commentators 4'
                         });
                     } else if(newState == 'Countdown') {
-                        this.$data.obsWebsocket.send('SetCurrentScene', {'scene-name': 'Countdown'})
+                        this.$data.obsWebsocket.send('SetCurrentScene', {
+                            'scene-name': 'Countdown'
+                        });
                     } else {
                         this.$data.obsWebsocket.send('SetCurrentScene', {
                             'scene-name': 'Panel'
