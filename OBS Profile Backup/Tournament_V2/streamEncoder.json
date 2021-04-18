@@ -1,4 +1,6 @@
 {
-    "H264.Profile": 4,
-    "RateControl.Bitrate.Target": 12000
+    "bitrate": 6000,
+    "gpu": 0,
+    "preset": "mq",
+    "rate_control": "CBR"
 }
