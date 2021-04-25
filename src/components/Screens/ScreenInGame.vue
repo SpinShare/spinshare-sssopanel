@@ -196,7 +196,7 @@ export default {
       console.log("[Screen] StartStreams");
 
       // Load streams
-      let player1Url = "wss://" + this.$data.player1Region + ".srtmp.tk:3334/app/" + this.$data.player1Key;
+      let player1Url = "ws://" + this.$data.player1Region + ".srtmp.tk:3333/app/" + this.$data.player1Key;
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           autoStart: true,
           controls: false,
@@ -210,7 +210,7 @@ export default {
               },
           ]
       });
-      let player2Url = "wss://" + this.$data.player2Region + ".srtmp.tk:3334/app/" + this.$data.player2Key;
+      let player2Url = "ws://" + this.$data.player2Region + ".srtmp.tk:3333/app/" + this.$data.player2Key;
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           autoStart: true,
           controls: false,
