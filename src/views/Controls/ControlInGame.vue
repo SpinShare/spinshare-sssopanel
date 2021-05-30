@@ -8,7 +8,7 @@
       </InputGroup>
 
       <InputGroup title="Player 2 Score">
-        <input type="number" v-model="player2Score" placeholder="Score"/>
+        <input type="number" v-model="player2Score" placeholder="Score" />
       </InputGroup>
     </div>
 
@@ -23,21 +23,23 @@
     <button v-on:click="updateData()">Update</button>
 
     <InputGroup title="Music Output" twoInputs="true">
-      <button :disabled="useFirstPlayerAudio == 1" v-on:click="changePlayerAudio(1)">
+      <button
+        :disabled="useFirstPlayerAudio == 1"
+        v-on:click="changePlayerAudio(1)"
+      >
         Set to Player 1
       </button>
-      <button :disabled="useFirstPlayerAudio == 2" v-on:click="changePlayerAudio(2)">
+      <button
+        :disabled="useFirstPlayerAudio == 2"
+        v-on:click="changePlayerAudio(2)"
+      >
         Set to Player 2
       </button>
     </InputGroup>
 
     <InputGroup title="Streams" twoInputs="true">
-      <button v-on:click="startStreams()">
-        Start Streams
-      </button>
-      <button v-on:click="stopStreams()">
-        Stop Streams
-      </button>
+      <button v-on:click="startStreams()">Start Streams</button>
+      <button v-on:click="stopStreams()">Stop Streams</button>
     </InputGroup>
   </div>
 </template>
@@ -136,20 +138,20 @@ export default {
         useFirstPlayerAudio: this.$data.useFirstPlayerAudio,
       });
     },
-    startStreams: function() {
+    startStreams: function () {
       console.log("[Controls] StartStreams");
       ipcRenderer.send("start-streams");
     },
-    stopStreams: function() {
+    stopStreams: function () {
       console.log("[Controls] StopStreams");
       ipcRenderer.send("stop-streams");
-    }, 
+    },
   },
-  beforeDestroy: function() {
-      ipcRenderer.removeListener('update-playerData');
-      ipcRenderer.removeListener('start-streams');
-      ipcRenderer.removeListener('stop-streams');
-      ipcRenderer.removeListener('change-playerAudio');
+  beforeDestroy: function () {
+    ipcRenderer.removeListener("update-playerData");
+    ipcRenderer.removeListener("start-streams");
+    ipcRenderer.removeListener("stop-streams");
+    ipcRenderer.removeListener("change-playerAudio");
   },
 };
 </script>

@@ -85,9 +85,7 @@
                 console.log("[Screen] ChangeState -> " + newState);
 
                 let transitionTime = 1000;
-                if(this.$data.currentState == "Brackets") {
-                    transitionTime = 0;
-                }
+
                 if(this.$data.currentState == "Commentators2") {
                     transitionTime = 0;
                 }
@@ -102,6 +100,9 @@
                 }
                 if(ScreenState[newState] == "Commentators4") {
                     transitionTime = 1600;
+                }
+                if(this.$data.currentState == "Brackets") {
+                    transitionTime = 0;
                 }
 
                 setTimeout(() => {

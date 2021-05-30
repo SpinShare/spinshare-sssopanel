@@ -53,7 +53,7 @@ export default {
             player1Id: 0,
             player2Id: 0,
             currentSet: 0,
-            fullSet: 3,
+            fullSet: 0,
             player1Score: 0,
             player2Score: 0,
             player1Key: "",
