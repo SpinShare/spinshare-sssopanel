@@ -96,10 +96,10 @@ export default {
           return "InGame";
           break;
         case "ControlCommentators2":
-          return "Commentators (Logo)";
+          return "Commentators (2 People)";
           break;
         case "ControlCommentators4":
-          return "Commentators (Discord)";
+          return "Commentators (4 People)";
           break;
         case "ControlStreamEnd":
           return "End of Stream";
