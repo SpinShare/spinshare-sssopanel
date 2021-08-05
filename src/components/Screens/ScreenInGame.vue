@@ -88,7 +88,7 @@
         <div :class="useFirstPlayerAudio == 1 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score1" v-if="this.$data.score1 != ''" :src="'http://questboard.xyz/SpinShare/api/players/singleformatright.php/' + this.$data.score1" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        
         <div class="video">
           <div id="player1Screen"></div>
         </div>
@@ -97,7 +97,7 @@
         <div :class="useFirstPlayerAudio == 2 ? 'audio-output active' : 'audio-output'">
           <span class="mdi mdi-volume-high"></span>
         </div>
-        <iframe class="score2" v-if="this.$data.score2 != ''" :src="'http://questboard.xyz/SpinShare/api/players/singleformatleft.php/' + this.$data.score2" frameborder="0" height="200%" width="100%" scrolling="no"></iframe>
+        
         <div class="video">
           <div id="player2Screen"></div>
         </div>
