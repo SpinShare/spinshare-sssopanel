@@ -6,9 +6,6 @@
             <input type="number" v-model="player1Id" placeholder="SpinShare ID" />
             <input type="text" v-model="score1" placeholder="LiveScore" />
             <select v-model="player1Region">
-                <option value="oce">OCE</option>
-                <option value="usw">USW</option>
-                <option value="use">USE</option>
                 <option value="eu">EU</option>
                 <option value="cnd">CND</option>
             </select>
@@ -19,9 +16,6 @@
             <input type="number" v-model="player2Id" placeholder="SpinShare ID" />
             <input type="text" v-model="score2" placeholder="LiveScore" />
             <select v-model="player2Region">
-                <option value="oce">OCE</option>
-                <option value="usw">USW</option>
-                <option value="use">USE</option>
                 <option value="eu">EU</option>
                 <option value="cnd">CND</option>
             </select>
