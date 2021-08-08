@@ -4,7 +4,7 @@
 
         <InputGroup title="Player 1" twoInputs="true">
             <input type="number" v-model="player1Id" placeholder="SpinShare ID" />
-            <input type="text" v-model="score1" placeholder="LiveScore" />
+            <!-- <input type="text" v-model="score1" placeholder="LiveScore" /> -->
             <select v-model="player1Region">
                 <option value="eu">EU</option>
                 <option value="cnd">CND</option>
@@ -14,7 +14,7 @@
 
         <InputGroup title="Player 2" twoInputs="true">
             <input type="number" v-model="player2Id" placeholder="SpinShare ID" />
-            <input type="text" v-model="score2" placeholder="LiveScore" />
+            <!-- <input type="text" v-model="score2" placeholder="LiveScore" /> -->
             <select v-model="player2Region">
                 <option value="eu">EU</option>
                 <option value="cnd">CND</option>
