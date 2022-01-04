@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
+    "graphql": "^16.2.0",
     "hls.js": "^0.14.17",
     "obs-websocket-js": "^4.0.2",
     "v-tooltip": "^2.0.3",
