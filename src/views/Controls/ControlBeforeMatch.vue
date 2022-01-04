@@ -5,24 +5,23 @@
         <InputGroup title="Player 1" twoInputs="true">
             <input type="number" v-model="player1Id" placeholder="SpinShare ID" />
             <!-- <input type="text" v-model="score1" placeholder="LiveScore" /> -->
-            <select v-model="player1Region">
-                <option value="eu">EU</option>
-                <option value="cnd">CND</option>
-            </select>
-            <input type="text" v-model="player1Key" placeholder="Streaming Key" />
+            <input type="text" v-model="player1Key" placeholder="VRCDN Name" />
         </InputGroup>
 
         <InputGroup title="Player 2" twoInputs="true">
             <input type="number" v-model="player2Id" placeholder="SpinShare ID" />
             <!-- <input type="text" v-model="score2" placeholder="LiveScore" /> -->
-            <select v-model="player2Region">
-                <option value="eu">EU</option>
-                <option value="cnd">CND</option>
-            </select>
-            <input type="text" v-model="player2Key" placeholder="Streaming Key" />
+            <input type="text" v-model="player2Key" placeholder="VRCDN Name" />
         </InputGroup>
 
         <InputGroup title="Set Length (3 or 5 or 7 or 9 or whatever)">
+            <!-- 4 buttons that set the v-model="fullSet" to the number of buttons -->
+            <button v-on:click="updateData(fullSet = 3)" class="btn btn-primary">3</button>
+            <button v-on:click="updateData(fullSet = 5)" class="btn btn-primary">5</button>
+            <button v-on:click="updateData(fullSet = 7)" class="btn btn-primary">7</button>
+            <button v-on:click="updateData(fullSet = 9)" class="btn btn-primary">9</button>
+            <!-- number input field -->
+            
             <input type="number" v-model="fullSet" />
         </InputGroup>
 
@@ -65,8 +64,6 @@ export default {
             this.$data.player2Id = newData.player2Id;
             this.$data.player1Key = newData.player1Key;
             this.$data.player2Key = newData.player2Key;
-            this.$data.player1Region = newData.player1Region;
-            this.$data.player2Region = newData.player2Region;
             this.$data.score1 = newData.score1;
             this.$data.score2 = newData.score2;
             this.$data.currentSet = newData.currentSet;
@@ -88,8 +85,6 @@ export default {
                 player2Id: this.$data.player2Id,
                 player1Key: this.$data.player1Key,
                 player2Key: this.$data.player2Key,
-                player1Region: this.$data.player1Region,
-                player2Region: this.$data.player2Region,
                 score1: this.$data.score1,
                 score2: this.$data.score2,
                 currentSet: this.$data.currentSet,
