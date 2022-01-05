@@ -64,7 +64,7 @@ export default {
       player2Key: "",
       player1Region: "",
       player2Region: "",
-      currentSet: 1,
+      currentSet: 0,
       fullSet: 3,
       player1Score: 0,
       player2Score: 0,

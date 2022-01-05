@@ -175,6 +175,8 @@ export default {
       this.$data.player2Id = newData.player2Id;
       this.$data.player1Key = newData.player1Key;
       this.$data.player2Key = newData.player2Key;
+      this.$data.player1Region = newData.player1Region;
+      this.$data.player2Region = newData.player2Region;
       this.$data.score1 = newData.score1;
       this.$data.score2 = newData.score2;
       this.$data.currentSet = newData.currentSet;
@@ -189,7 +191,7 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "https://stream.vrcdn.live/live/" + this.$data.player1Key + ".live.mp4";
+      let player1Url = "ws://" + this.$data.player1Region + ".srtmp.tk:3333/app/" + this.$data.player1Key;
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           autoStart: true,
           controls: false,
@@ -197,13 +199,13 @@ export default {
           volume: 0,
           sources: [
               {
-                  type: "mp4",
+                  type: "webrtc",
                   file: player1Url,
                   label: "MAIN STREAM",
               },
           ]
       });
-      let player2Url = "https://stream.vrcdn.live/live/" + this.$data.player2Key + ".live.mp4";
+      let player2Url = "ws://" + this.$data.player2Region + ".srtmp.tk:3333/app/" + this.$data.player2Key;
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           autoStart: true,
           controls: false,
@@ -211,12 +213,16 @@ export default {
           volume: 0,
           sources: [
               {
-                  type: "mp4",
+                  type: "webrtc",
                   file: player2Url,
                   label: "MAIN STREAM",
               },
           ]
       });
+      
+      // Load stream2
+      let stream2 = "https://rtmp.ellite.dev/hls/" + this.$data.player2Key + ".m3u8";
+      // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
     });
     ipcRenderer.on("stop-streams", () => {
       console.log("[Screen] StopStreams");
