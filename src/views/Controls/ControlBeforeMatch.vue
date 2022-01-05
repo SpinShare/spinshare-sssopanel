@@ -7,8 +7,11 @@
             <!-- <input type="text" v-model="score1" placeholder="LiveScore" /> -->
             <select v-model="player1Region">
                 <option value="eu">EU</option>
-                <option value="cnd">CND</option>
+                <option value="na">NA</option>
+                <option value="jp">JP</option>
+                <option value="au">AU</option>
             </select>
+            
             <input type="text" v-model="player1Key" placeholder="Streaming Key" />
         </InputGroup>
 
@@ -17,13 +20,20 @@
             <!-- <input type="text" v-model="score2" placeholder="LiveScore" /> -->
             <select v-model="player2Region">
                 <option value="eu">EU</option>
-                <option value="cnd">CND</option>
+                <option value="na">NA</option>
+                <option value="jp">JP</option>
+                <option value="au">AU</option>
             </select>
             <input type="text" v-model="player2Key" placeholder="Streaming Key" />
         </InputGroup>
 
         <InputGroup title="Set Length (3 or 5 or 7 or 9 or whatever)">
             <input type="number" v-model="fullSet" />
+            <!-- buttons with the values 3, 5, 7 and 9 -->
+            <button type="button" v-on:click="updateData(fullSet=3)">3</button>
+            <button type="button" v-on:click="updateData(fullSet=5)">5</button>
+            <button type="button" v-on:click="updateData(fullSet=7)">7</button>
+            <button type="button" v-on:click="updateData(fullSet=9)">9</button>
         </InputGroup>
 
         <button v-on:click="updateData()">Update</button>

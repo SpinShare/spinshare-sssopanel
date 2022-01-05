@@ -125,6 +125,7 @@
 <script>
 import { ipcRenderer } from "electron";
 import SSAPI from "../../modules/module.api.js";
+
 export default {
   name: "ScreenInGame",
   data: function () {
@@ -152,6 +153,7 @@ export default {
       score2: "",
     };
   },
+
   mounted: function () {
     let ssapi = new SSAPI();
     ipcRenderer.on("update-playerData", (event, newData) => {
@@ -191,7 +193,7 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "ws://" + this.$data.player1Region + ".srtmp.tk:3333/app/" + this.$data.player1Key;
+      let player1Url = "http://" + this.$data.player1Region + ".ingest.vrcdn.live/relay/" + this.$data.player1Key;
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           autoStart: true,
           controls: false,
@@ -199,13 +201,13 @@ export default {
           volume: 0,
           sources: [
               {
-                  type: "webrtc",
+                  type: "mp4",
                   file: player1Url,
                   label: "MAIN STREAM",
               },
           ]
       });
-      let player2Url = "ws://" + this.$data.player2Region + ".srtmp.tk:3333/app/" + this.$data.player2Key;
+      let player2Url = "http://" + this.$data.player2Region + ".ingest.vrcdn.live/relay/" + this.$data.player2Key;
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           autoStart: true,
           controls: false,
@@ -213,7 +215,7 @@ export default {
           volume: 0,
           sources: [
               {
-                  type: "webrtc",
+                  type: "mp4",
                   file: player2Url,
                   label: "MAIN STREAM",
               },
@@ -224,6 +226,7 @@ export default {
       let stream2 = "https://rtmp.ellite.dev/hls/" + this.$data.player2Key + ".m3u8";
       // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
     });
+
     ipcRenderer.on("stop-streams", () => {
       console.log("[Screen] StopStreams");
       // Pause Streams

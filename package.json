@@ -22,6 +22,7 @@
     "graphql": "^16.2.0",
     "hls.js": "^0.14.17",
     "obs-websocket-js": "^4.0.2",
+    "smashgg.js": "^4.1.17",
     "v-tooltip": "^2.0.3",
     "vue": "^2.6.11",
     "vue-i18n": "^8.20.0",
