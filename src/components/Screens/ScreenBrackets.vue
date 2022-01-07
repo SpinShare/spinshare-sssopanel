@@ -38,6 +38,22 @@
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
         <div class="title">{{ topLeftText }}</div>
+        <div class="bracketDisplay">
+            <div class="qualiBracketDisplay">
+                <div class="round1">
+                    <div class="Player1-Name">Player 1</div>
+                    <div class="Player1-Score">0</div>
+                    <div class="Player2-Name">Player 2</div>
+                    <div class="Player2-Score">0</div>
+                </div>
+                <div class="round2">
+                    <div class="Player1-Name">Player 1</div>
+                    <div class="Player1-Score">0</div>
+                    <div class="Player2-Name">Player 2</div>
+                    <div class="Player2-Score">0</div>                    
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -154,7 +170,88 @@
                 margin-right: 1vw;
             }
         }
+        & .bracketDisplay {
+            z-index: 25;
+            position: absolute;
+            top: 12.5vh;
+            left:7.5vw;
+            right: 7.5vw;
+            bottom:12.5vh;
+            font-size: 1.5vw;
+            background: #fff;
+            color: #fff;
+            padding: 0.5vh 0vw;
+            display: flex;
+            align-items: center;
+            & .mdi {
+                font-size: 2vw;
+                margin-right: 0.75vw;
+            }
+
+            & .qualiBracketDisplay {
+                z-index: 25;
+                position: absolute;
+                top: 1vh;
+                left:0.75vw;
+                right: 0.75vw;
+                bottom:1vh;
+                font-size: 1.5vw;
+                background: rgb(150, 0, 0);
+                color: #fff;
+                padding: 0.5vh 0vw;
+                display: flex;
+                align-items: center;
+                
+                & .round1 {
+                    z-index: 25;
+                    position: absolute;
+                    top: 3vh;
+                    left:2vw;
+                    width:25%;
+                    font-size: 2vw;
+                    background: rgb(0, 109, 0);
+                    color: #fff;
+                    padding: 0.5vh 0.5vw;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;    
+                    display: grid; 
+                    grid-template-columns: 1.5fr 0.5fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 10px 20px; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                             
+                }
+                
+                & .round2 {
+                    z-index: 25;
+                    position: absolute;
+                    left:2vw;
+                    bottom:3vh;
+                    width:25%;
+                    font-size: 2vw;
+                    background: rgb(0, 109, 0);
+                    color: #fff;
+                    padding: 0.5vh 0.5vw;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;    
+                    display: grid; 
+                    gap: 10px 20px; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                
+                .Player1-Name { grid-area: Player1-Name; background: #000;}
+                .Player1-Score { grid-area: Player1-Score; background: #000;}
+                .Player2-Name { grid-area: Player2-Name; background: #000;}
+                .Player2-Score { grid-area: Player2-Score; background: #000;width:20%;}            
+            }
+        }
     }
+
     @keyframes blobAnimSmall {
         0% {
             transform: translate(1vw, 0vh);
