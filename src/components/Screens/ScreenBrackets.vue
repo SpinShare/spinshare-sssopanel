@@ -41,21 +41,40 @@
         <div class="bracketDisplay">
             <div class="qualiBracketDisplay">
                 <div class="round1">
-                    <div class="Player1-Name">Player 1</div>
-                    <div class="Player1-Score">0</div>
-                    <div class="Player2-Name">Player 2</div>
-                    <div class="Player2-Score">0</div>
+                    <div id="r1-p1-name" class="Player1-Name"></div>
+                    <div id="r1-p1-score" class="Player1-Score"></div>
+                    <div id="r1-p2-name" class="Player2-Name"></div>
+                    <div id="r1-p2-score" class="Player2-Score"></div>
                 </div>
                 <div class="round2">
-                    <div class="Player1-Name">Player 1</div>
-                    <div class="Player1-Score">0</div>
-                    <div class="Player2-Name">Player 2</div>
-                    <div class="Player2-Score">0</div>                    
+                    <div id="r2-p1-name" class="Player1-Name"></div>
+                    <div id="r2-p1-score" class="Player1-Score"></div>
+                    <div id="r2-p2-name" class="Player2-Name"></div>
+                    <div id="r2-p2-score" class="Player2-Score"></div>                  
                 </div>
+                <div class="win-r2">
+                    <div id="win-r2-p1-name" class="Player1-Name"></div>
+                    <div id="win-r2-p1-score" class="Player1-Score"></div>
+                    <div id="win-r2-p2-name" class="Player2-Name"></div>
+                    <div id="win-r2-p2-score" class="Player2-Score"></div>                    
+                </div>
+                <div class="lose-r1">
+                    <div id="lose-r1-p1-name" class="Player1-Name"></div>
+                    <div id="lose-r1-p1-score" class="Player1-Score"></div>
+                    <div id="lose-r1-p2-name" class="Player2-Name"></div>
+                    <div id="lose-r1-p2-score" class="Player2-Score"></div>                    
+                </div>
+                <div class="lose-r2">
+                    <div id="lose-r2-p1-name" class="Player1-Name"></div>
+                    <div id="lose-r2-p1-score" class="Player1-Score"></div>
+                    <div id="lose-r2-p2-name" class="Player2-Name"></div>
+                    <div id="lose-r2-p2-score" class="Player2-Score"></div>                    
+                </div>                                                
             </div>
         </div>
     </div>
 </template>
+
 
 <script>
     import { remote, ipcRenderer } from 'electron';
@@ -84,7 +103,16 @@
         },
         methods: {
         }
+
     }
+
+/*function setText(id,newvalue) {
+    var s= document.getElementById(id);
+    s.innerHTML = newvalue;
+}
+
+setText("lose-r2-p2-score","1");*/
+
 </script>
 
 <style scoped lang="less">
@@ -178,7 +206,7 @@
             right: 7.5vw;
             bottom:12.5vh;
             font-size: 1.5vw;
-            background: #fff;
+                background: rgba(255, 255, 255, 0);
             color: #fff;
             padding: 0.5vh 0vw;
             display: flex;
@@ -196,7 +224,7 @@
                 right: 0.75vw;
                 bottom:1vh;
                 font-size: 1.5vw;
-                background: rgb(150, 0, 0);
+                background: rgba(255, 50, 238, 0);
                 color: #fff;
                 padding: 0.5vh 0vw;
                 display: flex;
@@ -205,20 +233,19 @@
                 & .round1 {
                     z-index: 25;
                     position: absolute;
-                    top: 3vh;
-                    left:2vw;
-                    width:25%;
+                    top: 7vh;
+                    left:7.5vw;
+                    width:37.5%;
                     font-size: 2vw;
-                    background: rgb(0, 109, 0);
-                    color: #fff;
-                    padding: 0.5vh 0.5vw;
-                    display: flex;
-                    align-items: center;
-                    text-align: center;    
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;    
                     display: grid; 
-                    grid-template-columns: 1.5fr 0.5fr; 
+                    grid-template-columns: 1.7fr 0.3fr; 
                     grid-template-rows: 1fr 1fr; 
-                    gap: 10px 20px; 
+                    gap: 1.2vh 1.5vw; 
                     grid-template-areas: 
                         "Player1-Name Player1-Score"
                         "Player2-Name Player2-Score";                             
@@ -227,27 +254,87 @@
                 & .round2 {
                     z-index: 25;
                     position: absolute;
-                    left:2vw;
-                    bottom:3vh;
-                    width:25%;
+                    left:7.5vw;
+                    top:22vh;
+                    width:37.5%;
                     font-size: 2vw;
-                    background: rgb(0, 109, 0);
-                    color: #fff;
-                    padding: 0.5vh 0.5vw;
-                    display: flex;
-                    align-items: center;
-                    text-align: center;    
-                    display: grid; 
-                    gap: 10px 20px; 
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;    
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
                     grid-template-areas: 
                         "Player1-Name Player1-Score"
                         "Player2-Name Player2-Score";                                                      
                 }
-                
-                .Player1-Name { grid-area: Player1-Name; background: #000;}
-                .Player1-Score { grid-area: Player1-Score; background: #000;}
-                .Player2-Name { grid-area: Player2-Name; background: #000;}
-                .Player2-Score { grid-area: Player2-Score; background: #000;width:20%;}            
+                & .win-r2 {
+                    z-index: 25;
+                    position: absolute;
+                    right:7.5vw;
+                    top:15vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;  
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                
+                & .lose-r1 {
+                    z-index: 25;
+                    position: absolute;
+                    left:7.5vw;
+                    bottom:7.5vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;  
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .lose-r2 {
+                    z-index: 25;
+                    position: absolute;
+                    right:7.5vw;
+                    bottom:15vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                                
+                .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
+                .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;}
+                .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
+                .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;}            
             }
         }
     }

@@ -23,15 +23,15 @@
     
     <InputGroup title="Phase Group (Qualifiers Only)">
       <select id="selectedQualiGroup">
-        <option value="DB1" v-on:click="updateData()">NOT QUALIFIERS</option>
-        <option value="AA1" v-on:click="updateData()">(7) swagdude, Daquat, Abysmal Cosmos, AngryScootsman</option>
-        <option value="AB1" v-on:click="updateData()">(4) Mapy, tetrachris, oproerling, CaliCalicko</option>
-        <option value="BA1" v-on:click="updateData()">(1) TreXDer, Kwazi, haomakk, Avri</option>
-        <option value="BB1" v-on:click="updateData()">(6) PnO_Mader, metalman20, Halflite, CarbonCarbon12</option>
-        <option value="CA1" v-on:click="updateData()">(2) Ricki, GaviGuy, Franco, Drogin_dunlane</option>
-        <option value="CB1" v-on:click="updateData()">(8) Konomi, Ballinbino, Cahobo, Nemo</option>
-        <option value="DA1" v-on:click="updateData()">(5) Pick, Krauvando, Gamer97, FlyinPoulpus</option>
-        <option value="DB1" v-on:click="updateData()">(3) Programmatic, Edge, Loosiano, Aexus</option>
+        <option value="0" v-on:click="updateData()">EXAMPLE</option>
+        <option value="1581602" v-on:click="updateData()">(7) swagdude, Daquat, Abysmal Cosmos, AngryScootsman</option>
+        <option value="1581599" v-on:click="updateData()">(4) Mapy, tetrachris, oproerling, CaliCalicko</option>
+        <option value="1581592" v-on:click="updateData()">(1) TreXDer, Kwazi, haomakk, Avri</option>
+        <option value="1581601" v-on:click="updateData()">(6) PnO_Mader, metalman20, Halflite, CarbonCarbon12</option>
+        <option value="1581597" v-on:click="updateData()">(2) Ricki, GaviGuy, Franco, Drogin_dunlane</option>
+        <option value="1581603" v-on:click="updateData()">(8) Konomi, Ballinbino, Cahobo, Nemo</option>
+        <option value="1581600" v-on:click="updateData()">(5) Pick, Krauvando, Gamer97, FlyinPoulpus</option>
+        <option value="1581598" v-on:click="updateData()">(3) Programmatic, Edge, Loosiano, Aexus</option>
       </select>
     </InputGroup>
 
