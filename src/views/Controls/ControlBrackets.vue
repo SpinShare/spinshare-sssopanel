@@ -22,7 +22,7 @@
     </InputGroup>
     
     <InputGroup title="Phase Group (Qualifiers Only)">
-      <select id="selectedQualiGroup" @change="onChange($selectedQ)">
+      <select id="selectedQualiGroup" @change="selectCategory($groupSel)">
         <option value="1581602">(7) swagdude, Daquat, Abysmal Cosmos, AngryScootsman</option>
         <option value="1581599">(4) Mapy, tetrachris, oproerling, CaliCalicko</option>
         <option value="1581592">(1) TreXDer, Kwazi, haomakk, Avri</option>
@@ -86,12 +86,12 @@ export default {
   },
   mounted: function () {},
   methods: {
-    onChange(selectedQ){
-      selectedPhase: selectedQ.target.options[e.target.options.selectedIndex].text;
+      selectCategory(groupSel) {
+      let selectedPhase = groupSel.target.value;
     },
 
     getSmashGroupData: async function(){
-      let phaseGroup1 = await PhaseGroup.get(vm.selected.selPhaseGroup);
+      let phaseGroup1 = await PhaseGroup.get(1581602);
       
 
 
