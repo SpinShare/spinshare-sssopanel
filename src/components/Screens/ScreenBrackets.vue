@@ -39,36 +39,37 @@
         </div>
         <div class="title">{{ topLeftText }}</div>
         <div class="bracketDisplay">
+        
             <div class="qualiBracketDisplay">
                 <div class="round1">
-                    <div id="r1-p1-name" class="Player1-Name"></div>
-                    <div id="r1-p1-score" class="Player1-Score"></div>
-                    <div id="r1-p2-name" class="Player2-Name"></div>
-                    <div id="r1-p2-score" class="Player2-Score"></div>
+                    <div id="r1-p1-name" class="Player1-Name">{{ r1p1name }}</div>
+                    <div id="r1-p1-score" class="Player1-Score">{{ r1p1score }}</div>
+                    <div id="r1-p2-name" class="Player2-Name">{{ r1p2name }}</div>
+                    <div id="r1-p2-score" class="Player2-Score">{{ r1p2score }}</div>
                 </div>
                 <div class="round2">
-                    <div id="r2-p1-name" class="Player1-Name"></div>
-                    <div id="r2-p1-score" class="Player1-Score"></div>
-                    <div id="r2-p2-name" class="Player2-Name"></div>
-                    <div id="r2-p2-score" class="Player2-Score"></div>                  
+                    <div id="r2-p1-name" class="Player1-Name">{{ r2p1name }}</div>
+                    <div id="r2-p1-score" class="Player1-Score">{{ r2p1score }}</div>
+                    <div id="r2-p2-name" class="Player2-Name">{{ r2p2name }}</div>
+                    <div id="r2-p2-score" class="Player2-Score">{{ r2p2score }}</div>                  
                 </div>
                 <div class="win-r2">
-                    <div id="win-r2-p1-name" class="Player1-Name"></div>
-                    <div id="win-r2-p1-score" class="Player1-Score"></div>
-                    <div id="win-r2-p2-name" class="Player2-Name"></div>
-                    <div id="win-r2-p2-score" class="Player2-Score"></div>                    
+                    <div id="win-r2-p1-name" class="Player1-Name">{{ winr2p1name }}</div>
+                    <div id="win-r2-p1-score" class="Player1-Score">{{ winr2p1score }}</div>
+                    <div id="win-r2-p2-name" class="Player2-Name">{{ winr2p2name }}</div>
+                    <div id="win-r2-p2-score" class="Player2-Score">{{ winr2p2score }}</div>                    
                 </div>
                 <div class="lose-r1">
-                    <div id="lose-r1-p1-name" class="Player1-Name"></div>
-                    <div id="lose-r1-p1-score" class="Player1-Score"></div>
-                    <div id="lose-r1-p2-name" class="Player2-Name"></div>
-                    <div id="lose-r1-p2-score" class="Player2-Score"></div>                    
+                    <div id="lose-r1-p1-name" class="Player1-Name">{{ loser1p1name }}</div>
+                    <div id="lose-r1-p1-score" class="Player1-Score">{{ loser1p1score }}</div>
+                    <div id="lose-r1-p2-name" class="Player2-Name">{{ loser1p2name }}</div>
+                    <div id="lose-r1-p2-score" class="Player2-Score">{{ loser1p2score }}</div>                    
                 </div>
                 <div class="lose-r2">
-                    <div id="lose-r2-p1-name" class="Player1-Name"></div>
-                    <div id="lose-r2-p1-score" class="Player1-Score"></div>
-                    <div id="lose-r2-p2-name" class="Player2-Name"></div>
-                    <div id="lose-r2-p2-score" class="Player2-Score"></div>                    
+                    <div id="lose-r2-p1-name" class="Player1-Name">{{ loser2p1name }}</div>
+                    <div id="lose-r2-p1-score" class="Player1-Score">{{ loser2p1score }}</div>
+                    <div id="lose-r2-p2-name" class="Player2-Name">{{ loser2p2name }}</div>
+                    <div id="lose-r2-p2-score" class="Player2-Score">{{ loser2p2score }}</div>                    
                 </div>                                                
             </div>
         </div>
@@ -77,6 +78,7 @@
 
 
 <script>
+
     import { remote, ipcRenderer } from 'electron';
     export default {
         name: 'ScreenBrackets',
@@ -86,11 +88,61 @@
                 toornamentStageId: 0,
                 snipTitle: "",
                 snipAuthor: "",
-				topLeftText: "BRACKETS"
+				topLeftText: "BRACKETS",
+
+                r1p1name: "Round 1 Player 1",
+                r1p1score: 0,
+                r1p2name: "Round 1 Player 2",
+                r1p2score: 0,
+
+                r2p1name: "Round 2 Player 1",
+                r2p1score: 0,
+                r2p2name: "Round 2 Player 2",
+                r2p2score: 0,
+
+                winr2p1name: "Winner of Round 1",
+                winr2p1score: 0,
+                winr2p2name: "Winner of Round 2",
+                winr2p2score: 0,
+
+                loser1p1name: "Loser of Round 1",
+                loser1p1score: 0,
+                loser1p2name: "Loser of Round 2",
+                loser1p2score: 0,
+
+                loser2p1name: "Loser of Winners Round",
+                loser2p1score: 0,
+                loser2p2name: "Winner of Losers Round",
+                loser2p2score: 0,
             }
         },
         mounted: function() {
             ipcRenderer.on('update-bracketsData', (event, newData) => {
+                this.$data.r1p1name =   newData.r1p1name;
+                this.$data.r1p1score =  newData.r1p1score;
+                this.$data.r1p2name =   newData.r1p2name;
+                this.$data.r1p2score =  newData.r1p2score;
+
+                this.$data.r2p1name =   newData.r2p1name;
+                this.$data.r2p1score =  newData.r2p1score;
+                this.$data.r2p2name =   newData.r2p2name;
+                this.$data.r2p2score =  newData.r2p2score;
+
+                this.$data.winr2p1name =    newData.winr2p1name;
+                this.$data.winr2p1score =   newData.winr2p1score;
+                this.$data.winr2p2name =    newData.winr2p2name;
+                this.$data.winr2p2score =   newData.winr2p2score;
+
+                this.$data.loser1p1name =   newData.loser1p1name;
+                this.$data.loser1p1score =  newData.loser1p1score;
+                this.$data.loser1p2name =   newData.loser1p2name;
+                this.$data.loser1p2score =  newData.loser1p2score;
+
+                this.$data.loser2p1name =   newData.loser2p1name;
+                this.$data.loser2p1score =  newData.loser2p1score;
+                this.$data.loser2p2name =   newData.loser2p2name;
+                this.$data.loser2p2score =  newData.loser2p2score;
+
                 this.$data.toornamentEventId = newData.toornamentEventId;
                 this.$data.toornamentStageId = newData.toornamentStageId;
 				this.$data.topLeftText = newData.topLeftText;
@@ -102,8 +154,9 @@
             });
         },
         methods: {
-        }
-
+       
+       }
+        
     }
 
 /*function setText(id,newvalue) {
