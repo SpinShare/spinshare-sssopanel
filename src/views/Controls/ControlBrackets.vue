@@ -39,6 +39,8 @@
 </template>
 
 <script>
+const axios = require('axios').default;
+let smashData = null;
 import { remote, ipcRenderer } from "electron";
 
 import Fab from "@/components/Controls/Fab.vue";
@@ -46,11 +48,30 @@ import InputGroup from "@/components/Controls/InputGroup.vue";
 
 const yourServerUrl  = 'https://api.smash.gg/gql/alpha/';
 const yourQuery = {
-  query: `{
-          id: 1581602,
-          page: 1,
-          perPage: 3
-      }`
+  query: `{phaseGroup(id:1581602){
+              id
+              displayIdentifier
+              sets(
+                page: 1
+                perPage: 20
+                sortType: STANDARD
+              ){
+                pageInfo{
+                  total
+                }
+                nodes{
+                  id
+                  slots{
+                    id
+                    entrant{
+                      id
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }`
   };
 
 
@@ -96,15 +117,58 @@ export default {
   methods: {
  
     getSmashGroupData: function(){
-      const xhr = new XMLHttpRequest();
+      const query = `query PhaseGroupSets{
+        phaseGroup(id:1581602){
+          id
+          displayIdentifier
+          sets(
+            page: 1
+            perPage: 20
+            sortType: STANDARD
+          ){
+            pageInfo{
+              total
+            }
+            nodes{
+              id
+              slots{
+                id
+                entrant{
+                  id
+                  name
+                }
+              }
+            }
+          }
+        }
+      }`
+      const jsonQuery = JSON.stringify({ query });
+      const res = axios.post('https://api.smash.gg/gql/alpha', {
+        headers: {
+          'Authorization': `Bearer d71313e118d959f25ffe64818ffac164`,
+          'Content-Type': 'application/json',
+          'Access-Control-Request-Method': 'POST',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': 'application/json',
+          
+        },
+        body: jsonQuery
+      });
+      smashData = res;
+
+      //res.data.data; // '{"answer":42}'
+      //res.data.headers['Content-Type', 'Authorization']; // 'application/json',
+      
+      /*const xhr = new XMLHttpRequest();
       xhr.responseType = 'json';
-      xhr.open('GET', yourServerUrl);
+      xhr.open('POST', yourServerUrl);
       xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader(Access-Control-Allow-Origin, '*');
       xhr.setRequestHeader("Authorization", "Bearer f698e3aa0160363d4e4e880ac98fa3a1");
       xhr.onload = function () {
           console.log('data returned:', xhr.response);
       };
-      xhr.send(JSON.stringify(yourQuery));
+      xhr.send(JSON.stringify(yourQuery));*/
      
      
      /*let phaseGroup1 = await PhaseGroup.get(this.$data.QualiSel);
