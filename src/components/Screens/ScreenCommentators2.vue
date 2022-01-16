@@ -1,7 +1,7 @@
 <template>
     <div class="screenCommentators2">
         <div class="obs-ninja">
-            <webview :src="'https://vdo.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&clean&transparent&noheader&&sl=skype&style=2'" ref="obsNinjaWebview4"></webview>
+            <webview :src="'https://obs.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&cleanoutput=true&transparent=true&hideheader=true&showlabels=skype&style=2'" ref="obsNinjaWebview2"></webview>
         </div>
 
         <div class="chat-box">
