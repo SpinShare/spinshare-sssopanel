@@ -38,10 +38,136 @@
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
         <div class="title">{{ topLeftText }}</div>
+        <div class="bracketDisplay">       
+            <!--<div class="qualiBracketDisplay">
+                <div class="qround1">
+                    <div id="r1-p1-name" class="Player1-Name">{{ r1p1name }}</div>
+                    <div id="r1-p1-score" class="Player1-Score">{{ r1p1score }}</div>
+                    <div id="r1-p2-name" class="Player2-Name">{{ r1p2name }}</div>
+                    <div id="r1-p2-score" class="Player2-Score">{{ r1p2score }}</div>
+                </div>
+                <div class="qround2">
+                    <div id="r2-p1-name" class="Player1-Name">{{ r2p1name }}</div>
+                    <div id="r2-p1-score" class="Player1-Score">{{ r2p1score }}</div>
+                    <div id="r2-p2-name" class="Player2-Name">{{ r2p2name }}</div>
+                    <div id="r2-p2-score" class="Player2-Score">{{ r2p2score }}</div>                  
+                </div>
+                <div class="qwin-r2">
+                    <div id="win-r2-p1-name" class="Player1-Name">{{ winr2p1name }}</div>
+                    <div id="win-r2-p1-score" class="Player1-Score">{{ winr2p1score }}</div>
+                    <div id="win-r2-p2-name" class="Player2-Name">{{ winr2p2name }}</div>
+                    <div id="win-r2-p2-score" class="Player2-Score">{{ winr2p2score }}</div>                    
+                </div>
+                <div class="qlose-r1">
+                    <div id="lose-r1-p1-name" class="Player1-Name">{{ loser1p1name }}</div>
+                    <div id="lose-r1-p1-score" class="Player1-Score">{{ loser1p1score }}</div>
+                    <div id="lose-r1-p2-name" class="Player2-Name">{{ loser1p2name }}</div>
+                    <div id="lose-r1-p2-score" class="Player2-Score">{{ loser1p2score }}</div>                    
+                </div>
+                <div class="qlose-r2">
+                    <div id="lose-r2-p1-name" class="Player1-Name">{{ loser2p1name }}</div>
+                    <div id="lose-r2-p1-score" class="Player1-Score">{{ loser2p1score }}</div>
+                    <div id="lose-r2-p2-name" class="Player2-Name">{{ loser2p2name }}</div>
+                    <div id="lose-r2-p2-score" class="Player2-Score">{{ loser2p2score }}</div>                    
+                </div>     -->   
+
+                <div class="KOBracketDisplay">
+                    <div class="WB">
+                        <div class="ko-wqf1">
+                            <div id="r1-p1-name" class="Player1-Name">{{ r1p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ r1p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ r1p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ r1p2score }}</div>
+                        </div>
+                        <div class="ko-wqf2">
+                            <div id="r1-p1-name" class="Player1-Name">{{ r2p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ r2p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ r2p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ r2p2score }}</div>
+                        </div>
+                        <div class="ko-wqf3">
+                            <div id="r1-p1-name" class="Player1-Name">{{ r3p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ r3p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ r3p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ r3p2score }}</div>
+                        </div>
+                        <div class="ko-wqf4">
+                            <div id="r1-p1-name" class="Player1-Name">{{ r4p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ r4p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ r4p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ r4p2score }}</div>
+                        </div>
+                        <div class="ko-wsf1">
+                            <div id="r1-p1-name" class="Player1-Name">{{ wsf1p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ wsf1p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ wsf1p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ wsf1p2score }}</div>
+                        </div>
+                        <div class="ko-wsf2">
+                            <div id="r1-p1-name" class="Player1-Name">{{ wsf2p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ wsf2p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ wsf2p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ wsf2p2score }}</div>
+                        </div>
+                        <div class="ko-wf">
+                            <div id="r1-p1-name" class="Player1-Name">{{ wfp1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ wfp1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ wfp2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ wfp2score }}</div>
+                        </div>
+                        <div class="ko-gf">
+                            <div id="r1-p1-name" class="Player1-Name">{{ gfp1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ gfp1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ gfp2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ gfp2score }}</div>
+                        </div>
+                    </div>
+                    <div class="LB">
+                        <div class="ko-lqf1">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lr1p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lr1p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lr1p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lr1p2score }}</div>
+                        </div>
+                        <div class="ko-lqf2">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lr2p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lr2p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lr2p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lr2p2score }}</div>
+                        </div>
+                        <div class="ko-lqf3">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lqf1p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lqf1p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lqf1p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lqf1p2score }}</div>
+                        </div>
+                        <div class="ko-lqf4">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lqf2p1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lqf2p1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lqf2p2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lqf2p2score }}</div>
+                        </div>
+                        <div class="ko-lr3">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lsfp1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lsfp1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lsfp2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lsfp2score }}</div>
+                        </div>
+                        <div class="ko-lf">
+                            <div id="r1-p1-name" class="Player1-Name">{{ lfp1name }}</div>
+                            <div id="r1-p1-score" class="Player1-Score">{{ lfp1score }}</div>
+                            <div id="r1-p2-name" class="Player2-Name">{{ lfp2name }}</div>
+                            <div id="r1-p2-score" class="Player2-Score">{{ lfp2score }}</div>
+                        </div>                                                          
+                    </div>                                        
+            </div>
+        </div>
     </div>
 </template>
 
+
 <script>
+
     import { remote, ipcRenderer } from 'electron';
     export default {
         name: 'ScreenBrackets',
@@ -51,11 +177,106 @@
                 toornamentStageId: 0,
                 snipTitle: "",
                 snipAuthor: "",
-				topLeftText: "BRACKETS"
+				topLeftText: "BRACKETS",
+
+                r1p1name: "Kwazi",
+                r1p1score: 0,
+                r1p2name: "ballinbino",
+                r1p2score: 0,
+
+                r2p1name: "oproeling",
+                r2p1score: 0,
+                r2p2name: "Krauvando",
+                r2p2score: 0,
+
+                r3p1name: "Ricki",
+                r3p1score: 0,
+                r3p2name: "AbysmalCosmos",
+                r3p2score: 0,
+
+                r4p1name: "Loosiano",
+                r4p1score: 0,
+                r4p2name: "metalman20",
+                r4p2score: 0,
+
+                wsf1p1name: "Kwazi",
+                wsf1p1score: 0,
+                wsf1p2name: "Winner of QF 2",
+                wsf1p2score: 0,
+
+                wsf2p1name: "Winner of QF 3",
+                wsf2p1score: 0,
+                wsf2p2name: "Winner of QF 4",
+                wsf2p2score: 0,
+
+                wfp1name: "Winner of SF 1",
+                wfp1score: 0,
+                wfp2name: "Winner of SF 2",
+                wfp2score: 0,
+
+                gfp1name: "Winner of WF",
+                gfp1score: 0,
+                gfp2name: "Winner of LF",
+                gfp2score: 0,
+
+                lr2p1name: "ballinbino",
+                lr2p1score: 0,
+                lr2p2name: "Loser of QF 2",
+                lr2p2score: 0,
+                
+                lr1p1name: "Loser of QF 3",
+                lr1p1score: 0,
+                lr1p2name: "Loser of QF 4",
+                lr1p2score: 0,
+                
+                lqf2p1name: "Loser of SF 2",
+                lqf2p1score: 0,
+                lqf2p2name: "Winner of LR 1",
+                lqf2p2score: 0,
+
+                lqf1p1name: "Loser of SF 1",
+                lqf1p1score: 0,
+                lqf1p2name: "Winner of LR 2",
+                lqf1p2score: 0,
+
+                lsfp1name: "Winner of LQF 1",
+                lsfp1score: 0,
+                lsfp2name: "Winner of LQF 2",
+                lsfp2score: 0,
+                
+                lfp1name: "Loser of WF",
+                lfp1score: 0,
+                lfp2name: "Winner of LSF",
+                lfp2score: 0,                
             }
         },
         mounted: function() {
             ipcRenderer.on('update-bracketsData', (event, newData) => {
+                this.$data.r1p1name =   newData.r1p1name;
+                this.$data.r1p1score =  newData.r1p1score;
+                this.$data.r1p2name =   newData.r1p2name;
+                this.$data.r1p2score =  newData.r1p2score;
+
+                this.$data.r2p1name =   newData.r2p1name;
+                this.$data.r2p1score =  newData.r2p1score;
+                this.$data.r2p2name =   newData.r2p2name;
+                this.$data.r2p2score =  newData.r2p2score;
+
+                this.$data.winr2p1name =    newData.winr2p1name;
+                this.$data.winr2p1score =   newData.winr2p1score;
+                this.$data.winr2p2name =    newData.winr2p2name;
+                this.$data.winr2p2score =   newData.winr2p2score;
+
+                this.$data.loser1p1name =   newData.loser1p1name;
+                this.$data.loser1p1score =  newData.loser1p1score;
+                this.$data.loser1p2name =   newData.loser1p2name;
+                this.$data.loser1p2score =  newData.loser1p2score;
+
+                this.$data.loser2p1name =   newData.loser2p1name;
+                this.$data.loser2p1score =  newData.loser2p1score;
+                this.$data.loser2p2name =   newData.loser2p2name;
+                this.$data.loser2p2score =  newData.loser2p2score;
+
                 this.$data.toornamentEventId = newData.toornamentEventId;
                 this.$data.toornamentStageId = newData.toornamentStageId;
 				this.$data.topLeftText = newData.topLeftText;
@@ -67,8 +288,18 @@
             });
         },
         methods: {
-        }
+       
+       }
+        
     }
+
+/*function setText(id,newvalue) {
+    var s= document.getElementById(id);
+    s.innerHTML = newvalue;
+}
+
+setText("lose-r2-p2-score","1");*/
+
 </script>
 
 <style scoped lang="less">
@@ -154,7 +385,441 @@
                 margin-right: 1vw;
             }
         }
+        & .bracketDisplay {
+            z-index: 25;
+            position: absolute;
+            top: 12.5vh;
+            left:7.5vw;
+            right: 7.5vw;
+            bottom:12.5vh;
+            font-size: 1.5vw;
+                background: rgba(255, 255, 255, 0);
+            color: #fff;
+            padding: 0.5vh 0vw;
+            display: flex;
+            align-items: center;
+            & .mdi {
+                font-size: 2vw;
+                margin-right: 0.75vw;
+            }
+
+            & .qualiBracketDisplay {
+                z-index: 25;
+                position: absolute;
+                top: 1vh;
+                left:0.75vw;
+                right: 0.75vw;
+                bottom:1vh;
+                font-size: 1.5vw;
+                background: rgba(255, 50, 238, 0);
+                color: #fff;
+                padding: 0.5vh 0vw;
+                display: flex;
+                align-items: center;
+                
+                & .qround1 {
+                    z-index: 25;
+                    position: absolute;
+                    top: 7vh;
+                    left:7.5vw;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;    
+                    display: grid; 
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                             
+                }
+                
+                & .qround2 {
+                    z-index: 25;
+                    position: absolute;
+                    left:7.5vw;
+                    top:22vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;    
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .qwin-r2 {
+                    z-index: 25;
+                    position: absolute;
+                    right:7.5vw;
+                    top:15vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;  
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                
+                & .qlose-r1 {
+                    z-index: 25;
+                    position: absolute;
+                    left:7.5vw;
+                    bottom:7.5vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;  
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .qlose-r2 {
+                    z-index: 25;
+                    position: absolute;
+                    right:7.5vw;
+                    bottom:15vh;
+                    width:37.5%;
+                    font-size: 2vw;
+                    background: #f0f0f0;
+                    border-radius: 1vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                                           
+            }
+            & .KOBracketDisplay {
+                z-index: 25;
+                position: absolute;
+                top: 1vh;
+                left:0.75vw;
+                right: 0.75vw;
+                bottom:1vh;
+                font-size: 1.2vw;
+                background: rgba(255, 50, 238, 0);
+                color: #fff;
+                padding: 0.5vh 0vw;
+                display: flex;
+                align-items: center;
+                
+            & .WB {
+                height:66%;
+                & .ko-wqf1 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0%;
+                    top:0%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }     
+
+                & .ko-wqf2 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0vw;
+                    top:16%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-wqf3 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0vw;
+                    top:32%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-wqf4 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0vw;
+                    top:48%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-wsf1 {
+                    z-index: 25;
+                    position: absolute;
+                    left:26%;
+                    top:8%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .ko-wsf2 {
+                    z-index: 25;
+                    position: absolute;
+                    left:26%;
+                    top:40%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .ko-wf {
+                    z-index: 25;
+                    position: absolute;
+                    left:51.25%;
+                    top:24%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .ko-gf {
+                    z-index: 25;
+                    position: absolute;
+                    left:77.5%;
+                    top:24%;
+                    width:22.5%;
+                    background: #99ceff;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                                                                
+            }
+            & .LB{
+                & .ko-lqf1 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0vw;
+                    bottom:0vh;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }     
+
+                & .ko-lqf2 {
+                    z-index: 25;
+                    position: absolute;
+                    left:0vw;
+                    bottom:16%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-lqf3 {
+                    z-index: 25;
+                    position: absolute;
+                    left:26%;
+                    bottom:0%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-lqf4 {
+                    z-index: 25;
+                    position: absolute;
+                    left:26%;
+                    bottom:16%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+
+                & .ko-lr3 {
+                    z-index: 25;
+                    position: absolute;
+                    left:51.25%;
+                    bottom:8%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+                & .ko-lf {
+                    z-index: 25;
+                    position: absolute;
+                    left:77.5%;
+                    bottom:8%;
+                    width:22.5%;
+                    background: #f0f0f0;
+                    border-radius: 0.75vh;
+                    color: #000;
+                    padding: 1vh 1vw;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }
+            }
+                .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
+                .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;}
+                .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
+                .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;} 
+            }
+        }
     }
+
     @keyframes blobAnimSmall {
         0% {
             transform: translate(1vw, 0vh);
