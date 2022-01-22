@@ -185,9 +185,9 @@
                 r1p2score: 2,
 
                 r2p1name: "oproeling",
-                r2p1score: 0,
+                r2p1score: 3,
                 r2p2name: "Krauvando",
-                r2p2score: 0,
+                r2p2score: 1,
 
                 r3p1name: "Ricki",
                 r3p1score: 0,
@@ -201,7 +201,7 @@
 
                 wsf1p1name: "Kwazi",
                 wsf1p1score: 0,
-                wsf1p2name: "Winner of QF 2",
+                wsf1p2name: "oproeling",
                 wsf1p2score: 0,
 
                 wsf2p1name: "Winner of QF 3",
@@ -221,7 +221,7 @@
 
                 lr2p1name: "ballinbino",
                 lr2p1score: 0,
-                lr2p2name: "Loser of QF 2",
+                lr2p2name: "Krauvando",
                 lr2p2score: 0,
                 
                 lr1p1name: "Loser of QF 3",
