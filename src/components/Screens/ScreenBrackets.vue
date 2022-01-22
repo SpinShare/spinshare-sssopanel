@@ -205,13 +205,13 @@
                 wsf1p2score: 4,
 
                 wsf2p1name: "Ricki",
-                wsf2p1score: 0,
+                wsf2p1score: 4,
                 wsf2p2name: "Loosiano",
                 wsf2p2score: 0,
 
                 wfp1name: "oproerling",
                 wfp1score: 0,
-                wfp2name: "Winner of SF 2",
+                wfp2name: "Ricki",
                 wfp2score: 0,
 
                 gfp1name: "Winner of WF",
@@ -234,7 +234,7 @@
                 lqf2p2name: "Winner of LR 1",
                 lqf2p2score: 0,
 
-                lqf1p1name: "Loser of SF 1",
+                lqf1p1name: "Loosiano",
                 lqf1p1score: 0,
                 lqf1p2name: "Winner of LR 2",
                 lqf1p2score: 0,
