@@ -195,9 +195,9 @@
                 r3p2score: 0,
 
                 r4p1name: "Loosiano",
-                r4p1score: 0,
+                r4p1score: 3,
                 r4p2name: "metalman20",
-                r4p2score: 0,
+                r4p2score: 1,
 
                 wsf1p1name: "Kwazi",
                 wsf1p1score: 0,
@@ -206,7 +206,7 @@
 
                 wsf2p1name: "Ricki",
                 wsf2p1score: 0,
-                wsf2p2name: "Winner of QF 4",
+                wsf2p2name: "Loosiano",
                 wsf2p2score: 0,
 
                 wfp1name: "Winner of SF 1",
@@ -226,7 +226,7 @@
                 
                 lr1p1name: "AbysmalCosmos",
                 lr1p1score: 0,
-                lr1p2name: "Loser of QF 4",
+                lr1p2name: "metalman20",
                 lr1p2score: 0,
                 
                 lqf2p1name: "Loser of SF 2",
