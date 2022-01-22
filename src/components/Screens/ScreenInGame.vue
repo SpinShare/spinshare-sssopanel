@@ -193,7 +193,7 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "http://" + this.$data.player1Region + ".ingest.vrcdn.live/relay/" + this.$data.player1Key;
+      let player1Url = "http://" + this.$data.player1Region + ".ingest.vrcdn.live/relay/" + this.$data.player1Key + ".live.mp4";
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           autoStart: true,
           controls: false,
@@ -207,7 +207,7 @@ export default {
               },
           ]
       });
-      let player2Url = "http://" + this.$data.player2Region + ".ingest.vrcdn.live/relay/" + this.$data.player2Key;
+      let player2Url = "http://" + this.$data.player2Region + ".ingest.vrcdn.live/relay/" + this.$data.player2Key + ".live.mp4";
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           autoStart: true,
           controls: false,
