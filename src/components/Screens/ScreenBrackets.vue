@@ -200,16 +200,16 @@
                 r4p2score: 1,
 
                 wsf1p1name: "Kwazi",
-                wsf1p1score: 0,
+                wsf1p1score: 1,
                 wsf1p2name: "oproerling",
-                wsf1p2score: 0,
+                wsf1p2score: 4,
 
                 wsf2p1name: "Ricki",
                 wsf2p1score: 0,
                 wsf2p2name: "Loosiano",
                 wsf2p2score: 0,
 
-                wfp1name: "Winner of SF 1",
+                wfp1name: "oproerling",
                 wfp1score: 0,
                 wfp2name: "Winner of SF 2",
                 wfp2score: 0,
@@ -229,7 +229,7 @@
                 lr1p2name: "metalman20",
                 lr1p2score: 0,
                 
-                lqf2p1name: "Loser of SF 2",
+                lqf2p1name: "Kwazi",
                 lqf2p1score: 0,
                 lqf2p2name: "Winner of LR 1",
                 lqf2p2score: 0,
