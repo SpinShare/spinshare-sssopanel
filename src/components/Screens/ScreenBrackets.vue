@@ -210,11 +210,11 @@
                 wsf2p2score: 0,
 
                 wfp1name: "oproerling",
-                wfp1score: 0,
+                wfp1score: 1,
                 wfp2name: "Ricki",
-                wfp2score: 0,
+                wfp2score: 5,
 
-                gfp1name: "Winner of WF",
+                gfp1name: "Ricki",
                 gfp1score: 0,
                 gfp2name: "Winner of LF",
                 gfp2score: 0,
@@ -244,7 +244,7 @@
                 lsfp2name: "Winner of LQF 2",
                 lsfp2score: 0,
                 
-                lfp1name: "Loser of WF",
+                lfp1name: "oproerling",
                 lfp1score: 0,
                 lfp2name: "Winner of LSF",
                 lfp2score: 0,                
