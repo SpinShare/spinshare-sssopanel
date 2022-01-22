@@ -180,9 +180,9 @@
 				topLeftText: "BRACKETS",
 
                 r1p1name: "Kwazi",
-                r1p1score: 0,
+                r1p1score: 3,
                 r1p2name: "ballinbino",
-                r1p2score: 0,
+                r1p2score: 2,
 
                 r2p1name: "oproeling",
                 r2p1score: 0,
