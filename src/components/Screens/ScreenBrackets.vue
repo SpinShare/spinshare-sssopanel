@@ -216,7 +216,7 @@
 
                 gfp1name: "Ricki",
                 gfp1score: 0,
-                gfp2name: "Winner of LF",
+                gfp2name: "Kwazi",
                 gfp2score: 0,
 
                 lr2p1name: "ballinbino",
@@ -245,9 +245,9 @@
                 lsfp2score: 4,
                 
                 lfp1name: "oproerling",
-                lfp1score: 0,
+                lfp1score: 1,
                 lfp2name: "Kwazi",
-                lfp2score: 0,                
+                lfp2score: 4,                
             }
         },
         mounted: function() {
