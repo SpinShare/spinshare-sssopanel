@@ -242,11 +242,11 @@
                 lsfp1name: "ballinbino",
                 lsfp1score: 0,
                 lsfp2name: "Kwazi",
-                lsfp2score: 0,
+                lsfp2score: 4,
                 
                 lfp1name: "oproerling",
                 lfp1score: 0,
-                lfp2name: "Winner of LSF",
+                lfp2name: "Kwazi",
                 lfp2score: 0,                
             }
         },
