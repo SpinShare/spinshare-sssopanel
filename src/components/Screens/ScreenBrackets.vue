@@ -220,9 +220,9 @@
                 gfp2score: 0,
 
                 lr2p1name: "ballinbino",
-                lr2p1score: 0,
+                lr2p1score: 3,
                 lr2p2name: "Krauvando",
-                lr2p2score: 0,
+                lr2p2score: 1,
                 
                 lr1p1name: "AbysmalCosmos",
                 lr1p1score: 0,
@@ -231,7 +231,7 @@
                 
                 lqf2p1name: "Loosiano",
                 lqf2p1score: 0,
-                lqf2p2name: "Winner of LR 1",
+                lqf2p2name: "ballinbino",
                 lqf2p2score: 0,
 
                 lqf1p1name: "Kwazi",
