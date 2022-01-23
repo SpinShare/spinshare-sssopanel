@@ -230,16 +230,16 @@
                 lr1p2score: 1,
                 
                 lqf2p1name: "Loosiano",
-                lqf2p1score: 0,
+                lqf2p1score: "L",
                 lqf2p2name: "ballinbino",
-                lqf2p2score: 0,
+                lqf2p2score: "W",
 
                 lqf1p1name: "Kwazi",
                 lqf1p1score: 3,
                 lqf1p2name: "AbysmalCosmos",
                 lqf1p2score: 2,
 
-                lsfp1name: "Winner of LQF 1",
+                lsfp1name: "ballinbino",
                 lsfp1score: 0,
                 lsfp2name: "Kwazi",
                 lsfp2score: 0,
