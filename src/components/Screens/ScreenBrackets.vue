@@ -225,9 +225,9 @@
                 lr2p2score: 1,
                 
                 lr1p1name: "AbysmalCosmos",
-                lr1p1score: 0,
+                lr1p1score: 3,
                 lr1p2name: "metalman20",
-                lr1p2score: 0,
+                lr1p2score: 1,
                 
                 lqf2p1name: "Loosiano",
                 lqf2p1score: 0,
@@ -236,7 +236,7 @@
 
                 lqf1p1name: "Kwazi",
                 lqf1p1score: 0,
-                lqf1p2name: "Winner of LR 2",
+                lqf1p2name: "AbysmalCosmos",
                 lqf1p2score: 0,
 
                 lsfp1name: "Winner of LQF 1",
