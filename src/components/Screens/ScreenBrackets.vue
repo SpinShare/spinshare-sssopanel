@@ -235,13 +235,13 @@
                 lqf2p2score: 0,
 
                 lqf1p1name: "Kwazi",
-                lqf1p1score: 0,
+                lqf1p1score: 3,
                 lqf1p2name: "AbysmalCosmos",
-                lqf1p2score: 0,
+                lqf1p2score: 2,
 
                 lsfp1name: "Winner of LQF 1",
                 lsfp1score: 0,
-                lsfp2name: "Winner of LQF 2",
+                lsfp2name: "Kwazi",
                 lsfp2score: 0,
                 
                 lfp1name: "oproerling",
