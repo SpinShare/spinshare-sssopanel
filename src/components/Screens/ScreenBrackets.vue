@@ -229,12 +229,12 @@
                 lr1p2name: "metalman20",
                 lr1p2score: 0,
                 
-                lqf2p1name: "Kwazi",
+                lqf2p1name: "Loosiano",
                 lqf2p1score: 0,
                 lqf2p2name: "Winner of LR 1",
                 lqf2p2score: 0,
 
-                lqf1p1name: "Loosiano",
+                lqf1p1name: "Kwazi",
                 lqf1p1score: 0,
                 lqf1p2name: "Winner of LR 2",
                 lqf1p2score: 0,
