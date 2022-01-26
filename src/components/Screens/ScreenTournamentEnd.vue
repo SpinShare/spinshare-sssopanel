@@ -43,7 +43,7 @@
                 <div class="username">{{ winnerData.username }}</div>
                 <div class="title">
                     SpinShare SpeenOpen<br />
-                    Winter 2022 Challenger Winner
+                    Winter 2022 Elite Winner
                 </div>
             </div>
         </div>
