@@ -190,9 +190,9 @@
                 r2p2score: 2,
 
                 r3p1name: "GaviGuy",
-                r3p1score: 0,
+                r3p1score: 2,
                 r3p2name: "Daquat",
-                r3p2score: 0,
+                r3p2score: 3,
 
                 r4p1name: "Programmatic",
                 r4p1score: 0,
@@ -204,7 +204,7 @@
                 wsf1p2name: "Mapy",
                 wsf1p2score: 0,
 
-                wsf2p1name: "Winner of WQF3",
+                wsf2p1name: "Daquat",
                 wsf2p1score: 0,
                 wsf2p2name: "Winner of WQF4",
                 wsf2p2score: 0,
@@ -224,7 +224,7 @@
                 lr2p2name: "Pick",
                 lr2p2score: 0,
                 
-                lr1p1name: "Loser of WQF3",
+                lr1p1name: "GaviGuy",
                 lr1p1score: 0,
                 lr1p2name: "Loser of WQF4",
                 lr1p2score: 0,
