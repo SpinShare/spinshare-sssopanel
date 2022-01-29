@@ -38,7 +38,7 @@
         </div>
 
         <div class="logo">
-            <img src="../../assets/img/SSSO_Winter_Challenger.svg" alt="SSSO Logo" />
+            <img src="../../assets/img/SSSO_Winter_Elite.svg" alt="SSSO Logo" />
         </div>
 
         <div class="timer">
