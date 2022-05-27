@@ -193,7 +193,7 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "ws://worker2.ellite.dev:3333/app/" + this.$data.player1Key + "?transport=tcp";
+      let player1Url = "ws://worker2.ellite.dev:3333/ssso/" + this.$data.player1Key + "?transport=tcp";
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           aspecRatio: "16:9",
           autoStart: true,
@@ -208,7 +208,7 @@ export default {
               },
           ]
       });
-      let player2Url = "ws://worker2.ellite.dev:3333/app/" + this.$data.player2Key + "?transport=tcp";
+      let player2Url = "ws://worker2.ellite.dev:3333/ssso/" + this.$data.player2Key + "?transport=tcp";
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           aspecRatio: "16:9",
           autoStart: true,
