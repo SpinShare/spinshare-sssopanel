@@ -193,38 +193,36 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "http://" + this.$data.player1Region + ".ingest.vrcdn.live/relay/" + this.$data.player1Key + ".live.mp4";
+      let player1Url = "ws://144.91.95.225:3333/app/" + this.$data.player1Key;
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
+          aspecRatio: "16:9",
           autoStart: true,
           controls: false,
           showBigPlayButton: false,
           volume: 0,
           sources: [
               {
-                  type: "mp4",
+                  type: "webrtc",
                   file: player1Url,
                   label: "MAIN STREAM",
               },
           ]
       });
-      let player2Url = "http://" + this.$data.player2Region + ".ingest.vrcdn.live/relay/" + this.$data.player2Key + ".live.mp4";
+      let player2Url = "ws://144.91.95.225:3333/app/" + this.$data.player2Key;
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
+          aspecRatio: "16:9",
           autoStart: true,
           controls: false,
           showBigPlayButton: false,
           volume: 0,
           sources: [
               {
-                  type: "mp4",
+                  type: "webrtc",
                   file: player2Url,
                   label: "MAIN STREAM",
               },
           ]
       });
-      
-      // Load stream2
-      let stream2 = "https://rtmp.ellite.dev/hls/" + this.$data.player2Key + ".m3u8";
-      // let stream2 = "ACTUAL STREAM URL" + this.$data.player2Key;
     });
 
     ipcRenderer.on("stop-streams", () => {
