@@ -39,39 +39,58 @@
         </div>
         <div class="title">{{ topLeftText }}</div>
         <div class="bracketDisplay">       
-            <!--<div class="qualiBracketDisplay">
-                <div class="qround1">
-                    <div id="r1-p1-name" class="Player1-Name">{{ r1p1name }}</div>
-                    <div id="r1-p1-score" class="Player1-Score">{{ r1p1score }}</div>
-                    <div id="r1-p2-name" class="Player2-Name">{{ r1p2name }}</div>
-                    <div id="r1-p2-score" class="Player2-Score">{{ r1p2score }}</div>
+            <div class="qualiBracketDisplay">
+                <div class="qualiLeftCol">   
+                    <div class="match1-header"> WB - Round 1 </div>
+                    <div class="qround1">                   
+                        <div class="Player1-Name">{{ r1p1name }}</div>
+                        <div class="Player1-Score">{{ r1p1score }}</div>
+                        <div class="Player2-Name">{{ r1p2name }}</div>
+                        <div class="Player2-Score">{{ r1p2score }}</div>
+                    </div> 
+                    <div class="match2-header"> WB - Round 2 </div>
+                    <div class="qround2">
+                        <div class="Player1-Name">{{ r2p1name }}</div>
+                        <div class="Player1-Score">{{ r2p1score }}</div>
+                        <div class="Player2-Name">{{ r2p2name }}</div>
+                        <div class="Player2-Score">{{ r2p2score }}</div>                  
+                    </div>
+                    <div class="match4-header"> LB - Round 1 </div>
+                    <div class="qlose-r1">
+                        <div id="r4-p1-name" class="Player1-Name">{{ r4p1name }}</div>
+                        <div id="r4-p1-score" class="Player1-Score">{{ r4p1score }}</div>
+                        <div id="r4-p2-name" class="Player2-Name">{{ r4p2name }}</div>
+                        <div id="r4-p2-score" class="Player2-Score">{{ r4p2score }}</div>                    
+                    </div>
                 </div>
-                <div class="qround2">
-                    <div id="r2-p1-name" class="Player1-Name">{{ r2p1name }}</div>
-                    <div id="r2-p1-score" class="Player1-Score">{{ r2p1score }}</div>
-                    <div id="r2-p2-name" class="Player2-Name">{{ r2p2name }}</div>
-                    <div id="r2-p2-score" class="Player2-Score">{{ r2p2score }}</div>                  
-                </div>
-                <div class="qwin-r2">
-                    <div id="win-r2-p1-name" class="Player1-Name">{{ winr2p1name }}</div>
-                    <div id="win-r2-p1-score" class="Player1-Score">{{ winr2p1score }}</div>
-                    <div id="win-r2-p2-name" class="Player2-Name">{{ winr2p2name }}</div>
-                    <div id="win-r2-p2-score" class="Player2-Score">{{ winr2p2score }}</div>                    
-                </div>
-                <div class="qlose-r1">
-                    <div id="lose-r1-p1-name" class="Player1-Name">{{ loser1p1name }}</div>
-                    <div id="lose-r1-p1-score" class="Player1-Score">{{ loser1p1score }}</div>
-                    <div id="lose-r1-p2-name" class="Player2-Name">{{ loser1p2name }}</div>
-                    <div id="lose-r1-p2-score" class="Player2-Score">{{ loser1p2score }}</div>                    
-                </div>
-                <div class="qlose-r2">
-                    <div id="lose-r2-p1-name" class="Player1-Name">{{ loser2p1name }}</div>
-                    <div id="lose-r2-p1-score" class="Player1-Score">{{ loser2p1score }}</div>
-                    <div id="lose-r2-p2-name" class="Player2-Name">{{ loser2p2name }}</div>
-                    <div id="lose-r2-p2-score" class="Player2-Score">{{ loser2p2score }}</div>                    
-                </div>     -->   
 
-                <div class="KOBracketDisplay">
+                <div class="qualiMidCol">  
+                    <div class="match3-header"> WB - Final </div>
+                    <div class="qwin-r2">
+                        <div id="r3-p1-name" class="Player1-Name">{{ r3p1name }}</div>
+                        <div id="r3-p1-score" class="Player1-Score">{{ r3p1score }}</div>
+                        <div id="r3-p2-name" class="Player2-Name">{{ r3p2name }}</div>
+                        <div id="r3-p2-score" class="Player2-Score">{{ r3p2score }}</div>                    
+                    </div>
+                    <div class="match5-header"> LB - Round 2 </div>
+                    <div class="qlose-r2">
+                        <div id="r5-p1-name" class="Player1-Name">{{ r5p1name }}</div>
+                        <div id="r5-p1-score" class="Player1-Score">{{ r5p1score }}</div>
+                        <div id="r5-p2-name" class="Player2-Name">{{ r5p2name }}</div>
+                        <div id="r5-p2-score" class="Player2-Score">{{ r5p2score }}</div>                    
+                    </div>
+                </div>
+                <div class="qualiRightCol">
+                    <div class="match6-header"> Grand Final </div>
+                    <div class="qGF">
+                        <div id="r6-p1-name" class="Player1-Name">{{ r6p1name }}</div>
+                        <div id="r6-p1-score" class="Player1-Score">{{ r6p1score }}</div>
+                        <div id="r6-p2-name" class="Player2-Name">{{ r6p2name }}</div>
+                        <div id="r6-p2-score" class="Player2-Score">{{ r6p2score }}</div>                    
+                    </div> 
+                </div>  
+
+               <!-- <div class="KOBracketDisplay">
                     <div class="WB">
                         <div class="ko-wqf1">
                             <div id="r1-p1-name" class="Player1-Name">{{ r1p1name }}</div>
@@ -159,7 +178,7 @@
                             <div id="r1-p2-name" class="Player2-Name">{{ lfp2name }}</div>
                             <div id="r1-p2-score" class="Player2-Score">{{ lfp2score }}</div>
                         </div>                                                          
-                    </div>                                        
+                    </div> -->                                       
             </div>
         </div>
     </div>
@@ -177,7 +196,7 @@
                 toornamentStageId: 0,
                 snipTitle: "",
                 snipAuthor: "",
-				topLeftText: "BRACKETS",
+				topLeftText: "QUALIFIERS",
 
                 r1p1name: "TreXDer",
                 r1p1score: 3,
@@ -199,15 +218,15 @@
                 r4p2name: "PnO_Mader",
                 r4p2score: 3,
 
-                wsf1p1name: "TreXDer",
-                wsf1p1score: 4,
-                wsf1p2name: "Mapy",
-                wsf1p2score: 1,
+                r5p1name: "TreXDer",
+                r5p1score: 4,
+                r5p2name: "Mapy",
+                r5p2score: 1,
 
-                wsf2p1name: "Daquat",
-                wsf2p1score: 2,
-                wsf2p2name: "PnO_Mader",
-                wsf2p2score: 4,
+                r6p1name: "Daquat",
+                r6p1score: 2,
+                r6p2name: "PnO_Mader",
+                r6p2score: 4,
 
                 wfp1name: "TreXDer",
                 wfp1score: 5,
@@ -406,72 +425,134 @@ setText("lose-r2-p2-score","1");*/
             & .qualiBracketDisplay {
                 z-index: 25;
                 position: absolute;
+                width:100%;
                 top: 1vh;
                 left:0.75vw;
                 right: 0.75vw;
                 bottom:1vh;
-                font-size: 1.5vw;
+                font-size: 1.2vw;
                 background: rgba(255, 50, 238, 0);
                 color: #fff;
                 padding: 0.5vh 0vw;
                 display: flex;
                 align-items: center;
-                
+                display: grid; 
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;  
+                gap: 1.2vh 1.5vw; 
+                grid-template-areas: 
+                    "qualiLeftCol qualiMidCol qualiRightCol";
+
+                & .match1-header { 
+                    background-color:#9bff99;text-align: center;color:#000;
+                    z-index: 30;
+                    width:100%;
+                    position: relative;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+                & .match2-header { 
+                    background-color:#9bff99;text-align: center;color:#000;
+                    z-index: 30;
+                    width:100%;
+                    position: relative;
+                    top: 7.5%;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+                & .match3-header { 
+                    background-color:#9bff99;text-align: center;color:#000;
+                    z-index: 30;
+                    position: relative;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+                & .match4-header { 
+                    background-color:#9bff99;text-align: center;color:#000;
+                    z-index: 30;
+                    width:100%;
+                    position: relative;
+                    top: 36%;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+                & .match5-header { 
+                    background-color:#9bff99;text-align: center;color:#000;
+                    z-index: 30;
+                    position: relative;
+                    top: 46%;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+                & .match6-header { 
+                    background-color:#f0f0f0;text-align: center;color:#000;
+                    z-index: 30;
+                    position: relative;
+                    font-size: 1.25vw;
+                    border-radius: 1vh 1vh 0vh 0vh;                   
+                    font-weight:800;                
+                }
+
                 & .qround1 {
                     z-index: 25;
-                    position: absolute;
-                    top: 7vh;
-                    left:7.5vw;
-                    width:37.5%;
-                    font-size: 2vw;
+                    position: relative;
+                    left:0%;
+                    top:0%;
+                    width:100%;
+                    font-size: 1.5vw;
                     background: #f0f0f0;
-                    border-radius: 1vh;
+                    border-radius: 0vh 0vw 1vh 1vw;
                     color: #000;
-                    padding: 1vh 1vw;
-                    align-items: center;    
-                    display: grid; 
-                    grid-template-columns: 1.7fr 0.3fr; 
-                    grid-template-rows: 1fr 1fr; 
-                    gap: 1.2vh 1.5vw; 
-                    grid-template-areas: 
-                        "Player1-Name Player1-Score"
-                        "Player2-Name Player2-Score";                             
-                }
-                
-                & .qround2 {
-                    z-index: 25;
-                    position: absolute;
-                    left:7.5vw;
-                    top:22vh;
-                    width:37.5%;
-                    font-size: 2vw;
-                    background: #f0f0f0;
-                    border-radius: 1vh;
-                    color: #000;
-                    padding: 1vh 1vw;
-                    align-items: center;    
+                    padding: 1vh;
+                    align-items: center;  
                     display: grid;
-                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-columns: 0.85fr 0.15fr; 
                     grid-template-rows: 1fr 1fr;                     
                     gap: 1.2vh 1.5vw; 
                     grid-template-areas: 
                         "Player1-Name Player1-Score"
-                        "Player2-Name Player2-Score";                                                      
+                        "Player2-Name Player2-Score";                          
+                }
+                
+                & .qround2 {
+                    z-index: 25;
+                    position: relative;
+                    left:0%;
+                    top:7.5%;
+                    width:100%;
+                    font-size: 1.5vw;
+                    background: #f0f0f0;
+                    border-radius: 0vh 0vw 1vh 1vw;
+                    color: #000;
+                    padding: 1vh;
+                    align-items: center;  
+                    display: grid;
+                    grid-template-columns: 0.85fr 0.15fr; 
+                    grid-template-rows: 1fr 1fr;                     
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                   
                 }
                 & .qwin-r2 {
                     z-index: 25;
-                    position: absolute;
-                    right:7.5vw;
-                    top:15vh;
-                    width:37.5%;
-                    font-size: 2vw;
+                    position: relative;
+                    left:0%;
+                    top:0%;
+                    width:100%;
+                    font-size: 1.5vw;
                     background: #f0f0f0;
-                    border-radius: 1vh;
+                    border-radius: 0vh 0vw 1vh 1vw;
                     color: #000;
-                    padding: 1vh 1vw;
+                    padding: 1vh;
                     align-items: center;  
                     display: grid;
-                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-columns: 0.85fr 0.15fr; 
                     grid-template-rows: 1fr 1fr;                     
                     gap: 1.2vh 1.5vw; 
                     grid-template-areas: 
@@ -480,35 +561,35 @@ setText("lose-r2-p2-score","1");*/
                 }                
                 & .qlose-r1 {
                     z-index: 25;
-                    position: absolute;
-                    left:7.5vw;
-                    bottom:7.5vh;
-                    width:37.5%;
-                    font-size: 2vw;
+                    position: relative;
+                    left:0%;
+                    top:36%;
+                    width:100%;
+                    font-size: 1.5vw;
                     background: #f0f0f0;
-                    border-radius: 1vh;
+                    border-radius: 0vh 0vw 1vh 1vw;
                     color: #000;
-                    padding: 1vh 1vw;
+                    padding: 1vh;
                     align-items: center;  
                     display: grid;
-                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-columns: 0.85fr 0.15fr; 
                     grid-template-rows: 1fr 1fr;                     
                     gap: 1.2vh 1.5vw; 
                     grid-template-areas: 
                         "Player1-Name Player1-Score"
-                        "Player2-Name Player2-Score";                                                      
+                        "Player2-Name Player2-Score";                                                    
                 }
                 & .qlose-r2 {
                     z-index: 25;
-                    position: absolute;
-                    right:7.5vw;
-                    bottom:15vh;
-                    width:37.5%;
-                    font-size: 2vw;
+                    position: relative;
+                    left:0%;
+                    top:46%;
+                    width:100%;
+                    font-size: 1.5vw;
                     background: #f0f0f0;
-                    border-radius: 1vh;
+                    border-radius: 0vh 0vw 1vh 1vw;
                     color: #000;
-                    padding: 1vh 1vw;
+                    padding: 1vh;
                     align-items: center;                       
                     display: grid;
                     grid-template-columns: 1.7fr 0.3fr; 
@@ -517,7 +598,27 @@ setText("lose-r2-p2-score","1");*/
                     grid-template-areas: 
                         "Player1-Name Player1-Score"
                         "Player2-Name Player2-Score";                                                      
-                }                                           
+                }
+                & .qGF {
+                    z-index: 25;
+                    position: relative;
+                    right:0%;
+                    top:0%;
+                    width:100%;
+                    background: #9bff99;
+                    border-radius: 0vh 0vw 1vh 1vw;
+                    font-size:1.5vw;
+                    color: #000;
+                    padding: 1vh;
+                    align-items: center;                       
+                    display: grid;
+                    grid-template-columns: 1.7fr 0.3fr; 
+                    grid-template-rows: 1fr 1fr; 
+                    gap: 1.2vh 1.5vw; 
+                    grid-template-areas: 
+                        "Player1-Name Player1-Score"
+                        "Player2-Name Player2-Score";                                                      
+                }                                                                    
             }
             & .KOBracketDisplay {
                 z-index: 25;
@@ -547,6 +648,8 @@ setText("lose-r2-p2-score","1");*/
                     padding: 1vh 1vw;
                     align-items: center;                       
                     display: grid;
+                    border:5.25vh;
+                    border-color:#000;
                     grid-template-columns: 1.7fr 0.3fr; 
                     grid-template-rows: 1fr 1fr; 
                     gap: 1.2vh 1.5vw; 
@@ -812,11 +915,19 @@ setText("lose-r2-p2-score","1");*/
                         "Player2-Name Player2-Score";                                                      
                 }
             }
+                /*.match-header { grid-column: span 2;  border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
                 .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
                 .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;}
                 .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
-                .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;} 
+                .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;} */    
             }
+            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;}
+            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;}
+            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;}
+            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;}
+            .qualiLeftCol{grid-area: qualiLeftCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:100%;}
+            .qualiMidCol{grid-area: qualiMidCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:77.5%;}
+            .qualiRightCol{grid-area: qualiRightCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:25%;}                   
         }
     }
 
