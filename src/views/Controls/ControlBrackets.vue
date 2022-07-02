@@ -23,6 +23,14 @@ import { remote, ipcRenderer } from "electron";
 import Fab from "@/components/Controls/Fab.vue";
 import InputGroup from "@/components/Controls/InputGroup.vue";
 
+async function load() {
+    let url = 'https://cors-anywhere.herokuapp.com/https://api.start.gg/phase_group/1581602?expand[]=sets&expand[]=seeds';
+    let headers = new Headers();
+
+    let obj = await (await (await fetch(url))).json();
+    console.log(obj);
+}
+
 export default {
   name: "ControlBrackets",
   components: {
@@ -42,7 +50,7 @@ export default {
       'use strict';
       var request = require('request');
       var url = 'https://api.start.gg/phase_group/1581602?expand[]=sets&expand[]=seeds';
-
+      
       request.get({
           url: url,
           json: true,
@@ -123,17 +131,18 @@ export default {
       ipcRenderer.send("change-state", "Brackets");
     },
 
+
     updateData: function () {
       console.log("[Controls] Update BracketsData");
-
-      //phaseID = this.$data.phaseID;
+      load();
+      /*//phaseID = this.$data.phaseID;
       this.callStartggAPI(this.$data.phaseID)
       console.log("[Controls] Get Bracket Details from Start.GG")
 
       ipcRenderer.send("update-bracketsData", {
         toornamentEventId: this.$data.toornamentEventId,
         toornamentStageId: this.$data.toornamentStageId,
-      });
+      });*/
     },
   },
 };
