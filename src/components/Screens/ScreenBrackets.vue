@@ -266,11 +266,12 @@
                 lfp1name: "PnO_Mader",
                 lfp1score: 0,
                 lfp2name: "Pick",
-                lfp2score: 0,                
+                lfp2score: 0,              
             }
         },
         mounted: function() {
             ipcRenderer.on('update-bracketsData', (event, newData) => {
+                console.log(newData.bracket);
                 this.$data.r1p1name =   newData.r1p1name;
                 this.$data.r1p1score =  newData.r1p1score;
                 this.$data.r1p2name =   newData.r1p2name;
@@ -281,20 +282,25 @@
                 this.$data.r2p2name =   newData.r2p2name;
                 this.$data.r2p2score =  newData.r2p2score;
 
-                this.$data.winr2p1name =    newData.winr2p1name;
-                this.$data.winr2p1score =   newData.winr2p1score;
-                this.$data.winr2p2name =    newData.winr2p2name;
-                this.$data.winr2p2score =   newData.winr2p2score;
+                this.$data.r3p1name =    newData.r3p1name;
+                this.$data.r3p1score =   newData.r3p1score;
+                this.$data.r3p2name =    newData.r3p2name;
+                this.$data.r3p2score =   newData.r3p2score;
 
-                this.$data.loser1p1name =   newData.loser1p1name;
-                this.$data.loser1p1score =  newData.loser1p1score;
-                this.$data.loser1p2name =   newData.loser1p2name;
-                this.$data.loser1p2score =  newData.loser1p2score;
+                this.$data.r6p1name =    newData.r6p1name;
+                this.$data.r6p1score =   newData.r6p1score;
+                this.$data.r6p2name =    newData.r6p2name;
+                this.$data.r6p2score =   newData.r6p2score;               
 
-                this.$data.loser2p1name =   newData.loser2p1name;
-                this.$data.loser2p1score =  newData.loser2p1score;
-                this.$data.loser2p2name =   newData.loser2p2name;
-                this.$data.loser2p2score =  newData.loser2p2score;
+                this.$data.r4p1name =   newData.r4p1name;
+                this.$data.r4p1score =  newData.r4p1score;
+                this.$data.r4p2name =   newData.r4p2name;
+                this.$data.r4p2score =  newData.r4p2score;
+
+                this.$data.r5p1name =   newData.r5p1name;
+                this.$data.r5p1score =  newData.r5p1score;
+                this.$data.r5p2name =   newData.r5p2name;
+                this.$data.r5p2score =  newData.r5p2score;
 
                 this.$data.toornamentEventId = newData.toornamentEventId;
                 this.$data.toornamentStageId = newData.toornamentStageId;
@@ -921,10 +927,10 @@ setText("lose-r2-p2-score","1");*/
                 .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
                 .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;} */    
             }
-            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;}
-            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;}
-            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;}
-            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;}
+            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px; background:#f0f0f0;}
+            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;}
+            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;background:#f0f0f0;}
+            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;}
             .qualiLeftCol{grid-area: qualiLeftCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:100%;}
             .qualiMidCol{grid-area: qualiMidCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:77.5%;}
             .qualiRightCol{grid-area: qualiRightCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:25%;}                   
