@@ -186,7 +186,7 @@
 
 
 <script>
-
+    var bracket;
     import { remote, ipcRenderer } from 'electron';
     export default {
         name: 'ScreenBrackets',
@@ -198,112 +198,114 @@
                 snipAuthor: "",
 				topLeftText: "QUALIFIERS",
 
-                r1p1name: "TreXDer",
-                r1p1score: 3,
-                r1p2name: "Konomi",
-                r1p2score: 0,
+                r1p1name: "",
+                r1p1score: "",
+                r1p2name: "",
+                r1p2score: "",
 
-                r2p1name: "Mapy",
-                r2p1score: 3,
-                r2p2name: "Pick",
-                r2p2score: 2,
+                r2p1name: "",
+                r2p1score: "",
+                r2p2name: "",
+                r2p2score: "",
 
-                r3p1name: "GaviGuy",
-                r3p1score: 2,
-                r3p2name: "Daquat",
-                r3p2score: 3,
+                r3p1name: "",
+                r3p1score: "",
+                r3p2name: "",
+                r3p2score: "",
 
-                r4p1name: "Programmatic",
-                r4p1score: 0,
-                r4p2name: "PnO_Mader",
-                r4p2score: 3,
+                r4p1name: "",
+                r4p1score: "",
+                r4p2name: "",
+                r4p2score: "",
 
-                r5p1name: "TreXDer",
-                r5p1score: 4,
-                r5p2name: "Mapy",
-                r5p2score: 1,
+                r5p1name: "",
+                r5p1score: "",
+                r5p2name: "",
+                r5p2score: "",
 
-                r6p1name: "Daquat",
-                r6p1score: 2,
-                r6p2name: "PnO_Mader",
-                r6p2score: 4,
+                r6p1name: "",
+                r6p1score: "",
+                r6p2name: "",
+                r6p2score: "",
 
-                wfp1name: "TreXDer",
-                wfp1score: 5,
-                wfp2name: "PnO_Mader",
-                wfp2score: 2,
+                wfp1name: "",
+                wfp1score: "",
+                wfp2name: "",
+                wfp2score: "",
 
-                gfp1name: "TreXDer",
-                gfp1score: 0,
-                gfp2name: "Winner of LF",
-                gfp2score: 0,
+                gfp1name: "",
+                gfp1score: "",
+                gfp2name: "",
+                gfp2score: "",
 
-                lr2p1name: "Konomi",
-                lr2p1score: 0,
-                lr2p2name: "Pick",
-                lr2p2score: 3,
+                lr2p1name: "",
+                lr2p1score: "",
+                lr2p2name: "",
+                lr2p2score: "",
                 
-                lr1p1name: "GaviGuy",
-                lr1p1score: 0,
-                lr1p2name: "Programmatic",
-                lr1p2score: 3,
+                lr1p1name: "",
+                lr1p1score: "",
+                lr1p2name: "",
+                lr1p2score: "",
                 
-                lqf2p1name: "Daquat",
-                lqf2p1score: 2,
-                lqf2p2name: "Pick",
-                lqf2p2score: 3,
+                lqf2p1name: "",
+                lqf2p1score: "",
+                lqf2p2name: "",
+                lqf2p2score: "",
 
-                lqf1p1name: "Mapy",
-                lqf1p1score: 3,
-                lqf1p2name: "Programmatic",
-                lqf1p2score: 2,
+                lqf1p1name: "",
+                lqf1p1score: "",
+                lqf1p2name: "",
+                lqf1p2score: "",
 
-                lsfp1name: "Pick",
-                lsfp1score: 4,
-                lsfp2name: "Mapy",
-                lsfp2score: 0,
+                lsfp1name: "",
+                lsfp1score: "",
+                lsfp2name: "",
+                lsfp2score: "",
                 
-                lfp1name: "PnO_Mader",
-                lfp1score: 0,
-                lfp2name: "Pick",
-                lfp2score: 0,              
+                lfp1name: "",
+                lfp1score: "",
+                lfp2name: "",
+                lfp2score: "",              
             }
         },
         mounted: function() {
             ipcRenderer.on('update-bracketsData', (event, newData) => {
-                console.log(newData.bracket);
-                this.$data.r1p1name =   newData.r1p1name;
-                this.$data.r1p1score =  newData.r1p1score;
-                this.$data.r1p2name =   newData.r1p2name;
-                this.$data.r1p2score =  newData.r1p2score;
+                bracket = newData.bracket;
+                console.log(bracket);
 
-                this.$data.r2p1name =   newData.r2p1name;
-                this.$data.r2p1score =  newData.r2p1score;
-                this.$data.r2p2name =   newData.r2p2name;
-                this.$data.r2p2score =  newData.r2p2score;
+                this.$data.r1p1name =   bracket[0][0];
+                this.$data.r1p1score =  bracket[0][1];
+                this.$data.r1p2name =   bracket[0][2];
+                this.$data.r1p2score =  bracket[0][3];
 
-                this.$data.r3p1name =    newData.r3p1name;
-                this.$data.r3p1score =   newData.r3p1score;
-                this.$data.r3p2name =    newData.r3p2name;
-                this.$data.r3p2score =   newData.r3p2score;
+                this.$data.r2p1name =   bracket[1][0];
+                this.$data.r2p1score =  bracket[1][1];
+                this.$data.r2p2name =   bracket[1][2];
+                this.$data.r2p2score =  bracket[1][3];
 
-                this.$data.r6p1name =    newData.r6p1name;
-                this.$data.r6p1score =   newData.r6p1score;
-                this.$data.r6p2name =    newData.r6p2name;
-                this.$data.r6p2score =   newData.r6p2score;               
+                this.$data.r3p1name =    bracket[2][0];
+                this.$data.r3p1score =   bracket[2][1];
+                this.$data.r3p2name =    bracket[2][2];
+                this.$data.r3p2score =   bracket[2][3];
 
-                this.$data.r4p1name =   newData.r4p1name;
-                this.$data.r4p1score =  newData.r4p1score;
-                this.$data.r4p2name =   newData.r4p2name;
-                this.$data.r4p2score =  newData.r4p2score;
+                this.$data.r6p1name =    bracket[3][0];
+                this.$data.r6p1score =   bracket[3][1];
+                this.$data.r6p2name =    bracket[3][2];
+                this.$data.r6p2score =   bracket[3][3];               
 
-                this.$data.r5p1name =   newData.r5p1name;
-                this.$data.r5p1score =  newData.r5p1score;
-                this.$data.r5p2name =   newData.r5p2name;
-                this.$data.r5p2score =  newData.r5p2score;
+                this.$data.r4p1name =   bracket[4][0];
+                this.$data.r4p1score =  bracket[4][1];
+                this.$data.r4p2name =   bracket[4][2];
+                this.$data.r4p2score =  bracket[4][3];
 
-                this.$data.toornamentEventId = newData.toornamentEventId;
-                this.$data.toornamentStageId = newData.toornamentStageId;
+                this.$data.r5p1name =   bracket[5][0];
+                this.$data.r5p1score =  bracket[5][1];
+                this.$data.r5p2name =   bracket[5][2];
+                this.$data.r5p2score =  bracket[5][3];
+
+                //this.$data.toornamentEventId = newData.toornamentEventId;
+                //this.$data.toornamentStageId = newData.toornamentStageId;
 				this.$data.topLeftText = newData.topLeftText;
             });
             ipcRenderer.send('get-snipData');
@@ -317,14 +319,6 @@
        }
         
     }
-
-/*function setText(id,newvalue) {
-    var s= document.getElementById(id);
-    s.innerHTML = newvalue;
-}
-
-setText("lose-r2-p2-score","1");*/
-
 </script>
 
 <style scoped lang="less">
@@ -927,10 +921,10 @@ setText("lose-r2-p2-score","1");*/
                 .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.5vh solid #000; padding-left:15px;}
                 .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.5vh solid #000; text-align: center;} */    
             }
-            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px; background:#f0f0f0;}
-            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;}
-            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;background:#f0f0f0;}
-            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;}
+            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px; background:#f0f0f0;height:4vh;}
+            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;height:100%;}
+            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;background:#f0f0f0;height:100%;}
+            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;height:100%;}
             .qualiLeftCol{grid-area: qualiLeftCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:100%;}
             .qualiMidCol{grid-area: qualiMidCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:77.5%;}
             .qualiRightCol{grid-area: qualiRightCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:25%;}                   

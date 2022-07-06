@@ -2,17 +2,16 @@
   <div class="controlBrackets">
     <Fab v-on:click.native="transition()" title="Transition" />
 
-    <InputGroup title="Toornament Event ID">
+    <!---<InputGroup title="Toornament Event ID">
       <input type="number" v-model="toornamentEventId" />
     </InputGroup>
 
     <InputGroup title="Toornament Stage ID">
       <input type="number" v-model="toornamentStageId" />
-    </InputGroup>
+    </InputGroup>-->
     <InputGroup title="Bracket Selection">
-      <!--<input type="number" v-model="phaseID" placeholder="PhaseGroupID" />-->
-      <select v-model="bracketSel">
-        <option value="1761345" selected>QUALIFIERS: POOL 1</option>
+      <select v-model="bracketSel" @change="onChange($event)">
+        <option value="1761345">QUALIFIERS: POOL 1</option>
         <option value="1761346">QUALIFIERS: POOL 2</option>
         <option value="1761347">QUALIFIERS: POOL 3</option>
         <option value="1761348">QUALIFIERS: POOL 4</option>
@@ -22,6 +21,7 @@
         <option value="1761352">QUALIFIERS: POOL 8</option>
         <option value="1761354" disabled>CHALLENGER BRACKET</option>
         <option value="1761353" disabled>ELITE BRACKET</option>
+        <option value="1581592">TEST QUALIFIER BRACKET</option>
       </select>
     </InputGroup>
 
@@ -36,104 +36,152 @@ import Fab from "@/components/Controls/Fab.vue";
 import InputGroup from "@/components/Controls/InputGroup.vue";
 
 var obj;
-var r1p1name;
-var r1p1score;
-var r1p2name;
-var r1p2score;
-
-var r2p1name;
-var r2p1score;
-var r2p2name;
-var r2p2score;
-
-var r3p1name;
-var r3p1score;
-var r3p2name;
-var r3p2score;
-
-var r6p1name;
-var r6p1score;
-var r6p2name;
-var r6p2score;          
-
-var r4p1name;
-var r4p1score;
-var r4p2name;
-var r4p2score;
-
-var r5p1name;
-var r5p1score;
-var r5p2name;
-var r5p2score;
+var groupSel;
 
 let bracket = [];
+let bracketName;
 
 async function load() {
-    let url = 'https://cors-anywhere.herokuapp.com/api.start.gg/phase_group/1581592?expand[]=sets&expand[]=seeds';    //MUST GO TO https://cors-anywhere.herokuapp.com AND 
+  //1581592 - Test group
+    let url = 'https://cors-anywhere.herokuapp.com/api.start.gg/phase_group/'+groupSel+'?expand[]=sets&expand[]=seeds';    //MUST GO TO https://cors-anywhere.herokuapp.com AND 
+    //let url = 'https://cors-anywhere.herokuapp.com/api.start.gg/phase_group/1761349?expand[]=sets&expand[]=seeds';
     let headers = new Headers();                                                                                      //REQUEST TEMP ACCESS - NEED AN ALTERNATIVE IF POSSIBLE
     obj = await (await (await fetch(url))).json();
     console.log(obj);
 
-    //Data retrieved, map to output array
     const playerLookup = {      //Lookup table for players, currently retrieved manually for the event
-      8979326: "Avri",
-      8970975: "TreXDer",
-      8982855: "Kwazi",
-      8993089: "haomakk",
+      8979326: "Avri", //test value
+      8970975: "TreXDer", //test value
+      8982855: "Kwazi", //test value
+      8993089: "haomakk", //test value
+
+      10327601: "snaphap",
+      10334649: "Dragojent",
+      10345653: "sodapants",
+      10327637: "jif",
+      10372604: "Pick",
+      10329431: "Aetos",
+      10329283: "CarbonCarbon12",
+      10327917: "metalman20",
+      10355616: "Mapy",
+      10362779: "Kisshunter",
+      10327620: "Edge",
+      10332078: "Jammy Dodger",
+      10327886: "Ricki",
+      10386216: "Rickfernello",
+      10344473: "Avri",
+      10372160: "Gamer97",
+      10351164: "TreXDer",
+      10362387: "echeerie",
+      10331595: "3Stans",
+      10330714: "Theo",
+      10378375: "Konomi",
+      10342106: "Xandy",
+      10347137: "Loosiano",
+      10330626: "DFeth",
+      10332821: "GaviGuy",
+      10337809: "Drogin_dunlane",
+      10405507: "TheWay123",
+      10448096: "Abysmalcosmos",
+      10327607: "Programmatic",
+      10348113: "Primis Rulz",
+      10403793: "Aexus",
+      10364758: "CursedElectric",
     };
+    //let p1Name,p1Score,p2Name,p2Score
+    let a,b,c,d;
 
     const PlayerMap = (entrantID) => playerLookup[entrantID] || "Player not found"; //Quick method to run lookup
 
-    bracket = [];
-    let skipped = 0;
+    for(let x = 0; x < obj.entities.sets.length; x++){     //Populating the output array. x indicates position in the downloaded data (Match identifier), y indicates which element (Player 1 Name / Score, Player 2 Name / Score)
+        //if(ggData.entities.sets[x].entrant1Id == null || ggData.entities.sets[x].entrant2Id == null) {continue}
+        switch(obj.entities.sets[x].identifier){
+          case "A":
+            a = PlayerMap(obj.entities.sets[x].entrant1Id);
+            b = obj.entities.sets[x].entrant1Score;
+            c = PlayerMap(obj.entities.sets[x].entrant2Id);
+            d = obj.entities.sets[x].entrant2Score;
+            bracket[0] = [a,b,c,d];
+            break;
+          
+          case "B":
+            a = PlayerMap(obj.entities.sets[x].entrant1Id);
+            b = obj.entities.sets[x].entrant1Score;
+            c = PlayerMap(obj.entities.sets[x].entrant2Id);
+            d = obj.entities.sets[x].entrant2Score;
+            bracket[1] = [a,b,c,d];
+            break;
+            
+          case "C":
+            if(obj.entities.sets[x].entrant1Id == null)
+              {a = "Winner: WB - Round 1"; b = " ";}
+            else{
+              a = PlayerMap(obj.entities.sets[x].entrant1Id);
+              b = obj.entities.sets[x].entrant1Score}
+            
+            if(obj.entities.sets[x].entrant2Id == null)
+              {c = "Winner: WB - Round 2"; d = " ";}
+            else{
+              c = PlayerMap(obj.entities.sets[x].entrant2Id);
+              d = obj.entities.sets[x].entrant2Score}
 
-    return new Promise(resolve =>{
-      for(let x = 0; x < obj.entities.sets.length; x++){     //Populating the output array. x indicates position in the downloaded data (Match identifier), y indicates which element (Player 1 Name / Score, Player 2 Name / Score)
-        if(obj.entities.sets[x].entrant1Id == null || obj.entities.sets[x].entrant2Id == null) {continue}
+            bracket[2] = [a,b,c,d];
+            break;
 
-        let p1Name = PlayerMap(obj.entities.sets[x].entrant1Id);
-        let p1Score = obj.entities.sets[x].entrant1Score;
-        let p2Name = PlayerMap(obj.entities.sets[x].entrant2Id);
-        let p2Score = obj.entities.sets[x].entrant2Score;
+          case "D":
+            if(obj.entities.sets[x].entrant1Id == null)
+              {a = "Winner: WB - Final"; b = null;}
+            else{
+              a = PlayerMap(obj.entities.sets[x].entrant1Id);
+              b = obj.entities.sets[x].entrant1Score}
+            
+            if(obj.entities.sets[x].entrant2Id == null)
+              {c = "Winner: LB - Round 2"; d = null;}
+            else{
+              c = PlayerMap(obj.entities.sets[x].entrant2Id);
+              d = obj.entities.sets[x].entrant2Score}
 
-        bracket.push([p1Name,p1Score,p2Name,p2Score]);
-      }
+            bracket[3] = [a,b,c,d];
+            break;          
 
-      console.log(bracket);
+          case "F":
+            if(obj.entities.sets[x].entrant1Id == null)
+              {a = "Loser: WB - Round 1"; b = null;}
+            else{
+              a = PlayerMap(obj.entities.sets[x].entrant1Id);
+              b = obj.entities.sets[x].entrant1Score}
+            
+            if(obj.entities.sets[x].entrant2Id == null)
+              {c = "Loser: WB - Round 2"; d = null;}
+            else{
+              c = PlayerMap(obj.entities.sets[x].entrant2Id);
+              d = obj.entities.sets[x].entrant2Score}
 
-      /*r1p1name=   bracket[0][0].toString();
-      r1p1score=  bracket[0][1].toString();
-      r1p2name=   bracket[0][2].toString();
-      r1p2score=  bracket[0][3].toString();
+            bracket[4] = [a,b,c,d];
+            break;
 
-      r2p1name=   bracket[1][0].toString();
-      r2p1score=  bracket[1][1].toString();
-      r2p2name=   bracket[1][2].toString();
-      r2p2score=  bracket[1][3].toString();
-      
-      r3p1name=   bracket[2][0].toString();
-      r3p1score=  bracket[2][1].toString();
-      r3p2name=   bracket[2][2].toString();
-      r3p2score=  bracket[2][3].toString();
+          case "G":
+            if(obj.entities.sets[x].entrant1Id == null)
+              {a = "Loser: WB Final"; b = null;}
+            else{
+              a = PlayerMap(obj.entities.sets[x].entrant1Id);
+              b = obj.entities.sets[x].entrant1Score}
+            
+            if(obj.entities.sets[x].entrant2Id == null)
+              {c = "Winner: LB Round 1"; d = null;}
+            else{
+              c = PlayerMap(obj.entities.sets[x].entrant2Id);
+              d = obj.entities.sets[x].entrant2Score}
 
-      r6p1name=   bracket[3][0].toString();
-      r6p1score=  bracket[3][1].toString();
-      r6p2name=  bracket[3][2].toString();
-      r6p2score=  bracket[3][3].toString();               
+            bracket[5] = [a,b,c,d];
+            break;
 
-      r4p1name=   bracket[4][0].toString();
-      r4p1score=  bracket[4][1].toString();
-      r4p2name=   bracket[4][2].toString();
-      r4p2score=  bracket[4][3].toString();
+          default: break;
+        };
+    }
+    console.log(bracket);
+};
 
-      r5p1name=   bracket[5][0].toString();
-      r5p1score=  bracket[5][1].toString();
-      r5p2name=   bracket[5][2].toString();
-      r5p2score=  bracket[5][3].toString();  */
-      console.log(bracket);  
-    resolve(bracket);
-  });
-}
 
 export default {
   name: "ControlBrackets",
@@ -146,67 +194,33 @@ export default {
       toornamentEventId: 0,
       toornamentStageId: 0,
       phaseID: 0,
+      bracketSel: 1761345,
     };
   },
   mounted: function () {},
   methods: {
-    setStartggData: function (pg){
-
-    },
-
     transition: function () {
       ipcRenderer.send("change-state", "Brackets");
     },
 
+    onChange(event) {
+        bracketName = event.target.options[event.target.options.selectedIndex].text;
+        console.log(bracketName);
+    },
 
     updateData: function () {
       console.log("[Controls] Update BracketsData");
-      bracket = await load();
+      groupSel = this.$data.bracketSel;
+      load();
 
-      console.log(r1p1name, r1p1score, r1p2name, r1p2score)
-      ipcRenderer.send("update-bracketsData", {
-        toornamentEventId: this.$data.toornamentEventId,
-        toornamentStageId: this.$data.toornamentStageId,
-        topLeftText: "BRACKET",                   //this.bracketSel.text(),
-        
-        //bracket: this.bracket
-        //r1p1name, r1p1score, r1p2name, r1p2score,
-        //r2p1name, r2p1score, r2p2name, r2p2score,
-        //r3p1name, r3p1score, r3p2name, r3p2score,
-        //r6p1name, r6p1score, r6p2name, r6p2score,               
-        //r4p1name, r4p1score, r4p2name, r4p2score,
-        //r5p1name, r5p1score, r5p2name, r5p2score,
-
-        r1p1name:   bracket[0][0].toString(),
-        r1p1score:  bracket[0][1].toString(),
-        r1p2name:   bracket[0][2].toString(),
-        r1p2score:  bracket[0][3].toString(),
-
-        r2p1name:   bracket[1][0].toString(),
-        r2p1score:  bracket[1][1].toString(),
-        r2p2name:   bracket[1][2].toString(),
-        r2p2score:  bracket[1][3].toString(),
-        
-        r3p1name:   bracket[2][0].toString(),
-        r3p1score:  bracket[2][1].toString(),
-        r3p2name:   bracket[2][2].toString(),
-        r3p2score:  bracket[2][3].toString(),
-
-        r6p1name:   bracket[3][0].toString(),
-        r6p1score:  bracket[3][1].toString(),
-        r6p2name:  bracket[3][2].toString(),
-        r6p2score:  bracket[3][3].toString(),               
-
-        r4p1name:   bracket[4][0].toString(),
-        r4p1score:  bracket[4][1].toString(),
-        r4p2name:   bracket[4][2].toString(),
-        r4p2score:  bracket[4][3].toString(),
-
-        r5p1name:   bracket[5][0].toString(),
-        r5p1score:  bracket[5][1].toString(),
-        r5p2name:   bracket[5][2].toString(),
-        r5p2score:  bracket[5][3].toString(),
-      });
+      setTimeout(function(){
+        ipcRenderer.send("update-bracketsData", {
+          //toornamentEventId: this.$data.toornamentEventId,
+          //toornamentStageId: this.$data.toornamentStageId,
+          topLeftText: bracketName, //"BRACKET",     
+          bracket: bracket,
+        });
+      }, 1500);
     },
   },
 };
