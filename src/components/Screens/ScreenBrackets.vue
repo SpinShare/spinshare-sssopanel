@@ -319,6 +319,14 @@
        }
         
     }
+
+/*function setText(id,newvalue) {
+    var s= document.getElementById(id);
+    s.innerHTML = newvalue;
+}
+
+setText("lose-r2-p2-score","1");*/
+
 </script>
 
 <style scoped lang="less">
