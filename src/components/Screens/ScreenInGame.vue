@@ -125,7 +125,6 @@
 <script>
 import { ipcRenderer } from "electron";
 import SSAPI from "../../modules/module.api.js";
-
 export default {
   name: "ScreenInGame",
   data: function () {
@@ -153,7 +152,6 @@ export default {
       score2: "",
     };
   },
-
   mounted: function () {
     let ssapi = new SSAPI();
     ipcRenderer.on("update-playerData", (event, newData) => {
@@ -193,7 +191,7 @@ export default {
     ipcRenderer.on("start-streams", () => {
       console.log("[Screen] StartStreams");
       // Load streams
-      let player1Url = "ws://" + this.$data.player1Region + ".rtmp.ellite.dev:3333/live/" + this.$data.player1Key;
+      let player1Url = "ws://" + this.$data.player1Region + ".rtmp.ellite.dev:3333/app/" + this.$data.player1Key;
       this.$data.player1Stream = window.OvenPlayer.create("player1Screen", {
           aspecRatio: "16:9",
           autoStart: true,
@@ -208,7 +206,7 @@ export default {
               },
           ]
       });
-      let player2Url = "ws://worker2.ellite.dev:3333/ssso/" + this.$data.player2Key + "?transport=tcp";
+      let player2Url = "ws://" + this.$data.player2Region + ".rtmp.ellite.dev:3333/app/" + this.$data.player2Key;
       this.$data.player2Stream = window.OvenPlayer.create("player2Screen", {
           aspecRatio: "16:9",
           autoStart: true,
@@ -224,7 +222,6 @@ export default {
           ]
       });
     });
-
     ipcRenderer.on("stop-streams", () => {
       console.log("[Screen] StopStreams");
       // Pause Streams

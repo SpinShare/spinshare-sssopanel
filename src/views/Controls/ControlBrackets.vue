@@ -61,7 +61,7 @@ async function load() {
       10327637: "jif",
       10372604: "Pick",
       10329431: "Aetos",
-      10329283: "CarbonCarbon12",
+      10500255: "NickAzn",
       10327917: "metalman20",
       10355616: "Mapy",
       10362779: "Kisshunter",

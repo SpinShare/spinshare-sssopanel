@@ -7,9 +7,9 @@
             <!-- <input type="text" v-model="score1" placeholder="LiveScore" /> -->
             <select v-model="player1Region">
                 <option value="eu">EU</option>
-                <option value="na">NA</option>
-                <option value="jp">JP</option>
-                <option value="au">AU</option>
+                <option value="use">USE</option>
+                <option value="usw">USW</option>
+                <option value="oce">OCE</option>
             </select>
             
             <input type="text" v-model="player1Key" placeholder="Streaming Key" />
@@ -20,9 +20,9 @@
             <!-- <input type="text" v-model="score2" placeholder="LiveScore" /> -->
             <select v-model="player2Region">
                 <option value="eu">EU</option>
-                <option value="na">NA</option>
-                <option value="jp">JP</option>
-                <option value="au">AU</option>
+                <option value="use">USE</option>
+                <option value="usw">USW</option>
+                <option value="oce">OCE</option>
             </select>
             <input type="text" v-model="player2Key" placeholder="Streaming Key" />
         </InputGroup>
@@ -42,10 +42,8 @@
 
 <script>
 import { remote, ipcRenderer } from 'electron';
-
 import Fab from '@/components/Controls/Fab.vue';
 import InputGroup from '@/components/Controls/InputGroup.vue';
-
 export default {
     name: 'ControlBeforeMatch',
     components: {
@@ -116,13 +114,11 @@ export default {
 <style scoped lang="less">
     .controlBeforeMatch {
         padding: 5px 20px;
-
         & select {
             color: #fff;
             background: rgba(255,255,255,0.15);
             border: 0;
             border-radius: 4px;
-
             & option {
                 color: #000;
             }
