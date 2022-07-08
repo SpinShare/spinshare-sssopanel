@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 import i18n from './i18n';
 import { ipcRenderer } from 'electron';
+import videojs from 'video.js';
 import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
 
 Vue.directive('tooltip', VTooltip);
