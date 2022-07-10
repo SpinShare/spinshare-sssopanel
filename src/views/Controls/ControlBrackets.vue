@@ -194,7 +194,7 @@ export default {
       toornamentEventId: 0,
       toornamentStageId: 0,
       phaseID: 0,
-      bracketSel: 1761345,
+      bracketSel: 0,
     };
   },
   mounted: function () {},
