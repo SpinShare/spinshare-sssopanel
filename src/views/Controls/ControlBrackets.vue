@@ -21,7 +21,7 @@
         <option value="1761352">QUALIFIERS: POOL 8</option>
         <option value="1761354" disabled>CHALLENGER BRACKET</option>
         <option value="1761353" disabled>ELITE BRACKET</option>
-        <option value="1581592">TEST QUALIFIER BRACKET</option>
+        <option value="1581602">TEST QUALIFIER BRACKET</option>
       </select>
     </InputGroup>
 
@@ -194,7 +194,7 @@ export default {
       toornamentEventId: 0,
       toornamentStageId: 0,
       phaseID: 0,
-      bracketSel: 1761345,
+      bracketSel: 0,
     };
   },
   mounted: function () {},
