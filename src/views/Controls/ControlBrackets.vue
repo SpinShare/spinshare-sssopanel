@@ -11,17 +11,16 @@
     </InputGroup>-->
     <InputGroup title="Bracket Selection">
       <select v-model="bracketSel" @change="onChange($event)">
-        <option value="1761345">QUALIFIERS: POOL 1</option>
-        <option value="1761346">QUALIFIERS: POOL 2</option>
-        <option value="1761347">QUALIFIERS: POOL 3</option>
-        <option value="1761348">QUALIFIERS: POOL 4</option>
-        <option value="1761349">QUALIFIERS: POOL 5</option>
-        <option value="1761350">QUALIFIERS: POOL 6</option>
-        <option value="1761351">QUALIFIERS: POOL 7</option>
-        <option value="1761352">QUALIFIERS: POOL 8</option>
-        <option value="1761354" disabled>CHALLENGER BRACKET</option>
-        <option value="1761353" disabled>ELITE BRACKET</option>
-        <option value="1581592">TEST QUALIFIER BRACKET</option>
+        <option value="1761354">CHALLENGER BRACKET</option>
+        <option value="1761353">ELITE BRACKET</option>
+        <option value="1761345" disabled>QUALIFIERS: POOL 1</option>
+        <option value="1761346" disabled>QUALIFIERS: POOL 2</option>
+        <option value="1761347" disabled>QUALIFIERS: POOL 3</option>
+        <option value="1761348" disabled>QUALIFIERS: POOL 4</option>
+        <option value="1761349" disabled>QUALIFIERS: POOL 5</option>
+        <option value="1761350" disabled>QUALIFIERS: POOL 6</option>
+        <option value="1761351" disabled>QUALIFIERS: POOL 7</option>
+        <option value="1761352" disabled>QUALIFIERS: POOL 8</option>           
       </select>
     </InputGroup>
 
@@ -93,94 +92,222 @@ async function load() {
 
     const PlayerMap = (entrantID) => playerLookup[entrantID] || "Player not found"; //Quick method to run lookup
 
-    for(let x = 0; x < obj.entities.sets.length; x++){     //Populating the output array. x indicates position in the downloaded data (Match identifier), y indicates which element (Player 1 Name / Score, Player 2 Name / Score)
+    for(const element of obj.entities.sets){     //Populating the output array. x indicates position in the downloaded data (Match identifier), y indicates which element (Player 1 Name / Score, Player 2 Name / Score)
         //if(ggData.entities.sets[x].entrant1Id == null || ggData.entities.sets[x].entrant2Id == null) {continue}
-        switch(obj.entities.sets[x].identifier){
+        switch(element.identifier){
           case "A":
-            a = PlayerMap(obj.entities.sets[x].entrant1Id);
-            b = obj.entities.sets[x].entrant1Score;
-            c = PlayerMap(obj.entities.sets[x].entrant2Id);
-            d = obj.entities.sets[x].entrant2Score;
+            a = PlayerMap(element.entrant1Id);
+            b = element.entrant1Score;
+            c = PlayerMap(element.entrant2Id);
+            d = element.entrant2Score;
             bracket[0] = [a,b,c,d];
             break;
           
           case "B":
-            a = PlayerMap(obj.entities.sets[x].entrant1Id);
-            b = obj.entities.sets[x].entrant1Score;
-            c = PlayerMap(obj.entities.sets[x].entrant2Id);
-            d = obj.entities.sets[x].entrant2Score;
+            a = PlayerMap(element.entrant1Id);
+            b = element.entrant1Score;
+            c = PlayerMap(element.entrant2Id);
+            d = element.entrant2Score;
             bracket[1] = [a,b,c,d];
             break;
             
           case "C":
-            if(obj.entities.sets[x].entrant1Id == null)
+            if(element.entrant1Id == null)
               {a = "Winner: WB - Round 1"; b = " ";}
             else{
-              a = PlayerMap(obj.entities.sets[x].entrant1Id);
-              b = obj.entities.sets[x].entrant1Score}
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
             
-            if(obj.entities.sets[x].entrant2Id == null)
+            if(element.entrant2Id == null)
               {c = "Winner: WB - Round 2"; d = " ";}
             else{
-              c = PlayerMap(obj.entities.sets[x].entrant2Id);
-              d = obj.entities.sets[x].entrant2Score}
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
 
             bracket[2] = [a,b,c,d];
             break;
 
           case "D":
-            if(obj.entities.sets[x].entrant1Id == null)
+            if(element.entrant1Id == null)
               {a = "Winner: WB - Final"; b = null;}
             else{
-              a = PlayerMap(obj.entities.sets[x].entrant1Id);
-              b = obj.entities.sets[x].entrant1Score}
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
             
-            if(obj.entities.sets[x].entrant2Id == null)
+            if(element.entrant2Id == null)
               {c = "Winner: LB - Round 2"; d = null;}
             else{
-              c = PlayerMap(obj.entities.sets[x].entrant2Id);
-              d = obj.entities.sets[x].entrant2Score}
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
 
             bracket[3] = [a,b,c,d];
             break;          
-
-          case "F":
-            if(obj.entities.sets[x].entrant1Id == null)
-              {a = "Loser: WB - Round 1"; b = null;}
+          
+          case "E":
+            if(element.entrant1Id == null)
+              {a = "Winner: QF 1"; b = null;}
             else{
-              a = PlayerMap(obj.entities.sets[x].entrant1Id);
-              b = obj.entities.sets[x].entrant1Score}
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
             
-            if(obj.entities.sets[x].entrant2Id == null)
-              {c = "Loser: WB - Round 2"; d = null;}
+            if(element.entrant2Id == null)
+              {c = "Winner: QF 2"; d = null;}
             else{
-              c = PlayerMap(obj.entities.sets[x].entrant2Id);
-              d = obj.entities.sets[x].entrant2Score}
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
 
             bracket[4] = [a,b,c,d];
             break;
 
-          case "G":
-            if(obj.entities.sets[x].entrant1Id == null)
-              {a = "Loser: WB Final"; b = null;}
+          case "F":
+            if(element.entrant1Id == null)
+              {a = "Winner: QF 3"; b = null;}
             else{
-              a = PlayerMap(obj.entities.sets[x].entrant1Id);
-              b = obj.entities.sets[x].entrant1Score}
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
             
-            if(obj.entities.sets[x].entrant2Id == null)
-              {c = "Winner: LB Round 1"; d = null;}
+            if(element.entrant2Id == null)
+              {c = "Winner: QF 4"; d = null;}
             else{
-              c = PlayerMap(obj.entities.sets[x].entrant2Id);
-              d = obj.entities.sets[x].entrant2Score}
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
 
             bracket[5] = [a,b,c,d];
             break;
 
+          case "G":
+            if(element.entrant1Id == null)
+              {a = "Winner: SF 1"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: SF 2"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[6] = [a,b,c,d];
+            break;
+
+          case "H":
+            if(element.entrant1Id == null)
+              {a = "Winner: WF"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: LF"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[7] = [a,b,c,d];
+            break;
+
+          case "J":
+            if(element.entrant1Id == null)
+              {a = "Loser: QF 1"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Loser: QF 2"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[8] = [a,b,c,d];
+            break;            
+
+          case "K":
+            if(element.entrant1Id == null)
+              {a = "Loser: QF 3"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Loser: QF 4"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[9] = [a,b,c,d];
+            break;
+
+          case "L":
+            if(element.entrant1Id == null)
+              {a = "Loser: SF 2"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: L R1-1"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[10] = [a,b,c,d];
+            break;            
+
+          case "M":
+            if(element.entrant1Id == null)
+              {a = "Loser: SF 1"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: L R1-2"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[11] = [a,b,c,d];
+            break;
+
+          case "N":
+            if(element.entrant1Id == null)
+              {a = "Winner: L R2-1"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: L R2-2"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[12] = [a,b,c,d];
+            break;
+
+          case "O":
+            if(element.entrant1Id == null)
+              {a = "Loser: WF"; b = null;}
+            else{
+              a = PlayerMap(element.entrant1Id);
+              b = element.entrant1Score}
+            
+            if(element.entrant2Id == null)
+              {c = "Winner: L R3"; d = null;}
+            else{
+              c = PlayerMap(element.entrant2Id);
+              d = element.entrant2Score}
+
+            bracket[13] = [a,b,c,d];
+            break; 
+
           default: break;
-        };
+        }
     }
     console.log(bracket);
-};
+}
 
 
 export default {
