@@ -38,7 +38,7 @@
         </div>
 
         <div class="logo">
-            <img src="../../assets/img/SSSO_Summer_Qualifiers.svg" alt="SSSO Logo" />
+            <img src="../../assets/img/SSSO_Summer_Challenger.svg" alt="SSSO Logo" />
         </div>
 
         <div class="timer">
