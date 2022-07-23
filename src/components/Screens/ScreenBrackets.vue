@@ -996,10 +996,10 @@
                                 "Player1-Name Player1-Score"
                                 "Player2-Name Player2-Score";                                                     
                         }
-            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px; background:#f0f0f0;height:3.25vh;}
-            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;height:100%;}
-            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #000; padding-left:15px;background:#f0f0f0;height:100%;}
-            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #000; text-align: center;background:#f0f0f0;height:100%;}
+            .Player1-Name { grid-area: Player1-Name; border-radius: 0.5vh; border: 0.4vh solid #010010; padding-left:15px; background:#010010; color:#f0f0f0;height:3.25vh; font-weight:700;}
+            .Player1-Score { grid-area: Player1-Score; border-radius: 0.5vh; border: 0.4vh solid #010010; text-align: center;background:#010010;color:#f0f0f0;height:100%;font-weight:700;}
+            .Player2-Name { grid-area: Player2-Name; border-radius: 0.5vh; border: 0.4vh solid #010010; padding-left:15px;background:#010010;color:#f0f0f0;height:100%;font-weight:700;}
+            .Player2-Score { grid-area: Player2-Score; border-radius: 0.5vh; border: 0.4vh solid #010010; text-align: center;background:#010010;color:#f0f0f0;height:100%;font-weight:700;}
             .qualiLeftCol{grid-area: qualiLeftCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:100%;}
             .qualiMidCol{grid-area: qualiMidCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:77.5%;}
             .qualiRightCol{grid-area: qualiRightCol;border-radius: 0.5vh; border: 0 solid #fff;padding:1vw;height:25%;}                                
