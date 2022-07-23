@@ -193,13 +193,13 @@ async function load() {
 
           case "H":
             if(element.entrant1Id == null)
-              {a = "Winner: WF"; b = null;}
+              {a = "Winner: Winners Final"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
             
             if(element.entrant2Id == null)
-              {c = "Winner: LF"; d = null;}
+              {c = "Winner: Losers Final"; d = null;}
             else{
               c = PlayerMap(element.entrant2Id);
               d = element.entrant2Score}
@@ -209,13 +209,13 @@ async function load() {
 
           case "J":
             if(element.entrant1Id == null)
-              {a = "Loser: QF 1"; b = null;}
+              {a = "Loser: W QF-1"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
             
             if(element.entrant2Id == null)
-              {c = "Loser: QF 2"; d = null;}
+              {c = "Loser: W QF-2"; d = null;}
             else{
               c = PlayerMap(element.entrant2Id);
               d = element.entrant2Score}
@@ -225,13 +225,13 @@ async function load() {
 
           case "K":
             if(element.entrant1Id == null)
-              {a = "Loser: QF 3"; b = null;}
+              {a = "Loser: W QF-3"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
             
             if(element.entrant2Id == null)
-              {c = "Loser: QF 4"; d = null;}
+              {c = "Loser: W QF-4"; d = null;}
             else{
               c = PlayerMap(element.entrant2Id);
               d = element.entrant2Score}
@@ -241,7 +241,7 @@ async function load() {
 
           case "L":
             if(element.entrant1Id == null)
-              {a = "Loser: SF 2"; b = null;}
+              {a = "Loser: W SF-2"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
@@ -257,7 +257,7 @@ async function load() {
 
           case "M":
             if(element.entrant1Id == null)
-              {a = "Loser: SF 1"; b = null;}
+              {a = "Loser: W SF-1"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
@@ -273,13 +273,13 @@ async function load() {
 
           case "N":
             if(element.entrant1Id == null)
-              {a = "Winner: L R2-1"; b = null;}
+              {a = "Winner: L QF-1"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
             
             if(element.entrant2Id == null)
-              {c = "Winner: L R2-2"; d = null;}
+              {c = "Winner: L QF-2"; d = null;}
             else{
               c = PlayerMap(element.entrant2Id);
               d = element.entrant2Score}
@@ -289,13 +289,13 @@ async function load() {
 
           case "O":
             if(element.entrant1Id == null)
-              {a = "Loser: WF"; b = null;}
+              {a = "Loser: W F"; b = null;}
             else{
               a = PlayerMap(element.entrant1Id);
               b = element.entrant1Score}
             
             if(element.entrant2Id == null)
-              {c = "Winner: L R3"; d = null;}
+              {c = "Winner: L SF"; d = null;}
             else{
               c = PlayerMap(element.entrant2Id);
               d = element.entrant2Score}
