@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\img",
+    "\\src\\components",
+    "\\src\\components\\Screens",
+    "\\src\\views",
+    "\\src\\views\\Controls"
   ],
   "PreviewInSolutionExplorer": false
 }

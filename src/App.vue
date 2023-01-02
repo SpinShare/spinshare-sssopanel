@@ -81,7 +81,7 @@
 
     .blobs {
         & svg {
-            fill: #db46a9;
+            fill: #8097d1;
         }
     }
 

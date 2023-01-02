@@ -67,7 +67,6 @@
         },
         mounted: function() {
             console.log("[Screen] Ready.");
-
             this.$data.userSettings = new UserSettings();
 
             this.$data.obsWebsocket = new OBSWebSocket();
@@ -192,7 +191,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-        //cursor: none;
+        /*cursor: none;*/
     }
     .lowerBanner {
         position: absolute;
@@ -200,7 +199,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-        background: url('../assets/img/LowerBanner.png');
+        /*background: url('../assets/img/LowerBanner.png');*/
         background-size: cover;
         z-index: 20;
     }

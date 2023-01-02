@@ -10,8 +10,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
+    "electron:build": "vue-cli-service electron:build --openssl-legacy-provider start",
+    "electron:serve": "vue-cli-service electron:serve --openssl-legacy-provider start",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
@@ -19,7 +19,9 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
+    "dedupe": "^4.0.1",
     "fetch": "^1.1.0",
+    "force": "^0.0.3",
     "get-graphql-schema": "^2.1.2",
     "graphql": "^16.2.0",
     "hls.js": "^0.14.17",
@@ -27,7 +29,7 @@
     "smashgg.js": "^4.1.17",
     "v-tooltip": "^2.0.3",
     "video.js": "^7.19.2",
-    "vue": "^2.6.11",
+    "vue": "^2.7.14",
     "vue-i18n": "^8.20.0",
     "vue-router": "^3.3.4",
     "vuex": "^3.5.1"
@@ -43,6 +45,7 @@
     "electron": "^6.1.12",
     "less": "^3.12.2",
     "less-loader": "^5.0.0",
+    "magic-snowflakes": "^6.0.1",
     "vue-cli-plugin-electron-builder": "~1.4.6",
     "vue-template-compiler": "^2.6.11"
   }
