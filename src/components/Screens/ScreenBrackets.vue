@@ -35,8 +35,8 @@
         <div ref="snow">
         </div>
         <div class="music">
-            <span class="mdi mdi-music"></span>
-            <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
+                <span class="mdi mdi-music"></span>
+                <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
         <div class="title">{{ topLeftText }}</div>
         <div class="bracketDisplay">
@@ -480,12 +480,10 @@
         right: 0px;
         top: 0px;
         bottom: 0px;
-        background: url("../../assets/img/LowerBanner.png");
+
         height: 100%;
         width: 100%;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+
         z-index: 10;
         display: grid;
         justify-content: center;
@@ -537,7 +535,7 @@
             font-weight: bold;
             letter-spacing: 0.25em;
             background-color:#041d28;color:#f0f0f0;
-            padding: 1vh 3vw;
+            padding: 0.45em 1em;
             border-radius: 40vw;
         }
     & .music {
@@ -548,22 +546,27 @@
         font-size: 1.5vw;
         background-color: #041d28;
         color: #f0f0f0;
-        padding: 0.5vh 1vw;
+        padding: 0.25em 1em;
         border-radius: 40vw;
-        /*padding: 0.5vh 0vw;*/
         display: flex;
         align-items: center;
-        & .mdi {
-                font-size: 2vw;
-                margin-right: 0.75vw;
-            }
-            & span:not(.mdi) {
-                transform: translate(0, -0.25vh);
-            }
-            & strong {
-                margin-right: 1vw;
-            }
-        }
+    }
+        & .mdi
+
+    {
+        font-size: 2vw;
+        margin-right: 0.75vw;
+    }
+
+    & span:not(.mdi) {
+        display: inline-block;
+        transform: translate(0, 0);
+    }
+
+    & strong {
+        margin-right: 1vw;
+    }
+
     & .bracketDisplay {
         z-index: 25;
         position: absolute;

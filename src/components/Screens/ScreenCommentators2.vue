@@ -203,8 +203,11 @@
             right: 2vw;
             & .user-data {
                 display: grid;
-                grid-gap: 3vh;
+                margin-top:-3vh;
+                grid-template-rows: 11.5vh 4.5vh 4.25vh;
+                /*grid-gap: 3vh;*/
                 justify-items: center;
+                align-items:baseline;
                 & .avatar {
                     width: 6vw;
                     height: 6vw;
@@ -214,23 +217,25 @@
                     z-index:25;
                 }
     & .username {
+        height: 1.65em;
         font-size: 1.75vw;
-        line-height: 1em;
+        line-height: 1.75vw;
         border: solid;
         border-color: #041d28;
         background-color: rgba(7,58,80,0.8);
         color: #f0f0f0;
-        padding: 0.5vh 1vw;
+        padding: 0.25em 1em;
         border-radius: 40vw;
     }
     & .pronouns {
-        margin-top: -0.5vw;
+        margin-top: 1vw;
         font-size: 0.75vw;
         font-weight: bold;
         background: #f0f0f0;
         color: #000;
-        padding: 0.5vw 1.5vw;
+        padding: 0.33vw 1.1vw;
         border-radius: 50vw;
+        align-items: center;
     }
             }
             & .versus {
@@ -273,23 +278,26 @@
                 &:nth-child(5) { top: 2vh; left: 10vw; animation-delay: -8s; }
             }
         }
-        & .music {
-            z-index: 25;
-            position: absolute;
-            top: 4vh;
-            right: 4vw;
-            font-size: 1.5vw;
-            color: #fff;
-            padding: 0.5vh 0vw;
-            display: flex;
-            align-items: center;
-            & .mdi {
+    & .music {
+        z-index: 25;
+        position: absolute;
+        top: 4vh;
+        right: 4vw;
+        font-size: 1.5vw;
+        background-color: #041d28;
+        color: #f0f0f0;
+        padding: 0.25em 1em;
+        border-radius: 40vw;
+        display: flex;
+        align-items: center;
+        & .mdi {
                 font-size: 2vw;
                 margin-right: 0.75vw;
             }
-            & span:not(.mdi) {
-                transform: translate(0, -0.25vh);
-            }
+        & span:not(.mdi) {
+            display: inline-block;
+            transform: translate(0, 0);
+        }
             & strong {
                 margin-right: 1vw;
             }

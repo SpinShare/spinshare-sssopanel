@@ -37,17 +37,19 @@
             </div>
 
             <div ref="snow">
+            </div>
         </div>
-    </div>
 
-    <div class="text">
-        Thank<br />You For<br/>Watching!
-    </div>
+        <div class="text">
+            Thank<br />You For<br />Watching!
+        </div>
 
-    <div class="music">
-        <span class="mdi mdi-music"></span>
-        <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
-    </div>
+        <div class="music">
+            <div class="music-container">
+                <span class="mdi mdi-music"></span>
+                <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -154,29 +156,43 @@
                     }
                 }
             }
-            & .music {
-                z-index: 25;
-                position: absolute;
-                top: 4vh;
-                left: 4vw;
-                width: 92vw;
-                font-size: 1.5vw;
-                color: #fff;
-                padding: 0.5vh 0vw;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                & .mdi {
-                    font-size: 2vw;
-                    margin-right: 0.75vw;
-                }
-                & span:not(.mdi) {
-                    transform: translate(0, -0.25vh);
-                }
+        & .music {
+            z-index: 25;
+            position: absolute;
+            top: 4vh;
+            left: 4vw;
+            width: 92vw;
+            font-size: 1.5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align:center;
+
                 & strong {
                     margin-right: 1vw;
                 }
             }
+
+        & .music-container {
+            margin: auto;
+            align-items: center;
+            text-align: center;
+            background-color: #041d28;
+            color: #f0f0f0;
+            padding: 0.25em 1.25em;
+            border-radius: 40vw;
+            display: flex;
+            & .mdi
+                {
+                    font-size: 2vw;
+                    margin-right: 0.75vw;
+                }
+
+            & span:not(.mdi) {
+                display: inline-block;
+                transform: translate(0, 0);
+            }
+        }
             & .text {
                 font-weight: bold;
                 font-size: 7vw;

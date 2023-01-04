@@ -264,10 +264,7 @@ mounted: function () {
   z-index: 10;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
-  background: url("../../assets/img/LowerBanner.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+
   
   header {
     display: grid;
@@ -278,9 +275,10 @@ mounted: function () {
     & .user-data
     {
         display: grid;
+        grid-template-rows: 10vh 4.5vh 1.7vh;
         grid-gap: 2vh;
         justify-items: center;
-        
+
         & .avatar
     {
         width: 6vw;
@@ -299,7 +297,7 @@ mounted: function () {
         background-color: rgba(7,58,80,0.8);
         color: #f0f0f0;
         /*background-color: rgba(0,0,0,0.45);*/
-        padding: 0.25vw 1vw;
+        padding: 0.25em 1em;
         border-radius: 50vw;
     }
     & .pronouns {
@@ -409,9 +407,18 @@ mounted: function () {
     justify-content: center;
     align-items: center;
     grid-template-columns: 1fr auto;
-    padding: 0vw 4vw;
-    margin-bottom: 4vw;
+    padding: 0vw 2vw;
+    margin-left:3vw;
+    margin-right:3vw;
+    margin-top: 1.5vw;
+    margin-bottom: 5vw;
     z-index: 10;
+        border: solid;
+        border-color: #041d28;
+        background-color: rgba(7,58,80,0.8);
+        color: #f0f0f0;
+        border-radius: 3vw;
+
     & .song-data {
       display: grid;
       grid-template-columns: 7vw 1fr;

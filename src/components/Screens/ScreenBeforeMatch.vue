@@ -187,7 +187,7 @@
         letter-spacing: 0.25em;
         background-color: #041d28;
         color: #f0f0f0;
-        padding: 1vh 3vw;
+        padding: 0.45em 1.8em;
         border-radius: 40vw;
     }
     & .music {
@@ -198,9 +198,8 @@
         font-size: 1.5vw;
         background-color: #041d28;
         color: #f0f0f0;
-        padding: 0.5vh 1vw;
+        padding: 0.25em 1em;
         border-radius: 40vw;
-        /*padding: 0.5vh 0vw;*/
         display: flex;
         align-items: center;
         & .mdi
@@ -211,7 +210,8 @@
     }
 
     & span:not(.mdi) {
-        transform: translate(0, -0.25vh);
+        display: inline-block;
+        transform: translate(0, 0);
     }
 
     & strong {
@@ -219,20 +219,23 @@
     }
 
     }
-        & .users {
-            display: grid;
-            grid-template-columns: 1fr 6vw 1fr;
-            justify-items: center;
-            align-items: center;
-            width: 70vw;
-            margin: 0 auto;
-            padding-top: 8vh;
-            height: 70vh;
-            & .user-data {
+    & .users {
+        display: grid;
+        grid-template-columns: 1fr 6vw 1fr;
+        justify-items: center;
+        align-items: center;
+        width: 70vw;
+        margin: 0 auto;
+        padding-top: 8vh;
+        height: 70vh;
+        & .user-data {
                 display: grid;
+                grid-template-rows: 17.5vh 8vh 5vh;
                 grid-gap: 3vh;
                 justify-items: center;
+                align-items:baseline;
                 & .avatar {
+                    margin-top: 4vh;
                     width: 10vw;
                     height: 10vw;
                     border-radius: 100%;
@@ -240,18 +243,20 @@
                     background-position: center;
                     z-index: 25;
                 }
-                & .username {
-                    font-size: 2.5vw;
-                    line-height: 1em;
-                    border: solid;
-                    border-color: #041d28;
-                    background-color: rgba(7,58,80,0.8);
-                    color: #f0f0f0;
-                    padding: 0.5vh 1vw;
-                    border-radius: 40vw;
-                }
+    & .username {
+        margin-top: 3vh;
+        font-size: 2.5vw;
+        line-height: 1em;
+        border: solid;
+        border-color: #041d28;
+        background-color: rgba(7,58,80,0.8);
+        color: #f0f0f0;
+        padding: 0.25em 1em;
+        border-radius: 40vw;
+
+    }
     & .pronouns {
-        margin-top: -0.5vw;
+        margin-top: 0.75vw;
         font-size: 1vw;
         font-weight: bold;
         background: #f0f0f0;
@@ -260,14 +265,14 @@
         border-radius: 50vw;
     }
             }
-            & .versus {
-                font-size: 1vw;
-                font-weight: bold;
-                background: #fff;
-                padding: 0.75vw 1.5vw;
-                border-radius: 50vw;
-                color: #000;
-            }
+    & .versus {
+        font-size: 1vw;
+        font-weight: bold;
+        background: #fff;
+        padding: 0.75vw 1.5vw;
+        border-radius: 50vw;
+        color: #000;
+    }
         }
         & .chat-box {
             background: #000;
