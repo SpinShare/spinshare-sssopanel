@@ -12,14 +12,18 @@
         <div class="users">
             <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
-                <div class="username">{{ player1Data.username }}</div> 
-                <div class="pronouns" v-if="player1Data.pronouns != null">{{ player1Data.pronouns }}</div>
+                <div class="username">{{ player1Data.username }}</div>
+                <div class="pronouns" v-if="player1Data.pronouns != '' && player1Data.pronouns != null">
+                    {{ player1Data.pronouns }}
+                </div>
             </div>
             <div class="versus">VS.</div>
             <div class="user-data" v-if="player2Data">
                 <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
                 <div class="username">{{ player2Data.username }}</div>
-                <div class="pronouns" v-if="player2Data.pronouns != null">{{ player2Data.pronouns }}</div>
+                <div class="pronouns" v-if="player2Data.pronouns != '' && player2Data.pronouns != null">
+                    {{ player2Data.pronouns }}
+                </div>
             </div>
         </div>
         
@@ -80,8 +84,8 @@
                 count: 100, // 100 snowflakes. Default: 50
                 minOpacity: 0.3, // From 0 to 1. Default: 0.6
                 maxOpacity: 0.95, // From 0 to 1. Default: 1
-                minSize: 5, // Default: 10
-                maxSize: 30, // Default: 25
+                minSize: 10, // Default: 10
+                maxSize: 45, // Default: 25
                 rotation: true, // Default: true
                 speed: 0.9, // The property affects the speed of falling. Default: 1
                 wind: true, // Without wind. Default: true
@@ -167,26 +171,27 @@
                 &:nth-child(5) { top: 87vh; left: 2vw; animation-delay: -5s; }
             }
         }
-        & .chat-box {
-            background: #000;
-            border-top-left-radius: 1vw;
-            border-top-right-radius: 1vw;
-            border-bottom-left-radius: 1vw;
-            border-bottom-right-radius: 1vw;
-            z-index: 30;
-            position: absolute;
-            top: 8vw;
-            right: 5vw;
-            border: 0px;
-            width: 35vw;
-            height: 35vh;
-            overflow: hidden;
-            & webview {
+    & .chat-box {
+        background-color: rgba(7,58,80,0.8);
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        border-bottom-right-radius: 1vw;
+        border: solid;
+        border-color: #041d28;
+        z-index: 30;
+        position: absolute;
+        top: 8vw;
+        right: 5vw;
+        width: 35vw;
+        height: 35vh;
+        overflow: hidden;
+        & webview {
                 transform-origin: top left;
-                transform: scale(1.1);
-                height: 100%;
+                transform: scale(1.0);
+                height: 110%;
                 &.isFullscreen {
-                    transform: scale(1.4);
+                    transform: scale(1.5);
                 }
             }
         }
@@ -210,6 +215,7 @@
                 justify-items: center;
                 align-items:baseline;
                 & .avatar {
+                              z-index:5;
                     width: 6vw;
                     height: 6vw;
                     border-radius: 100%;
@@ -217,6 +223,7 @@
                     background-position: center;
                 }
                 & .username {
+                    z-index:5;
                     height: 1.65em;
                     font-size: 1.25vw;
                     line-height: 1em;
@@ -228,6 +235,7 @@
                     border-radius: 40vw;
                 }
     & .pronouns {
+        z-index:5;
         margin-top: 0.15vw;
         font-size: 0.75vw;
         font-weight: bold;
@@ -295,6 +303,7 @@
             }
         }
         & .obs-ninja {
+            z-index:5;
             position: absolute;
             top: 12vh;
             bottom: 12vh;

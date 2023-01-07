@@ -143,8 +143,8 @@ mounted: function () {
         count: 100, // 100 snowflakes. Default: 50
         minOpacity: 0.3, // From 0 to 1. Default: 0.6
         maxOpacity: 0.95, // From 0 to 1. Default: 1
-        minSize: 5, // Default: 10
-        maxSize: 30, // Default: 25
+        minSize: 10, // Default: 10
+        maxSize: 45, // Default: 25
         rotation: true, // Default: true
         speed: 0.9, // The property affects the speed of falling. Default: 1
         wind: true, // Without wind. Default: true
@@ -315,7 +315,7 @@ mounted: function () {
         border-color: #041d28;
         background-color: rgba(7,58,80,0.8);
         color: #f0f0f0;
-        border-radius: 3.5vw;
+        border-radius: 1.5vw;
         text-align: center;
         /*background-color: rgba(0,0,0,0.4);*/
         /*width: 14.25vw;*/
@@ -402,24 +402,25 @@ mounted: function () {
       }
     }
   }
-  footer {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: 1fr auto;
-    padding: 0vw 2vw;
-    margin-left:3vw;
-    margin-right:3vw;
-    margin-top: 1.5vw;
-    margin-bottom: 5vw;
-    z-index: 10;
-        border: solid;
+    footer {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr auto;
+        padding: 0vw 2vw;
+        margin-left: 3vw;
+        margin-right: 3vw;
+        margin-top: 1.5vw;
+        margin-bottom: 5vw;
+        z-index: 10;
+        color: #fcfcfc;
+        background: rgba(0,0,0,0.3);
+        border-radius: 1.5vw;
+        /* border: solid;
         border-color: #041d28;
         background-color: rgba(7,58,80,0.8);
-        color: #f0f0f0;
-        border-radius: 3vw;
-
-    & .song-data {
+        border-radius: 3vw;*/
+        & .song-data {
       display: grid;
       grid-template-columns: 7vw 1fr;
       grid-gap: 0.5vw;

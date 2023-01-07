@@ -46,14 +46,18 @@
         </div>
 
         <div class="timer">
-            <div v-if="!isSoon">{{ remainingMinutes.padStart(2, '0') }}:{{ remainingSeconds.padStart(2, '0') }}</div>
-            <div v-if="isSoon"> SOON </div>
+            <div class="leText">
+                <div v-if="!isSoon">{{ remainingMinutes.padStart(2, '0') }}:{{ remainingSeconds.padStart(2, '0') }}</div>
+                <div v-if="isSoon"> SOON </div>
+            </div>
         </div>
 
-        <!--<div class="music">
-            <span class="mdi mdi-music"></span>
-            <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
-        </div>-->
+        <div class="music">
+            <div class="music-container">
+                <span class="mdi mdi-music"></span>
+                <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -82,8 +86,8 @@
                 count: 100, // 100 snowflakes. Default: 50
                 minOpacity: 0.3, // From 0 to 1. Default: 0.6
                 maxOpacity: 0.95, // From 0 to 1. Default: 1
-                minSize: 5, // Default: 10
-                maxSize: 30, // Default: 25
+                minSize: 10, // Default: 10
+                maxSize: 45, // Default: 25
                 rotation: true, // Default: true
                 speed: 0.9, // The property affects the speed of falling. Default: 1
                 wind: true, // Without wind. Default: true
@@ -199,6 +203,48 @@
                 height: 35vh;
             }
         }
+    & .music {
+        z-index: 25;
+        position: absolute;
+        top: 4vh;
+        left: 4vw;
+        width: 92vw;
+        font-size: 1.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        & strong
+
+    {
+        margin-right: 1vw;
+    }
+
+    }
+
+    & .music-container {
+        margin: auto;
+        align-items: center;
+        text-align: center;
+        background-color: #041d28;
+        color: #f0f0f0;
+        padding: 0.25em 1.25em;
+        border-radius: 40vw;
+        display: flex;
+
+        & .mdi {
+            font-size: 2vw;
+            margin-right: 0.75vw;
+        }
+
+        & span:not(.mdi) {
+            display: inline-block;
+            margin-bottom:-0.4vh;
+            transform: translate(0, 0);
+        }
+
+    }
+
     & .timer {
         z-index: 20;
         text-align: center;
@@ -206,7 +252,7 @@
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        -webkit-text-stroke: 1.5px;
+        -webkit-text-stroke: 0.0em;
         -webkit-text-stroke-color:#0f0f0f;
         color: #ffffff;
         width: 100vw;
@@ -219,6 +265,9 @@
                 font-size: 6.5vw;
             }
         }
+    & .leText{
+        margin-top:-6.5vh;
+    }
         & .music {
             z-index: 25;
             position: absolute;

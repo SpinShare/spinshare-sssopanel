@@ -73,8 +73,8 @@
                     count: 100, // 100 snowflakes. Default: 50
                     minOpacity: 0.3, // From 0 to 1. Default: 0.6
                     maxOpacity: 0.95, // From 0 to 1. Default: 1
-                    minSize: 5, // Default: 10
-                    maxSize: 30, // Default: 25
+                    minSize: 10, // Default: 10
+                    maxSize: 45, // Default: 25
                     rotation: true, // Default: true
                     speed: 0.9, // The property affects the speed of falling. Default: 1
                     wind: true, // Without wind. Default: true
@@ -190,7 +190,7 @@
 
             & span:not(.mdi) {
                 display: inline-block;
-                transform: translate(0, 0);
+                transform: translate(0, -0.1vh);
             }
         }
             & .text {

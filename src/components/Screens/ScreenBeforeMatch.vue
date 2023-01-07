@@ -40,19 +40,23 @@
             <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
                 <div class="username">{{ player1Data.username }}</div>
-                <div class="pronouns" v-if="player1Data.pronouns != null">{{ player1Data.pronouns }}</div>
+                <div class="pronouns" v-if="player1Data.pronouns != '' && player1Data.pronouns != null">
+                    {{ player1Data.pronouns }}
+                </div>
             </div>
             <div class="versus">VS.</div>
             <div class="user-data" v-if="player2Data">
                 <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
                 <div class="username">{{ player2Data.username }}</div>
-                <div class="pronouns" v-if="player2Data.pronouns != null">{{ player2Data.pronouns }}</div>
+                <div class="pronouns" v-if="player2Data.pronouns != '' && player2Data.pronouns != null">
+                    {{ player2Data.pronouns }}
+                </div>
             </div>
         </div>
 
         <div class="chat-box">
-            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
-            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+            <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview><!--https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0-->
+            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview><!--https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=18&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0-->
         </div>
 
         <div class="music">
@@ -91,8 +95,8 @@
                 count: 100, // 100 snowflakes. Default: 50
                 minOpacity: 0.3, // From 0 to 1. Default: 0.6
                 maxOpacity: 0.95, // From 0 to 1. Default: 1
-                minSize: 5, // Default: 10
-                maxSize: 30, // Default: 25
+                minSize: 10, // Default: 10
+                maxSize: 45, // Default: 25
                 rotation: true, // Default: true
                 speed: 0.9, // The property affects the speed of falling. Default: 1
                 wind: true, // Without wind. Default: true
@@ -244,6 +248,7 @@
                     z-index: 25;
                 }
     & .username {
+        z-index:5;
         margin-top: 3vh;
         font-size: 2.5vw;
         line-height: 1em;
@@ -274,26 +279,33 @@
         color: #000;
     }
         }
-        & .chat-box {
-            background: #000;
-            border-top-left-radius: 1vw;
-            border-top-right-radius: 1vw;
-            z-index: 30;
-            position: absolute;
-            left: 30vw;
-            width: 40vw;
-            height: 30vh;
-            overflow: hidden;
-            & webview {
-                transform-origin: top left;
-                transform: scale(1.1);
-                height: 100%;
-                &.isFullscreen {
-                    transform: scale(1.4);
-                }
-            }
-        }
-        & .commentators-box {
+    & .chat-box {
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        z-index: 30;
+        position: absolute;
+        left: 30vw;
+        width: 40vw;
+        height: 30vh;
+        overflow: hidden;
+        background-color: rgba(7,58,80,0.8);
+        border: solid;
+        border-bottom:0px;
+        border-color: #041d28;
+    }
+    webview {
+        transform-origin: top left;
+        transform: scale(1);
+        height: 110%;
+
+        &.isFullscreen {
+        /*transform: scale(1.5);*/
+        transform: scale(1.6);
+        height: 110%;
+    }
+    }
+
+    /*& .commentators-box {
             position: absolute;
             top: 12vw;
             left: 5vw;
@@ -329,7 +341,7 @@
                     height: 32vh;
                 }
             }
-        }
+        }*/
     }
     @keyframes blobAnimSmall {
         0% {

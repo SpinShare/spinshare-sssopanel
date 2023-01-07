@@ -13,13 +13,17 @@
             <div class="user-data" v-if="player1Data">
                 <div class="avatar" :style="'background-image: url(' + player1Data.avatar + ');'"></div>
                 <div class="username">{{ player1Data.username }}</div>
-                <div class="pronouns" v-if="player1Data.pronouns != null">{{ player1Data.pronouns }}</div>
+                <div class="pronouns" v-if="player1Data.pronouns != '' && player1Data.pronouns != null">
+                    {{ player1Data.pronouns }}
+                </div>
             </div>
             <div class="versus">VS.</div>
             <div class="user-data" v-if="player2Data">
                 <div class="avatar" :style="'background-image: url(' + player2Data.avatar + ');'"></div>
                 <div class="username">{{ player2Data.username }}</div>
-                <div class="pronouns" v-if="player2Data.pronouns != null">{{ player2Data.pronouns }}</div>
+                <div class="pronouns" v-if="player2Data.pronouns != '' && player2Data.pronouns != null">
+                    {{ player2Data.pronouns }}
+                </div>
             </div>
         </div>
 
@@ -39,10 +43,11 @@
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#ffffff" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
             </svg>
-
             <div ref="snow">
             </div>
         </div>
+
+
 
         <div class="music">
             <span class="mdi mdi-music"></span>
@@ -79,8 +84,8 @@
                 count: 100, // 100 snowflakes. Default: 50
                 minOpacity: 0.3, // From 0 to 1. Default: 0.6
                 maxOpacity: 0.95, // From 0 to 1. Default: 1
-                minSize: 5, // Default: 10
-                maxSize: 30, // Default: 25
+                minSize: 10, // Default: 10
+                maxSize: 45, // Default: 25
                 rotation: true, // Default: true
                 speed: 0.9, // The property affects the speed of falling. Default: 1
                 wind: true, // Without wind. Default: true
@@ -166,26 +171,29 @@
                 &:nth-child(5) { top: 88vh; left: 4vw; animation-delay: -5s; }
             }
         }
-        & .chat-box {
-            background: #000;
-            border-top-left-radius: 1vw;
-            border-top-right-radius: 1vw;
-            border-bottom-left-radius: 1vw;
-            border-bottom-right-radius: 1vw;
-            z-index: 30;
-            position: absolute;
-            bottom: 8vw;
-            left: 9vw;
-            border: 0px;
-            width: 41vw;
-            height: 30vh;
-            overflow: hidden;
-            & webview {
+    & .chat-box {
+        background-color: rgba(7,58,80,0.8);
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        border-bottom-right-radius: 1vw;
+        z-index: 30;
+        position: absolute;
+        bottom: 8vw;
+        left: 9vw;
+        border: solid;
+        border-color: #041d28;
+        width: 41vw;
+        height: 30vh;
+        overflow: hidden;
+        & webview {
+                z-index:30;
                 transform-origin: top left;
-                transform: scale(1.1);
-                height: 100%;
+                transform: scale(1);
+                height: 110%;
                 &.isFullscreen {
-                    transform: scale(1.4);
+                    z-index:30;
+                    transform: scale(1.5);
                 }
             }
         }
@@ -217,6 +225,7 @@
                     z-index:25;
                 }
     & .username {
+        z-index:5;
         height: 1.65em;
         font-size: 1.75vw;
         line-height: 1.75vw;
@@ -303,6 +312,7 @@
             }
         }
         & .obs-ninja {
+            z-index:30;
             position: absolute;
             top: 12vh;
             bottom: 48vh;
