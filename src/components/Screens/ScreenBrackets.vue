@@ -38,7 +38,7 @@
                 <span class="mdi mdi-music"></span>
                 <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
-        <div class="title">{{ topLeftText }}</div>
+        <div class="title"><div class="titleText">{{ topLeftText }}</div></div>
         <div class="bracketDisplay">
             <div class="qualiBracketDisplay" v-show="qualiVisible">
                 <div class="qualiWB">
@@ -539,18 +539,28 @@
                 &:nth-child(10) { top: -1vh; left: 76vw; animation-delay: -10s; }
             }
         }
-        & .title {
-            z-index: 25;
-            position: absolute;
-            top: 4vh;
-            left: 4vw;
-            font-size: 1.5vw;
-            font-weight: bold;
-            letter-spacing: 0.25em;
-            background-color:#041d28;color:#f0f0f0;
-            padding: 0.45em 1em;
-            border-radius: 40vw;
-        }
+    & .title {
+        z-index: 25;
+        position: absolute;
+        top: 4vh;
+        left: 4vw;
+        font-size: 1.5vw;
+        font-weight: bold;
+        letter-spacing: 0.25em;
+        background-color: #041d28;
+        color: #f0f0f0;
+        padding: 0.45em 1.8em;
+        border-radius: 40vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & .titleText {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin-right: -0.25em;
+    }
     & .music {
         z-index: 25;
         position: absolute;

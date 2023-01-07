@@ -63,7 +63,7 @@
             <span class="mdi mdi-music"></span>
             <span><strong>{{ snipAuthor }}</strong>{{ snipTitle }}</span>
         </div>
-        <div class="title">COMING UP</div>
+        <div class="title"><div class="titleText">COMING UP</div></div>
     </div>
 </template>
 
@@ -193,7 +193,17 @@
         color: #f0f0f0;
         padding: 0.45em 1.8em;
         border-radius: 40vw;
+        justify-content:center;
+        align-items:center;
+        
     }
+    & .titleText {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        margin-right: -0.25em;
+    }
+
     & .music {
         z-index: 25;
         position: absolute;

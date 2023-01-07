@@ -44,7 +44,21 @@
 import { remote, ipcRenderer } from 'electron';
 import Fab from '@/components/Controls/Fab.vue';
 import InputGroup from '@/components/Controls/InputGroup.vue';
-export default {
+
+    async function checkStreams() {
+         //These need to be global, or someone smarter needs to do this nicely - let stream1Status, stream2Status, player1Region, player2Region, player1Key, player2Key;
+        let player1Url = "ws://" + player1Region + ".rtmp.spinsha.re:3333/app/" + player1Key;
+        let player2Url = "ws://" + player2Region + ".rtmp.spinsha.re:3333/app/" + player2Key;
+        const stream1Test = OvenPlayer.create;
+        const stream2Test = OvenPlayer.create;
+
+        stream1Status = stream1Test.getState(player1Url);
+        stream2Status = stream2Test.getState(player2Url);
+        console.log('Player 1 Stream: ' + stream1Status);
+        console.log('Player 2 Stream: ' + stream2Status);
+    }
+
+    export default {
     name: 'ControlBeforeMatch',
     components: {
         Fab,
@@ -54,7 +68,7 @@ export default {
         return {
             player1Id: 0,
             player2Id: 0,
-            currentSet: 0,
+            currentSet: 1,
             fullSet: 0,
             player1Score: 0,
             player2Score: 0,
@@ -83,6 +97,7 @@ export default {
             this.$data.player2Score = 0;
             this.$data.songId = 0;
         });
+
         ipcRenderer.send('get-playerData', {});
     },
     methods: {
@@ -91,6 +106,8 @@ export default {
         },
         updateData: function() {
             console.log("[Controls] Update PlayerData");
+            //checkStreams();
+
             ipcRenderer.send('update-playerData', {
                 player1Id: this.$data.player1Id,
                 player2Id: this.$data.player2Id,
