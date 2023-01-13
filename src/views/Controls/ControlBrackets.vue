@@ -120,6 +120,8 @@ async function load() {
         11939465: "Kaszabi",
         11954285: "Vodcat",
         11959292: "sodapants",
+        12032065: "Drogin_dunlane",
+        12032066: "Loosiano",
 
     };
     //let p1Name,p1Score,p2Name,p2Score
