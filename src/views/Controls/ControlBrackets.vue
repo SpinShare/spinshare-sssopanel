@@ -42,6 +42,7 @@ let groupSel;
 var bracket = [];
 let bracketName;
 var elite = 0;
+var bracketReset = 0;
 
 async function load() {
   //1581592 - Test group
@@ -130,6 +131,7 @@ async function load() {
 
     if ((groupSel === "1932036") || (groupSel === "1932035") || (groupSel === "1761353")) {
         elite = 1;
+        bracketReset = 0;
         bracket = [];
         for (const element of obj.entities.sets) {     //Populating the output array. x indicates position in the downloaded data (Match identifier), y indicates which element (Player 1 Name / Score, Player 2 Name / Score)
             //if(ggData.entities.sets[x].entrant1Id == null || ggData.entities.sets[x].entrant2Id == null) {continue}
@@ -244,6 +246,18 @@ async function load() {
                     }
 
                     bracket[7] = [a, b, c, d];
+                    break;
+
+                case "I": //Bracket Reset case
+                    if (element.entrant1Id == null || element.entrant2Id == null) { bracketReset = 0; continue; }
+                    else {
+                        bracketReset = 1;
+                        a = PlayerMap(element.entrant1Id);
+                        b = element.entrant1Score
+                        c = PlayerMap(element.entrant2Id);
+                        d = element.entrant2Score
+                    }
+                    bracket[14] = [a, b, c, d];
                     break;
 
                 case "J":
@@ -477,6 +491,7 @@ export default {
           topLeftText: bracketName, //"BRACKET",     
             bracket: bracket,
             elite: elite,
+            bracketReset: bracketReset,
         });
       }, 1500);
     },

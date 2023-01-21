@@ -96,7 +96,7 @@
                 minOpacity: 0.3, // From 0 to 1. Default: 0.6
                 maxOpacity: 0.95, // From 0 to 1. Default: 1
                 minSize: 10, // Default: 10
-                maxSize: 45, // Default: 25
+                maxSize: 40, // Default: 25
                 rotation: true, // Default: true
                 speed: 0.9, // The property affects the speed of falling. Default: 1
                 wind: true, // Without wind. Default: true
