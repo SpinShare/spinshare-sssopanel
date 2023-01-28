@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div class="screenCommentators4">
         <div class="obs-ninja">
             <webview :src="'https://vdo.ninja/?scene&room=' + obsNinjaViewID + '&password=' + obsNinjaViewPassword + '&clean&transparent&noheader&&sl=skype&style=2&na'" ref="obsNinjaWebview4"></webview>
@@ -6,7 +6,15 @@
 
         <div class="chat-box">
             <webview v-if="!isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=16&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
-            <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+    <webview class="isFullscreen" v-if="isFullscreen" src="https://streamkit.discord.com/overlay/chat/747574206904008844/832234240249954334?icon=true&online=true&logo=white&text_color=%23ffffff&text_size=14&text_outline_color=%23000000&text_outline_size=0&text_shadow_color=%23000000&text_shadow_size=0&bg_color=%23000000&bg_opacity=0&bg_shadow_color=%23000000&bg_shadow_size=0&invite_code=&limit_speaking=false&small_avatars=false&hide_names=false&fade_chat=0"></webview>
+
+            <!---widgetbot
+                       server="747574206904008844"
+                       channel="1066680291764228096"
+                       id="refden"
+                       height="600"
+                       width="400"
+            ></widgetbot>-->
         </div>
 
         <div class="users">
@@ -60,6 +68,9 @@
     import { remote, ipcRenderer } from 'electron';
     import SSAPI from "../../modules/module.api.js";
     import Snowflakes from 'magic-snowflakes';
+    import * as React from 'react'
+    import WidgetBot, { API } from '@widgetbot/react-embed'
+
     export default {
         name: 'ScreenCommentators4',
         data: function() {
@@ -190,9 +201,11 @@
                 transform-origin: top left;
                 transform: scale(1.0);
                 height: 110%;
-                &.isFullscreen {
-                    transform: scale(1.5);
-                }
+        &.isFullscreen
+        {
+            height:110%;
+            transform: scale(1.5);
+        }
             }
         }
         & .users {

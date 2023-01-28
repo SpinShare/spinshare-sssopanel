@@ -17,6 +17,8 @@
   },
   "main": "background.js",
   "dependencies": {
+    "@widgetbot/html-embed": "^1.2.1",
+    "@widgetbot/react-embed": "^1.6.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "dedupe": "^4.0.1",
@@ -26,6 +28,7 @@
     "graphql": "^16.2.0",
     "hls.js": "^0.14.17",
     "obs-websocket-js": "^4.0.2",
+    "react": "^18.2.0",
     "smashgg.js": "^4.1.17",
     "v-tooltip": "^2.0.3",
     "video.js": "^7.19.2",

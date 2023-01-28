@@ -42,7 +42,7 @@
         <div class="bracketDisplay">
             <div class="qualiBracketDisplay" v-show="qualiVisible">
                 <div class="qualiWB">
-                    <div class="qualiLeftCol">
+                    <div class="qualiLeftCol fadein-1">
                         <div class="match1-header"> WB - Round 1 </div>
                         <div class="qround1">
                             <div class="Player1-Name">{{ r1p1name }}</div>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <div class="qualiMidCol">
+                    <div class="qualiMidCol fadein-2">
                         <div class="match3-header"> WB - Final </div>
                         <div class="qwin-r2">
                             <div id="r3-p1-name" class="Player1-Name">{{ r3p1name }}</div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="qualiRightCol">
+                    <div class="qualiRightCol fadein-3">
                         <div class="match6-header"> Grand Final </div>
                         <div class="qGF">
                             <div id="r6-p1-name" class="gfPlayer1-Name">{{ r6p1name }}</div>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="qualiLB">
-                    <div class="qualiLeftCol">
+                    <div class="qualiLeftCol fadein-1">
                         <div class="match4-header"> LB - Round 1 </div>
                         <div class="qlose-r1">
                             <div id="r4-p1-name" class="Player1-Name">{{ r4p1name }}</div>
@@ -90,7 +90,7 @@
                             <div id="r4-p2-score" class="Player2-Score">{{ r4p2score }}</div>
                         </div>
                     </div>
-                    <div class="qualiMidCol">
+                    <div class="qualiMidCol fadein-2">
                         <div class="match5-header"> LB - Round 2 </div>
                         <div class="qlose-r2">
                             <div id="r5-p1-name" class="Player1-Name">{{ r5p1name }}</div>
@@ -106,7 +106,7 @@
                 <div class="KO-header">Winners Bracket</div>
                 <div class="WB">
                     <div class="matchContainerWB">
-                        <div class="KO-Round">
+                        <div class="KO-Round fadein-1">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Quarter Final 1</div>
                                 <div class="KO-match">
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="KO-MatchContainer">
-                                <div class="KO-MatchHeader">Quarter Final 2</div>
+                                <div class="KO-MatchHeader">EXHIBITION MATCH  |   Quarter Final 2</div>
                                 <div class="KO-match">
                                     <div id="r1-p1-name" class="Player1-Name">{{ r2p1name }}</div>
                                     <div id="r1-p1-score" class="Player1-Score">{{ r2p1score }}</div>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round">
+                        <div class="KO-Round fadein-2">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Semi Final 1</div>
                                 <div class="KO-match">
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer">
+                            <div class="KO-MatchContainer fadein-3">
                                 <div class="KO-MatchHeader">Final</div>
                                 <div class="KO-match">
                                     <div id="r1-p1-name" class="Player1-Name">{{ wfp1name }}</div>
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer">
+                            <div class="KO-MatchContainer fadein-4">
                                 <div class="KO-MatchHeader" style="background:#0f0428">Grand Final</div>
                                 <div class="ko-gf">
                                     <div id="r1-p1-name" class="gfPlayer1-Name">{{ gfp1name }}</div>
@@ -208,7 +208,7 @@
                 <div class="KO-header">Losers Bracket</div>
                 <div class="LB">
                     <div class="matchContainerLB">
-                        <div class="KO-Round">
+                        <div :class="(updating)? 'KO-Round fadein-1':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Round 1 - 1</div>
                                 <div class="KO-match">
@@ -229,7 +229,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round">
+                        <div :class="(updating)? 'KO-Round fadein-2':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Quarter Final 1</div>
                                 <div class="KO-match">
@@ -250,7 +250,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round">
+                        <div :class="(updating)? 'KO-Round fadein-3':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Semi Final</div>
                                 <div class="KO-match">
@@ -262,7 +262,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round">
+                        <div :class="(updating)? 'KO-Round fadein-4':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Final</div>
                                 <div class="KO-match">
@@ -286,6 +286,7 @@
     var bracket;
     var elite;
     var bracketReset;
+    var updating;
 
     import { remote, ipcRenderer } from 'electron';
     import { watchEffect } from 'vue';
@@ -297,6 +298,7 @@
                 qualiVisible: true,
                 eliteVisible: false,
                 resetVisible: false,
+                updating: false,
                 toornamentEventId: 0,
                 toornamentStageId: 0,
                 snipTitle: "",
@@ -401,7 +403,12 @@
                 bracketReset = newData.bracketReset;
                 console.log(elite);
                 console.log(bracket);
-               
+                watchEffect(() => {
+                    this.updating = true;
+                    setTimeout(() => {
+                        this.updating = false
+                    }, 1500)
+                })
 
                 if (elite == 1) {
                     watchEffect(() => {
@@ -1010,9 +1017,9 @@
 
     .KO-Round {
         border-color: #f0f0f0;
-        width:stretch;
-        margin-left:2%;
-        margin-right:2%;
+        width: stretch;
+        margin-left: 2%;
+        margin-right: 2%;
         position: relative;
         align-items: center;
         display: flex;
@@ -1116,7 +1123,22 @@
             "gfPlayer2-Name gfPlayer2-Score";
     }    
     }
-                      
+
+    .fadein-1 {
+        animation: fadein 0.8s;
+    }
+
+    .fadein-2 {
+        animation: fadein 1.2s;
+    }
+
+    .fadein-3 {
+        animation: fadein 1.5s;
+    }
+
+    .fadein-4 {
+        animation: fadein 1.75s;
+    }
 
     @keyframes blobAnimSmall {
         0% {
@@ -1169,4 +1191,24 @@
             transform: translate(1vw, -1vh) rotate(100deg);
         }
     }
+
+    @keyframes fadein {
+        /* 25% {
+            opacity: 0;
+            transform: translateX(-4em);
+            animation-timing-function: ease-in-out
+        }
+        66% {
+            opacity: 0;
+            transform: translateX(4em);
+            animation-timing-function: ease-in-out
+        }*/
+
+        0%,100% {
+            opacity: 1;
+            transform: translateX(0);
+            animation-timing-function: ease-in-out
+        }
+    }
+
 </style>

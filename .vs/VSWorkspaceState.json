@@ -2,13 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets\\img",
     "\\src\\components",
     "\\src\\components\\Controls",
     "\\src\\components\\Screens",
     "\\src\\views",
     "\\src\\views\\Controls"
   ],
-  "SelectedNode": "\\src\\views\\Controls\\ControlMenu.vue",
   "PreviewInSolutionExplorer": false
 }
