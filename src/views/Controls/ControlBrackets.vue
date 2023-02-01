@@ -43,6 +43,7 @@ var bracket = [];
 let bracketName;
 var elite = 0;
 var bracketReset = 0;
+var updating = 0;
 
 async function load() {
   //1581592 - Test group
@@ -483,9 +484,9 @@ export default {
     updateData: function () {
       console.log("[Controls] Update BracketsData");
       groupSel = this.$data.bracketSel;
-      load();
+        load();
 
-      setTimeout(function(){
+        setTimeout(function () {
         ipcRenderer.send("update-bracketsData", {
           //toornamentEventId: this.$data.toornamentEventId,
           //toornamentStageId: this.$data.toornamentStageId,
@@ -493,6 +494,7 @@ export default {
             bracket: bracket,
             elite: elite,
             bracketReset: bracketReset,
+            updating: true,
         });
       }, 1500);
     },

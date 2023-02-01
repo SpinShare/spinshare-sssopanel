@@ -12,6 +12,7 @@
         <ScreenCommentators4 v-show="currentState == 'Commentators4'" />
         <ScreenStreamEnd v-show="currentState == 'StreamEnd'" />
         <ScreenTournamentEnd v-show="currentState == 'TournamentEnd'" />
+        <ScreenChallEliteEnd v-show="currentState == 'ChallEliteEnd'"/>
     </section>
 </template>
 
@@ -31,6 +32,7 @@
     import ScreenCommentators4 from '@/components/Screens/ScreenCommentators4.vue';
     import ScreenStreamEnd from '@/components/Screens/ScreenStreamEnd.vue';
     import ScreenTournamentEnd from '@/components/Screens/ScreenTournamentEnd.vue';
+    import ScreenChallEliteEnd from '@/components/Screens/ScreenChallEliteEnd.vue';
 
     const ScreenState = Object.freeze({
         Testing: "Testing",
@@ -41,7 +43,8 @@
         Commentators2: "Commentators2",
         Commentators4: "Commentators4",
         StreamEnd: "StreamEnd",
-        TournamentEnd: "TournamentEnd"
+        TournamentEnd: "TournamentEnd",
+        ChallEliteEnd: "ChallEliteEnd"
     });
 
     export default {
@@ -56,7 +59,8 @@
             ScreenCommentators2,
             ScreenCommentators4,
             ScreenStreamEnd,
-            ScreenTournamentEnd
+            ScreenTournamentEnd,
+            ScreenChallEliteEnd
         },
         data: function() {
             return {

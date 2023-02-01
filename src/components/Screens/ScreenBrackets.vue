@@ -106,7 +106,7 @@
                 <div class="KO-header">Winners Bracket</div>
                 <div class="WB">
                     <div class="matchContainerWB">
-                        <div class="KO-Round fadein-1">
+                        <div :class="(updating)? 'KO-Round fadein-1':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Quarter Final 1</div>
                                 <div class="KO-match">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round fadein-2">
+                        <div :class="(updating)? 'KO-Round fadein-2':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Semi Final 1</div>
                                 <div class="KO-match">
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer fadein-3">
+                            <div :class="(updating)? 'KO-Round fadein-3':'KO-Round'">
                                 <div class="KO-MatchHeader">Final</div>
                                 <div class="KO-match">
                                     <div id="r1-p1-name" class="Player1-Name">{{ wfp1name }}</div>
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer fadein-4">
+                            <div :class="(updating)? 'KO-Round fadein-4':'KO-Round'">
                                 <div class="KO-MatchHeader" style="background:#0f0428">Grand Final</div>
                                 <div class="ko-gf">
                                     <div id="r1-p1-name" class="gfPlayer1-Name">{{ gfp1name }}</div>
@@ -397,18 +397,18 @@
                 height: 2160, // Default: height of container
                 zIndex: -1 // Default: 9999
             });
+
             ipcRenderer.on('update-bracketsData', (event, newData) => {
                 bracket = newData.bracket;
-                elite = newData.elite;
+                elite = newData.elite;               
                 bracketReset = newData.bracketReset;
                 console.log(elite);
                 console.log(bracket);
+
                 watchEffect(() => {
                     this.updating = true;
-                    setTimeout(() => {
-                        this.updating = false
-                    }, 1500)
                 })
+
 
                 if (elite == 1) {
                     watchEffect(() => {
@@ -1193,7 +1193,7 @@
     }
 
     @keyframes fadein {
-        /* 25% {
+        /*25% {
             opacity: 0;
             transform: translateX(-4em);
             animation-timing-function: ease-in-out

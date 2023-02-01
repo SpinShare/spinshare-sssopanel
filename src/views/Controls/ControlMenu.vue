@@ -36,6 +36,10 @@
             <div class="icon"><span class="mdi mdi-video-off"></span></div>
             <div class="text">End of Tournament</div>
         </router-link>
+        <router-link :to="{ name: 'ControlChallEliteEnd'}" class="menuItem">
+            <div class="icon"><span class="mdi mdi-video-off"></span></div>
+            <div class="text">SSSO End Screen</div>
+        </router-link>
     </div>
 </template>
 

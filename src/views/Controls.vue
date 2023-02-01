@@ -37,7 +37,8 @@ const ScreenState = Object.freeze({
   Commentators2: "Commentators2",
   Commentators4: "Commentators4",
   StreamEnd: "StreamEnd",
-  TournamentEnd: "TournamentEnd",
+    TournamentEnd: "TournamentEnd",
+    ChallEliteEnd: "ChallEliteEnd"
 });
 
 export default {
@@ -105,8 +106,12 @@ export default {
           return "End of Stream";
           break;
         case "ControlTournamentEnd":
-          return "End of Tournament";
-          break;
+            return "End of Tournament";
+            break;
+          case "ControlChallEliteEnd":
+            return "SSSO End Screen"
+            break;
+
         default:
           return routeName;
           break;

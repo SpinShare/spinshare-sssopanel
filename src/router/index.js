@@ -15,6 +15,7 @@ import ViewControlCommentators2 from '../views/Controls/ControlCommentators2.vue
 import ViewControlCommentators4 from '../views/Controls/ControlCommentators4.vue';
 import ViewControlStreamEnd from '../views/Controls/ControlStreamEnd.vue';
 import ViewControlTournamentEnd from '../views/Controls/ControlTournamentEnd.vue';
+import ViewControlChallEliteEnd from '../views/Controls/ControlChallEliteEnd.vue';
 
 Vue.use(VueRouter);
 
@@ -93,6 +94,12 @@ const routes = [{
             name: 'ControlTournamentEnd',
             meta: { title: "SpinShare LivePanel Controls" },
             component: ViewControlTournamentEnd
+        },
+        {
+            path: '/challeliteend',
+            name: 'ControlChallEliteEnd',
+            meta: { title: "SpinShare LivePanel Controls" },
+            component: ViewControlChallEliteEnd
         },
     ]
 }];
