@@ -38,19 +38,19 @@
 
         <div class="blobs">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M48.5,-16.2C55.2,4.7,47.5,29.8,30.1,42.7C12.7,55.6,-14.4,56.4,-29.9,44.4C-45.5,32.3,-49.4,7.5,-42.5,-13.7C-35.6,-35,-17.8,-52.6,1.6,-53.1C20.9,-53.6,41.9,-37,48.5,-16.2Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M48.5,-16.2C55.2,4.7,47.5,29.8,30.1,42.7C12.7,55.6,-14.4,56.4,-29.9,44.4C-45.5,32.3,-49.4,7.5,-42.5,-13.7C-35.6,-35,-17.8,-52.6,1.6,-53.1C20.9,-53.6,41.9,-37,48.5,-16.2Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M72,-22.7C81.3,5.3,68.7,41.2,43.9,58.9C19.1,76.5,-17.9,76,-33.9,60.9C-50,45.9,-45.1,16.4,-36,-11.4C-26.9,-39.2,-13.4,-65.3,8.9,-68.2C31.3,-71.1,62.7,-50.8,72,-22.7Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M72,-22.7C81.3,5.3,68.7,41.2,43.9,58.9C19.1,76.5,-17.9,76,-33.9,60.9C-50,45.9,-45.1,16.4,-36,-11.4C-26.9,-39.2,-13.4,-65.3,8.9,-68.2C31.3,-71.1,62.7,-50.8,72,-22.7Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M52.8,-18.5C60,5.2,51.8,32.6,34.6,44.3C17.4,56,-8.8,52,-24.2,39.4C-39.7,26.7,-44.5,5.3,-38.7,-16.4C-32.8,-38.1,-16.4,-60.2,3.2,-61.3C22.8,-62.3,45.5,-42.2,52.8,-18.5Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M52.8,-18.5C60,5.2,51.8,32.6,34.6,44.3C17.4,56,-8.8,52,-24.2,39.4C-39.7,26.7,-44.5,5.3,-38.7,-16.4C-32.8,-38.1,-16.4,-60.2,3.2,-61.3C22.8,-62.3,45.5,-42.2,52.8,-18.5Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M35.4,-7.2C42.9,11.7,44,36.9,29.7,49.3C15.4,61.7,-14.5,61.3,-30.1,48.3C-45.7,35.3,-47.2,9.8,-39.8,-8.9C-32.4,-27.5,-16.2,-39.1,-1.1,-38.8C13.9,-38.4,27.9,-26,35.4,-7.2Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M35.4,-7.2C42.9,11.7,44,36.9,29.7,49.3C15.4,61.7,-14.5,61.3,-30.1,48.3C-45.7,35.3,-47.2,9.8,-39.8,-8.9C-32.4,-27.5,-16.2,-39.1,-1.1,-38.8C13.9,-38.4,27.9,-26,35.4,-7.2Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
             </svg>
 
             <div ref="snow">
@@ -67,7 +67,7 @@
 <script>
     import { remote, ipcRenderer } from 'electron';
     import SSAPI from "../../modules/module.api.js";
-    import Snowflakes from 'magic-snowflakes';
+    //import Snowflakes from 'magic-snowflakes';
     import * as React from 'react'
     import WidgetBot, { API } from '@widgetbot/react-embed'
 
@@ -89,7 +89,7 @@
         mounted: function () {
             let ssapi = new SSAPI();
 
-            const snowflakes = new Snowflakes({
+            /*const snowflakes = new Snowflakes({
                 color: '#ffffff', // Default: "#5ECDEF"
                 container: this.$refs.snow, // Default: document.body
                 count: 100, // 100 snowflakes. Default: 50
@@ -103,7 +103,7 @@
                 width: 3840, // Default: width of container
                 height: 2160, // Default: height of container
                 zIndex: -1 // Default: 9999
-            });
+            });*/
 
             ipcRenderer.on('update-playerData', (event, newData) => {
                 if(this.$data.player1Id != newData.player1Id) {
@@ -183,7 +183,7 @@
             }
         }
     & .chat-box {
-        background-color: rgba(7,58,80,0.8);
+        background-color: rgba(3,19,8,0.8);
         border-top-left-radius: 1vw;
         border-top-right-radius: 1vw;
         border-bottom-left-radius: 1vw;
@@ -241,19 +241,19 @@
                     font-size: 1.25vw;
                     line-height: 1em;
                     border: solid;
-                    border-color: #041d28;
-                    background-color: rgba(7,58,80,0.8);
+                    border-color: #022002;
+                    background-color: rgba(3,19,8,0.8);
                     color: #f0f0f0;
                     padding: 0.25em 1em;
                     border-radius: 40vw;
                 }
     & .pronouns {
-        z-index:5;
+        z-index: 5;
         margin-top: 0.15vw;
         font-size: 0.75vw;
         font-weight: bold;
-        background: #f0f0f0;
-        color: #000;
+        background-color: #fdfdfd;
+        color: #022002;
         padding: 0.3vw 1vw;
         border-radius: 50vw;
     }
@@ -297,8 +297,8 @@
         top: 4vh;
         right: 4vw;
         font-size: 1.5vw;
-        background-color: #041d28;
-        color: #f0f0f0;
+        background-color: #fdfdfd;
+        color: #022002;
         padding: 0.25em 1em;
         border-radius: 40vw;
         display: flex;

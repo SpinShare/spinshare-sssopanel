@@ -2,34 +2,34 @@
     <div class="screenBrackets">
         <div class="blobs">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M48.5,-16.2C55.2,4.7,47.5,29.8,30.1,42.7C12.7,55.6,-14.4,56.4,-29.9,44.4C-45.5,32.3,-49.4,7.5,-42.5,-13.7C-35.6,-35,-17.8,-52.6,1.6,-53.1C20.9,-53.6,41.9,-37,48.5,-16.2Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M48.5,-16.2C55.2,4.7,47.5,29.8,30.1,42.7C12.7,55.6,-14.4,56.4,-29.9,44.4C-45.5,32.3,-49.4,7.5,-42.5,-13.7C-35.6,-35,-17.8,-52.6,1.6,-53.1C20.9,-53.6,41.9,-37,48.5,-16.2Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M72,-22.7C81.3,5.3,68.7,41.2,43.9,58.9C19.1,76.5,-17.9,76,-33.9,60.9C-50,45.9,-45.1,16.4,-36,-11.4C-26.9,-39.2,-13.4,-65.3,8.9,-68.2C31.3,-71.1,62.7,-50.8,72,-22.7Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M72,-22.7C81.3,5.3,68.7,41.2,43.9,58.9C19.1,76.5,-17.9,76,-33.9,60.9C-50,45.9,-45.1,16.4,-36,-11.4C-26.9,-39.2,-13.4,-65.3,8.9,-68.2C31.3,-71.1,62.7,-50.8,72,-22.7Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M52.8,-18.5C60,5.2,51.8,32.6,34.6,44.3C17.4,56,-8.8,52,-24.2,39.4C-39.7,26.7,-44.5,5.3,-38.7,-16.4C-32.8,-38.1,-16.4,-60.2,3.2,-61.3C22.8,-62.3,45.5,-42.2,52.8,-18.5Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M52.8,-18.5C60,5.2,51.8,32.6,34.6,44.3C17.4,56,-8.8,52,-24.2,39.4C-39.7,26.7,-44.5,5.3,-38.7,-16.4C-32.8,-38.1,-16.4,-60.2,3.2,-61.3C22.8,-62.3,45.5,-42.2,52.8,-18.5Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M35.4,-7.2C42.9,11.7,44,36.9,29.7,49.3C15.4,61.7,-14.5,61.3,-30.1,48.3C-45.7,35.3,-47.2,9.8,-39.8,-8.9C-32.4,-27.5,-16.2,-39.1,-1.1,-38.8C13.9,-38.4,27.9,-26,35.4,-7.2Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M35.4,-7.2C42.9,11.7,44,36.9,29.7,49.3C15.4,61.7,-14.5,61.3,-30.1,48.3C-45.7,35.3,-47.2,9.8,-39.8,-8.9C-32.4,-27.5,-16.2,-39.1,-1.1,-38.8C13.9,-38.4,27.9,-26,35.4,-7.2Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M54.5,-8.9C62.7,7.5,55.9,37.6,37.1,51.4C18.2,65.2,-12.8,62.7,-31.6,48C-50.3,33.3,-56.9,6.3,-49.6,-8.9C-42.3,-24.1,-21.2,-27.6,1,-27.9C23.1,-28.2,46.3,-25.4,54.5,-8.9Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M54.5,-8.9C62.7,7.5,55.9,37.6,37.1,51.4C18.2,65.2,-12.8,62.7,-31.6,48C-50.3,33.3,-56.9,6.3,-49.6,-8.9C-42.3,-24.1,-21.2,-27.6,1,-27.9C23.1,-28.2,46.3,-25.4,54.5,-8.9Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M36,-3.7C44.9,15.8,49.3,44.8,35.4,56.7C21.6,68.6,-10.4,63.5,-29.1,48C-47.8,32.6,-53.3,6.7,-46.2,-10.2C-39.1,-27.1,-19.6,-35.1,-3,-34.1C13.5,-33.2,27.1,-23.2,36,-3.7Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M36,-3.7C44.9,15.8,49.3,44.8,35.4,56.7C21.6,68.6,-10.4,63.5,-29.1,48C-47.8,32.6,-53.3,6.7,-46.2,-10.2C-39.1,-27.1,-19.6,-35.1,-3,-34.1C13.5,-33.2,27.1,-23.2,36,-3.7Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M25.7,-4.8C33.8,16.6,41.2,41.7,28.2,54.9C15.3,68.2,-18.1,69.4,-36.6,54.9C-55.1,40.4,-58.9,10,-50.3,-12C-41.8,-34,-20.9,-47.5,-6,-45.6C8.8,-43.6,17.6,-26.1,25.7,-4.8Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M25.7,-4.8C33.8,16.6,41.2,41.7,28.2,54.9C15.3,68.2,-18.1,69.4,-36.6,54.9C-55.1,40.4,-58.9,10,-50.3,-12C-41.8,-34,-20.9,-47.5,-6,-45.6C8.8,-43.6,17.6,-26.1,25.7,-4.8Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M33.2,-15.6C36.9,0.7,29.6,15.7,14.8,28.4C-0.1,41.1,-22.5,51.5,-34.9,43.6C-47.2,35.6,-49.5,9.4,-42,-12C-34.5,-33.4,-17.3,-50,-1.3,-49.6C14.7,-49.2,29.5,-31.8,33.2,-15.6Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M33.2,-15.6C36.9,0.7,29.6,15.7,14.8,28.4C-0.1,41.1,-22.5,51.5,-34.9,43.6C-47.2,35.6,-49.5,9.4,-42,-12C-34.5,-33.4,-17.3,-50,-1.3,-49.6C14.7,-49.2,29.5,-31.8,33.2,-15.6Z" transform="translate(100 100)" />
             </svg>
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#ffffff" d="M69.9,-20.4C78.8,4.7,66.1,39.1,44.9,52.2C23.8,65.3,-5.8,57,-23.6,41.9C-41.3,26.8,-47.1,4.8,-41.2,-16.2C-35.3,-37.1,-17.6,-57,6.4,-59.1C30.5,-61.2,61,-45.5,69.9,-20.4Z" transform="translate(100 100)" />
+                <path fill="#010101" d="M69.9,-20.4C78.8,4.7,66.1,39.1,44.9,52.2C23.8,65.3,-5.8,57,-23.6,41.9C-41.3,26.8,-47.1,4.8,-41.2,-16.2C-35.3,-37.1,-17.6,-57,6.4,-59.1C30.5,-61.2,61,-45.5,69.9,-20.4Z" transform="translate(100 100)" />
             </svg>
         </div>
         <div ref="snow">
@@ -106,7 +106,7 @@
                 <div class="KO-header">Winners Bracket</div>
                 <div class="WB">
                     <div class="matchContainerWB">
-                        <div class="KO-Round fadein-1">
+                        <div :class="(updating)? 'KO-Round fadein-1':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Quarter Final 1</div>
                                 <div class="KO-match">
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="KO-MatchContainer">
-                                <div class="KO-MatchHeader">EXHIBITION MATCH  |   Quarter Final 2</div>
+                                <div class="KO-MatchHeader">Quarter Final 2</div>
                                 <div class="KO-match">
                                     <div id="r1-p1-name" class="Player1-Name">{{ r2p1name }}</div>
                                     <div id="r1-p1-score" class="Player1-Score">{{ r2p1score }}</div>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <div class="KO-Round fadein-2">
+                        <div :class="(updating)? 'KO-Round fadein-2':'KO-Round'">
                             <div class="KO-MatchContainer">
                                 <div class="KO-MatchHeader">Semi Final 1</div>
                                 <div class="KO-match">
@@ -171,7 +171,7 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer fadein-3">
+                            <div :class="(updating)? 'KO-Round fadein-3':'KO-Round'">
                                 <div class="KO-MatchHeader">Final</div>
                                 <div class="KO-match">
                                     <div id="r1-p1-name" class="Player1-Name">{{ wfp1name }}</div>
@@ -183,8 +183,8 @@
                         </div>
 
                         <div class="KO-Round">
-                            <div class="KO-MatchContainer fadein-4">
-                                <div class="KO-MatchHeader" style="background:#0f0428">Grand Final</div>
+                            <div :class="(updating)? 'KO-Round fadein-4':'KO-Round'">
+                                <div class="KO-MatchHeader" style="background:#191100 ">Grand Final</div>
                                 <div class="ko-gf">
                                     <div id="r1-p1-name" class="gfPlayer1-Name">{{ gfp1name }}</div>
                                     <div id="r1-p1-score" class="gfPlayer1-Score">{{ gfp1score }}</div>
@@ -193,7 +193,7 @@
                                 </div>
                             </div>
                             <div class="KO-MatchContainer" v-show="resetVisible">
-                                <div class="KO-MatchHeader" style="background:#280404">Grand Final: Bracket Reset</div>
+                                <div class="KO-MatchHeader" style="background:#13030e ">Grand Final: Bracket Reset</div>
                                 <div class="ko-gfBR">
                                     <div id="r1-p1-name" class="gfPlayer1-Name">{{ gfbrp1name }}</div>
                                     <div id="r1-p1-score" class="gfPlayer1-Score">{{ gfbrp1score }}</div>
@@ -290,7 +290,7 @@
 
     import { remote, ipcRenderer } from 'electron';
     import { watchEffect } from 'vue';
-    import Snowflakes from 'magic-snowflakes';
+    //import Snowflakes from 'magic-snowflakes';
     export default {
         name: 'ScreenBrackets',
         data: function() {
@@ -382,7 +382,7 @@
             }
         },
         mounted: function () {
-            const snowflakes = new Snowflakes({
+            /*const snowflakes = new Snowflakes({
                 color: '#ffffff', // Default: "#5ECDEF"
                 container: this.$refs.snow, // Default: document.body
                 count: 100, // 100 snowflakes. Default: 50
@@ -396,19 +396,19 @@
                 width: 3840, // Default: width of container
                 height: 2160, // Default: height of container
                 zIndex: -1 // Default: 9999
-            });
+            });*/
+
             ipcRenderer.on('update-bracketsData', (event, newData) => {
                 bracket = newData.bracket;
-                elite = newData.elite;
+                elite = newData.elite;               
                 bracketReset = newData.bracketReset;
                 console.log(elite);
                 console.log(bracket);
+
                 watchEffect(() => {
                     this.updating = true;
-                    setTimeout(() => {
-                        this.updating = false
-                    }, 1500)
                 })
+
 
                 if (elite == 1) {
                     watchEffect(() => {
@@ -617,8 +617,8 @@
         font-size: 1.5vw;
         font-weight: bold;
         letter-spacing: 0.25em;
-        background-color: #041d28;
-        color: #f0f0f0;
+        background-color: #fdfdfd;
+        color: #022002;
         padding: 0.45em 1.8em;
         border-radius: 40vw;
         justify-content: center;
@@ -637,8 +637,8 @@
         top: 4vh;
         right: 4vw;
         font-size: 1.5vw;
-        background-color: #041d28;
-        color: #f0f0f0;
+        background-color: #fdfdfd;
+        color: #022002;
         padding: 0.25em 1em;
         border-radius: 40vw;
         display: flex;
@@ -694,7 +694,7 @@
 
 
                 & .match1-header { 
-                    background-color:#041d28;text-align: center;color:#f0f0f0;
+                    background-color:#031308;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -704,7 +704,7 @@
                     font-weight:800;                
                 }
                 & .match2-header { 
-                    background-color:#041d28;text-align: center;color:#f0f0f0;
+                    background-color:#031308;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -714,7 +714,7 @@
                     font-weight:800;                
                 }
                 & .match3-header { 
-                    background-color:#041d28;text-align: center;color:#f0f0f0;
+                    background-color:#031308;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -724,7 +724,7 @@
                     font-weight:800;                
                 }
                 & .match4-header { 
-                    background-color:#041d28;text-align: center;color:#f0f0f0;
+                    background-color:#031308;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -734,7 +734,7 @@
                     font-weight:800;                
                 }
                 & .match5-header { 
-                    background-color:#041d28;text-align: center;color:#f0f0f0;
+                    background-color:#031308;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -744,7 +744,7 @@
                     font-weight:800;                
                 }
                 & .match6-header { 
-                    background-color:#0f0428;text-align: center;color:#f0f0f0;
+                    background-color:#191100;text-align: center;color:#f0f0f0;
                     z-index: 30;
                     width:24vw;
                     position: relative;
@@ -761,9 +761,9 @@
         top: 6.5%;
         width: 24vw;
         font-size: 1.5vw;
-        background: #afe1f8;
+        background: #79d996;
         border: solid 0.2vh;
-        border-color: #041d28;
+        border-color: #031308;
         border-radius: 0vh 0vw 1vh 1vw;
         color: #000;
         padding: 1vh;
@@ -785,9 +785,9 @@
         top: 30%;
         width: 24vw;
         font-size: 1.5vw;
-        background: #afe1f8;
+        background: #79d996;
         border: solid 0.2vh;
-        border-color: #041d28;
+        border-color: #031308;
         border-radius: 0vh 0vw 1vh 1vw;
         color: #000;
         padding: 1vh;
@@ -807,9 +807,9 @@
         top: 34%;
         width: 24vw;
         font-size: 1.5vw;
-        background: #afe1f8;
+        background: #79d996;
         border: solid 0.2vh;
-        border-color: #041d28;
+        border-color: #031308;
         border-radius: 0vh 0vw 1vh 1vw;
         color: #000;
         padding: 1vh;
@@ -829,9 +829,9 @@
         top: 17.5%;
         width: 24vw;
         font-size: 1.5vw;
-        background: #afe1f8;
+        background: #79d996;
         border: solid 0.2vh;
-        border-color: #041d28;
+        border-color: #031308;
         border-radius: 0vh 0vw 1vh 1vw;
         color: #000;
         padding: 1vh;
@@ -851,9 +851,9 @@
         top: 17.5%;
         width: 24vw;
         font-size: 1.5vw;
-        background: #afe1f8;
+        background: #79d996;
         border: solid 0.2vh;
-        border-color: #041d28;
+        border-color: #031308;
         border-radius: 0vh 0vw 1vh 1vw;
         color: #000;
         padding: 1vh;
@@ -872,9 +872,9 @@
         left: 0%;
         top: 34%;
         width: 24vw;
-        background: #c6aff8;
+        background: #ffce66;
         border: solid 0.2vh;
-        border-color: #0f0428;
+        border-color: #191100;
         border-radius: 0vh 0vw 1vh 1vw;
         font-size: 1.5vw;
         color: #000;
@@ -893,8 +893,8 @@
     .qualiWB {
         /*background-color: #ffffff;*/
         border: solid;
-        border-color: #041d28;
-        background-color: rgba(7,58,80,0.8);
+        border-color: #031308;
+        background-color: rgba(17,89,35,0.7);
         width: 100%;
         height: 62.5%;
         top: 0vh;
@@ -912,8 +912,8 @@
 
     .qualiLB { /*background-color:#ffffff;*/
         border: solid;
-        border-color: #041d28;
-        background-color: rgba(7,58,80,0.8);
+        border-color: #031308;
+        background-color: rgba(17,89,35,0.7);
         width: 100%;
         height: 34%;
         bottom: 0vh;
@@ -945,8 +945,8 @@
 
     .WB {
         border: solid;
-        border-color: #041d28;
-        background-color: rgba(7,58,80,0.8);
+        border-color: #031308;
+        background-color: rgba(17,89,35,0.7);
         width: stretch;
         height: 61%;
         position: relative;
@@ -962,8 +962,8 @@
 
     .LB {
         border: solid;
-        border-color: #041d28;
-        background-color: rgba(7,58,80,0.8);
+        border-color: #031308;
+        background-color: rgba(17,89,35,0.7);
         width: stretch;
         height: 30.5%;
         position: relative;
@@ -1001,7 +1001,7 @@
     }
 
     .KO-header {
-        background-color: #041d28;
+        background-color: #031308;
         text-align: center;
         width:stretch;
         position: relative;
@@ -1034,7 +1034,7 @@
         display: block;
     }
     .KO-MatchHeader {
-        background-color: #041d28;
+        background-color: #031308;
         text-align: center;
         color: #f0f0f0;
         z-index: 30;
@@ -1048,13 +1048,13 @@
     .KO-match {
         z-index: 25;
         width: stretch;
-        background: #afe1f8;
+        background: #79d996;
         border-radius: 0 0 0.75vh 0.75vh;
         border-top: none;
         border-left: 0.15em solid;
         border-right: 0.15em solid;
         border-bottom: 0.15em solid;
-        border-color: #041d28;
+        border-color: #04281d;
         color: #000;
         padding: 1vh 1vw;
         align-items: center;
@@ -1083,13 +1083,13 @@
     & .ko-gf {
         z-index: 25;
         width: stretch;
-        background: #c6aff8;
+        background: #ffce66;
         border-radius: 0 0 0.75vh 0.75vh;
         border-top: none;
         border-left: 0.15em solid;
         border-right: 0.15em solid;
         border-bottom: 0.15em solid;
-        border-color: #041d28;
+        border-color: #04281d;
         color: #000;
         padding: 1vh 1vw;
         align-items: center;
@@ -1104,13 +1104,13 @@
     & .ko-gfBR {
         z-index: 25;
         width: stretch;
-        background: #f8afaf;
+        background: #d979bc;
         border-radius: 0 0 0.75vh 0.75vh;
         border-top: none;
         border-left: 0.15em solid;
         border-right: 0.15em solid;
         border-bottom: 0.15em solid;
-        border-color: #041d28;
+        border-color: #04281d;
         color: #000;
         padding: 1vh 1vw;
         align-items: center;
@@ -1193,7 +1193,7 @@
     }
 
     @keyframes fadein {
-        /* 25% {
+        /*25% {
             opacity: 0;
             transform: translateX(-4em);
             animation-timing-function: ease-in-out

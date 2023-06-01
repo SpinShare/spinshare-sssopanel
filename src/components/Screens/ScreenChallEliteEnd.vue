@@ -1,5 +1,5 @@
 <template>
-    <div class="screenCountdown">
+    <div class="ChallEliteEnd">
         <div class="blobs">
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#010101" d="M62.3,-23.6C69.7,2.5,57,31.8,37.2,44.7C17.4,57.6,-9.7,54,-28.9,40C-48.1,26,-59.4,1.5,-53.3,-22.8C-47.2,-47.1,-23.6,-71.3,1.9,-71.9C27.4,-72.5,54.9,-49.6,62.3,-23.6Z" transform="translate(100 100)" />
@@ -40,14 +40,15 @@
         </div>
 
 
-
-        <div class="text">
-            <div class="user-data" v-if="winnerData">
-                <div class="avatar" :style="'background-image: url(' + winnerData.avatar + ');'"></div>
-                <div class="username">{{ winnerData.username }}</div>
-                <div class="title">
-                    SpinShare SpeenOpen<br />
-                    Summer 2023 {{ chalEliteSelect }} Winner
+        <div class="leftSide">
+            <div class="text">
+                <div class="user-data">
+                    <div class="avatar" :style="'background-image: url(' + eliteData.avatar + ');'"></div>
+                    <div class="username">{{ eliteData.username }}</div>
+                    <div class="title">
+                        SpinShare SpeenOpen<br />
+                        Winter 2023 Elite Winner
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,14 +67,15 @@ import { remote, ipcRenderer } from 'electron';
     import SSAPI from "@/modules/module.api";
     //import Snowflakes from 'magic-snowflakes';
 export default {
-    name: 'ScreenTournamentEnd',
+    name: 'ScreenChallEliteEnd',
     data: function() {
         return {
-            winnerUserID: 0,
-            winnerData: null,
+            eliteUserID: 0,
+            challUserID: 0,
+            eliteData: null,
+            challData: null,
             snipTitle: "",
-            snipAuthor: "",
-            chalEliteSelect: "",
+            snipAuthor: ""
         }
     },
         mounted: function () {
@@ -94,15 +96,20 @@ export default {
                 height: 2160, // Default: height of container
                 zIndex: -1 // Default: 9999
             });*/
-        console.log("[TournamentEnd] Ready.");
-        ipcRenderer.on('update-endoftournamentdata', (event, newData) => {
-            if (this.$data.winnerUserID != newData.winnerUserID) {
-                ssapi.getUserDetail(newData.winnerUserID).then((data) => {
+        console.log("[SSSOEndScreen] Ready.");
+            ipcRenderer.on('update-ssso-end-data', (event, newData) => {
+            if (this.$data.eliteUserID != newData.eliteUserID) {
+                ssapi.getUserDetail(newData.eliteUserID).then((data) => {
                     console.log(data);
-                    this.$data.winnerData = data.data;
+                    this.$data.eliteData = data.data;
                 });
-            }
-            this.$data.chalEliteSelect = newData.chalEliteSelect;
+                }
+                if (this.$data.challUserID != newData.challUserID) {
+                    ssapi.getUserDetail(newData.challUserID).then((data) => {
+                        console.log(data);
+                        this.$data.challData = data.data;
+                    });
+                }
         });
         ipcRenderer.send('get-snipData');
         ipcRenderer.on('update-snipData', (event, snipData) => {
@@ -116,17 +123,17 @@ export default {
 </script>
 
 <style scoped lang="less">
-.screenCountdown {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    z-index: 10;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    & .blobs {
+    .ChallEliteEnd {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        z-index: 10;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        & .blobs {
         position: absolute;
         left: 0px;
         right: 0px;
@@ -200,8 +207,8 @@ export default {
         margin: auto;
         align-items: center;
         text-align: center;
-        background-color: #fdfdfd;
-        color: #022002;
+        background-color: #041d28;
+        color: #f0f0f0;
         padding: 0.25em 1em;
         border-radius: 40vw;
         display: flex;
@@ -217,6 +224,14 @@ export default {
         transform: translate(0, -0.1vh);
     }
 
+    }
+
+    & .leftSide{
+        position:absolute;
+        display:flex;
+        flex-direction:column;
+        background-color:#ff0000;
+        width:50%;
     }
     & .text {
         & .user-data {
@@ -235,8 +250,8 @@ export default {
                 margin-bottom: 1.5vh;
                 font-size: 4vw;
                 border: solid;
-                border-color: #022002;
-                background-color: rgba(3,19,8,0.8);
+                border-color: #041d28;
+                background-color: rgba(7,58,80,0.8);
                 color: #f0f0f0;
                 padding: 0.1em 0.75em;
                 border-radius: 50vw;

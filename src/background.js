@@ -16,7 +16,7 @@ function createWindow () {
         width: 1286,
         height: 749,
         resizable: false,
-        backgroundColor: '#1290c9',
+        backgroundColor: '#20c050',
         //backgroundColor: '#0f1225',
         //backgroundColor: '#ffffff',
         show: false,
