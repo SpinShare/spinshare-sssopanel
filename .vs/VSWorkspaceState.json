@@ -2,11 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\img",
     "\\src\\components",
     "\\src\\components\\Controls",
     "\\src\\components\\Screens",
     "\\src\\views",
     "\\src\\views\\Controls"
   ],
+  "SelectedNode": "\\src\\components\\Screens\\ScreenCommentators4.vue",
   "PreviewInSolutionExplorer": false
 }

@@ -24,3 +24,6 @@ yarn-error.log*
 /dist_electron
 imagesOBS/maskComm.png
 package-lock.json
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
