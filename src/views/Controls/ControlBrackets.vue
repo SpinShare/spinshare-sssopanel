@@ -139,7 +139,7 @@
             13244881: "DFeth",
             13270319: "Ricki",
             13204689: "GaviGuy",
-            13207148: "LuminaryCat",
+            13207148: "Khromatical", //WAS LUMINARYCAT
             13206077: "Theo",
             13265454: "Loosiano",
             13204049: "LunarMoron",
@@ -155,7 +155,7 @@
             13203236: "metalman20",
             13248466: "SR_유민",
             13216573: "Abysmal Cosmos",
-            13203512: "Khromatical",
+            13203512: "Khromatical", //ACTUAL KHROMATICAL
             13221864: "Joy",
             13203476: "HalloweenBaby",
             13229301: "eyelur",
